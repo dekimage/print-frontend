@@ -1,0 +1,55 @@
+@import "mixins";
+@import "variables";
+
+%box {
+  // border: 1px solid rgba(0, 0, 0, 0.08);
+  // box-shadow: $fasticShadow;
+  border-radius: 25px;
+  padding: 1rem;
+  border: 1px solid $optimzeColor;
+  background-color: white;
+}
+
+%box_dark {
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+%flex_center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+%flex_between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+%flex_around {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+%flex_start {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+%text--m {
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 150%;
+}
+
+%btn_play {
+  @extend %flex_center;
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
+  cursor: pointer;
+}
