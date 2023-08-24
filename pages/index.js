@@ -328,7 +328,7 @@ const Home = () => {
               <div className={styles.cardForPrint} key={i}>
                 {/* <Card card={card} /> */}
                 {/* <HeroCard card={card} /> */}
-                <PelicanCard card={card} />
+                {/* <PelicanCard card={card} /> */}
               </div>
             ))}
           </div>

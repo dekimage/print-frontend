@@ -6,12 +6,20 @@ import peruIcon from "../../assets/Egypt/peru.png";
 import japanIcon from "../../assets/Egypt/japan.png";
 import romeIcon from "../../assets/Egypt/rome.png";
 import indiaIcon from "../../assets/Egypt/india.png";
-import woodIcon from "../../assets/Egypt/wood.png";
-import stoneIcon from "../../assets/Egypt/stone.png";
-import gemsIcon from "../../assets/Egypt/gems.png";
-import foodIcon from "../../assets/Egypt/food.png";
-import herbsIcon from "../../assets/Egypt/herbs.png";
-import spiceIcon from "../../assets/Egypt/spices.png";
+
+// import woodIcon from "../../assets/Egypt/wood.png";
+// import stoneIcon from "../../assets/Egypt/stone.png";
+// import gemsIcon from "../../assets/Egypt/gems.png";
+// import foodIcon from "../../assets/Egypt/food.png";
+// import herbsIcon from "../../assets/Egypt/herbs.png";
+// import spiceIcon from "../../assets/Egypt/spices.png";
+
+import woodIcon from "../../assets/Egypt/drop.png";
+import stoneIcon from "../../assets/Egypt/hex.png";
+import gemsIcon from "../../assets/Egypt/gem.png";
+import foodIcon from "../../assets/Egypt/plus.png";
+import herbsIcon from "../../assets/Egypt/star.png";
+import spiceIcon from "../../assets/Egypt/heart.png";
 
 const iconMap = {
   arabia: arabiaIcon,
@@ -67,9 +75,9 @@ const Resource = ({ resource }) => {
   );
 };
 
-export const OrderCard = ({ order }) => {
+export const OrderCard = ({ order, style }) => {
   return (
-    <div className={styles.card}>
+    <div className={styles.card} style={style}>
       <div className={styles.header}>
         <div className={styles.name}>{order.name}</div>
         <div className={styles.vp}>{order.vp}</div>
