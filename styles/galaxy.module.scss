@@ -1,0 +1,59 @@
+.card {
+  margin: 0.5rem;
+  width: 200px; /* 2.5 inches converted to pixels */
+  height: 280px; /* 3.5 inches converted to pixels */
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  padding: 8px;
+}
+
+.name {
+  background-color: #f0f0f0;
+  height: 20px;
+  text-align: center;
+  line-height: 20px;
+}
+
+.image {
+  background-size: cover;
+  background-position: center;
+  height: 40%;
+}
+
+.actions {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(25%, 1fr));
+  gap: 4px;
+}
+
+.action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #e0e0e0;
+  border: 1px solid #ccc;
+  height: 60px;
+}
+
+.actionIcon {
+  font-size: 24px;
+}
+
+.cost {
+  position: absolute;
+  top: 0px;
+  left: 14px;
+  transform: translateX(-50%);
+  background-color: #f0f0f0;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { Button, Autocomplete, TextField } from "@mui/material";
 import styles from "../styles/Home.module.scss";
-import OrderCard from "../components/Egypt/OrderCard";
+import { OrderCard } from "../components/Egypt/OrderCard";
 import { generateOrderCards } from "../gpt-functions/egypt";
 
 const Gpt = () => {
-  const data = [];
-  // const data = generateOrderCards(60, 100);
+  // const data = [];
+  const data = generateOrderCards(60, 100);
   const [isPrintView, setIsPrintView] = useState(false);
   const [cards, setCards] = useState([]);
   const [cardsInCollection, setcardsInCollection] = useState([]);
@@ -116,7 +116,7 @@ const Gpt = () => {
 
             {cardsInCollection.map((card, i) => (
               <div className={styles.cardForPrint} key={i}>
-                {/* <OrderCard order={card} /> */}
+                <OrderCard order={card} />
                 <div
                   className={styles.removeCard}
                   onClick={() => removeFromCollection(card)}
@@ -132,7 +132,7 @@ const Gpt = () => {
           <div className={styles.cardsForPrint}>
             {cardsForPrint.map((card, i) => (
               <div className={styles.cardForPrint} key={i}>
-                {/* <OrderCard order={card} /> */}
+                <OrderCard order={card} />
               </div>
             ))}
           </div>

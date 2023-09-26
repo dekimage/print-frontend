@@ -1,0 +1,1036 @@
+const cards = [
+  {
+    name: "Robot Sentry",
+    faction: "Technology",
+    type: "Unit",
+    manaCost: 1,
+    hp: 1,
+    attackPower: 1,
+    keywords: ["Spy 2, Draw 1"],
+    img: "  https://cdn.midjourney.com/2ec74cd1-ede8-42cd-813c-155da516e4df/0_1.png",
+  },
+  {
+    name: "Blaster",
+    faction: "Technology",
+    type: "Unit",
+    manaCost: 3,
+    hp: 2,
+    attackPower: 2,
+    keywords: ["Ranged"],
+    img: "https://cdn.midjourney.com/2ddb30df-0cc5-42f5-8687-ad60598a0438/0_3.png",
+  },
+  {
+    name: "Battle Cannon",
+    faction: "Technology",
+    type: "Unit",
+    manaCost: 4,
+    hp: 2,
+    attackPower: 2,
+    keywords: ["Ranged 2"],
+    img: "https://cdn.midjourney.com/2ddb30df-0cc5-42f5-8687-ad60598a0438/0_1.png",
+  },
+  {
+    name: "Heavy Turret",
+    faction: "Technology",
+    type: "Unit",
+    manaCost: 5,
+    hp: 2,
+    attackPower: 3,
+    keywords: ["Ranged 2"],
+    img: "https://cdn.midjourney.com/2ddb30df-0cc5-42f5-8687-ad60598a0438/0_2_384_N.webp",
+  },
+
+  {
+    name: "Mechanized Warrior",
+    faction: "Technology",
+    type: "Unit",
+    manaCost: 5,
+    hp: 4,
+    attackPower: 3,
+    keywords: ["Charge"],
+    img: "https://cdn.midjourney.com/fe4ae25b-afa2-412b-a506-29872c7c1e04/0_1.png",
+  },
+  {
+    name: "Support Mech",
+    faction: "Technology",
+    type: "Unit",
+    manaCost: 3,
+    hp: 2,
+    attackPower: 1,
+    keywords: ["Repair 1"],
+    img: "https://cdn.midjourney.com/cbc2af37-f242-4cd2-b634-dabeecab9f1b/0_1.png",
+  },
+  {
+    name: "Tactical Mechahook",
+    faction: "Technology",
+    type: "Unit",
+    manaCost: 4,
+    hp: 3,
+    attackPower: 1,
+    keywords: ["Pull"],
+    img: "https://cdn.midjourney.com/cbc2af37-f242-4cd2-b634-dabeecab9f1b/0_3.png",
+  },
+
+  {
+    name: "Steam Drone",
+    faction: "Technology",
+    type: "Unit",
+    manaCost: 8,
+    hp: 6,
+    attackPower: 4,
+    keywords: ["Flight", "Ward"],
+    img: "https://cdn.midjourney.com/cdca1f71-25da-45e6-adf6-5be322a5d295/0_3_384_N.webp",
+  },
+  {
+    name: "Cyber Ninja",
+    faction: "Technology",
+    type: "Unit",
+    manaCost: 5,
+    hp: 3,
+    attackPower: 4,
+    keywords: ["Stealth"],
+    img: "https://cdn.midjourney.com/97089b9f-2979-47aa-9625-96874775ff99/0_2.png",
+  },
+  {
+    name: "Cyber Ninja",
+    faction: "Technology",
+    type: "Unit",
+    manaCost: 3,
+    hp: 3,
+    attackPower: 2,
+    keywords: ["Hack 1"],
+    img: "  https://cdn.midjourney.com/97089b9f-2979-47aa-9625-96874775ff99/0_0.png",
+  },
+
+  {
+    name: "Gadgeteer Engineer",
+    faction: "Technology",
+    type: "Unit",
+    manaCost: 3,
+    hp: 1,
+    attackPower: 2,
+    keywords: ["Boost 3"],
+    img: "https://cdn.midjourney.com/f0145728-8626-4ba2-bce2-307e5e5a3252/0_2.png",
+  },
+  {
+    name: "Energy Shield Generator",
+    faction: "Technology",
+    type: "Structure",
+    manaCost: 5,
+    hp: 3,
+    effect: "Each time a friendly unit is destroyed: Gain 1 Mana",
+    img: "https://cdn.midjourney.com/f7693e95-3a98-4bee-993e-3d1d46ceac0a/0_1.png",
+  },
+  {
+    name: "Laser Turret",
+    faction: "Technology",
+    type: "Unit",
+    manaCost: 5,
+    hp: 4,
+    attackPower: 3,
+    keywords: ["Siege"],
+    img: "https://cdn.midjourney.com/2ddb30df-0cc5-42f5-8687-ad60598a0438/0_1.png",
+  },
+  {
+    name: "Robot Factory",
+    faction: "Technology",
+    type: "Structure",
+    manaCost: 8,
+    hp: 4,
+    effect: "Once per turn summon 3-cost unit for free",
+    img: "https://cdn.midjourney.com/cf38d5a1-94c9-4a4f-bf15-1e3ead7842be/0_2.png",
+  },
+  {
+    name: "EMP Blast",
+    faction: "Technology",
+    type: "Spell",
+    manaCost: 5,
+    effect: "Shock 6",
+    img: "https://cdn.midjourney.com/cc37d545-838e-4f19-a410-cdd11c5ec1df/0_1.png",
+  },
+  {
+    name: "Tools Merchant",
+    faction: "Technology",
+    type: "Unit",
+    attackPower: 1,
+    hp: 1,
+    manaCost: 4,
+    keywords: ["Discard 1, Draw 3"],
+    img: " https://cdn.midjourney.com/7b919af1-3f6b-4afe-bbe5-c636e5541fbe/0_1.png",
+  },
+
+  {
+    name: "Overclock",
+    faction: "Technology",
+    type: "Spell",
+    manaCost: 2,
+    effect: "Boost 3",
+    img: "https://cdn.midjourney.com/17bd7d2c-4835-4e0f-9adb-2e86c3ac6abe/0_1.png",
+  },
+  {
+    name: "Forest Guardian",
+    faction: "Nature",
+    type: "Unit",
+    manaCost: 4,
+    hp: 3,
+    attackPower: 2,
+    keywords: ["Regeneration"],
+    img: "https://cdn.midjourney.com/b161772a-551b-49b2-abe9-bc2469cf2218/0_3_384_N.webp",
+  },
+  {
+    name: "Elemental Shaman",
+    faction: "Nature",
+    type: "Unit",
+    manaCost: 5,
+    hp: 2,
+    attackPower: 3,
+    keywords: ["Elemental"],
+  },
+  {
+    name: "Mystic Growth",
+    faction: "Nature",
+    type: "Spell",
+    manaCost: 5,
+    effect: "Gain 8 Mana",
+    img: "https://cdn.midjourney.com/b3e8cce3-6a86-4d0d-83ce-cd2cfed6b340/0_1.png",
+  },
+  {
+    name: "Druid of the Grove",
+    faction: "Nature",
+    type: "Unit",
+    manaCost: 6,
+    hp: 4,
+    attackPower: 3,
+    keywords: ["Transform"],
+    img: "https://cdn.midjourney.com/d32da1c8-dfff-4567-a866-7f928c3238bc/0_1_384_N.webp",
+  },
+  {
+    name: "Lookout Owl",
+    faction: "Nature",
+    type: "Unit",
+    manaCost: 2,
+    hp: 2,
+    attackPower: 1,
+    keywords: ["Draw 2"],
+    img: "https://cdn.midjourney.com/29aeaa19-22a8-46ff-a1bc-f38536f9a7ee/0_0_384_N.webp",
+  },
+  {
+    name: "Ancient Tree of Life",
+    faction: "Nature",
+    type: "Structure",
+    manaCost: 6,
+    hp: 3,
+    effect: "Draw 1 card per turn",
+    img: "https://cdn.midjourney.com/bdf1636a-35c7-4270-ab9c-5949b9897f7b/0_0.png",
+  },
+  {
+    name: "Stone Circle Altar",
+    faction: "Nature",
+    type: "Structure",
+    manaCost: 4,
+    hp: 3,
+    keywords: ["Ward"],
+    img: "https://cdn.midjourney.com/162e6bd5-5778-420a-b393-6aaa4b5bcb86/0_1.png",
+  },
+  {
+    name: "Summoner's Portal",
+    faction: "Nature",
+    type: "Structure",
+    manaCost: 6,
+    hp: 4,
+    effect: "Gain + 1 Mana per turn",
+    img: "https://cdn.midjourney.com/162e6bd5-5778-420a-b393-6aaa4b5bcb86/0_3.png",
+  },
+  {
+    name: "Nature's Blessing",
+    faction: "Nature",
+    type: "Spell",
+    manaCost: 5,
+    effect: "Boost 2, Heal 5",
+    img: "https://cdn.midjourney.com/3ede11ba-f1ae-4dcf-a560-08a0882e7423/0_2.png",
+  },
+  {
+    name: "Call of the Wild",
+    faction: "Nature",
+    type: "Spell",
+    manaCost: 4,
+    effect: "Summon (Summons a random Nature creature)",
+  },
+
+  {
+    name: "Drone Engineer",
+    faction: "Technology",
+    type: "Unit",
+    manaCost: 3,
+    hp: 2,
+    attackPower: 1,
+    keywords: ["Repair"],
+    img: "https://cdn.midjourney.com/7fe75a49-b46d-4cc7-83e1-8b963927f946/0_2.png",
+  },
+  {
+    name: "Heavy Mech",
+    faction: "Technology",
+    type: "Unit",
+    manaCost: 7,
+    hp: 6,
+    attackPower: 5,
+    keywords: ["Armor"],
+  },
+  {
+    name: "Stealth Bomber",
+    faction: "Technology",
+    type: "Unit",
+    manaCost: 6,
+    hp: 3,
+    attackPower: 5,
+    keywords: ["Stealth", "Siege"],
+    img: "https://cdn.midjourney.com/e4819436-7075-44e1-962d-ec57546e9b7e/0_3.png",
+  },
+  {
+    name: "Evasive Thopter",
+    faction: "Technology",
+    type: "Unit",
+    manaCost: 5,
+    hp: 2,
+    attackPower: 3,
+    keywords: ["Flight", "Ghost"],
+    img: "https://cdn.midjourney.com/cdca1f71-25da-45e6-adf6-5be322a5d295/0_2.png",
+  },
+  {
+    name: "Nano Thopter",
+    faction: "Technology",
+    type: "Unit",
+    manaCost: 3,
+    hp: 2,
+    attackPower: 3,
+    keywords: ["Flight"],
+    img: "https://cdn.midjourney.com/b16da4a2-d41b-40b5-97ef-4b1d7924ba13/0_3.png",
+  },
+  {
+    name: "Robo Swarms",
+    faction: "Technology",
+    type: "Unit",
+    manaCost: 5,
+    hp: 3,
+    attackPower: 1,
+    keywords: ["Swarm 3"],
+    img: "https://cdn.midjourney.com/4121c72e-7389-43f2-a38d-54313aa5e0c5/0_3.png",
+  },
+
+  {
+    name: "Areal Rocketeers",
+    faction: "Technology",
+    type: "Unit",
+    manaCost: 3,
+    hp: 2,
+    attackPower: 1,
+    keywords: ["Range 1"],
+    img: "  https://cdn.midjourney.com/f1fc8c81-d8d9-48c1-9de9-24e232f61178/0_1.png",
+  },
+  {
+    name: "Nano Bots",
+    faction: "Technology",
+    type: "Unit",
+    manaCost: 3,
+    hp: 1,
+    attackPower: 1,
+    keywords: ["Swarm 3"],
+    img: "https://cdn.midjourney.com/4121c72e-7389-43f2-a38d-54313aa5e0c5/0_2.png",
+  },
+  {
+    name: "Jetpack Trooper",
+    faction: "Technology",
+    type: "Unit",
+    manaCost: 7,
+    hp: 8,
+    attackPower: 3,
+    keywords: ["Shift"],
+    img: "https://cdn.midjourney.com/9155beb9-b0ab-4026-b84c-1ca42133f1f5/0_0.png",
+  },
+
+  {
+    name: "Sylvan Archer",
+    faction: "Nature",
+    type: "Unit",
+    manaCost: 3,
+    hp: 2,
+    attackPower: 2,
+    keywords: ["Ranged"],
+    img: "https://cdn.midjourney.com/ca6896a3-9dd8-47f0-9bdd-d90e670741bb/0_2.png",
+  },
+  {
+    name: "Elvish Pathfinder",
+    faction: "Nature",
+    type: "Unit",
+    manaCost: 1,
+    hp: 1,
+    attackPower: 1,
+    keywords: ["Spy 3, Draw 1"],
+    img: "https://cdn.midjourney.com/2d862066-902d-49e1-959e-dc70314b3d05/0_1.png",
+  },
+  {
+    name: "Envisoned Parrot",
+    faction: "Nature",
+    type: "Unit",
+    manaCost: 5,
+    hp: 2,
+    attackPower: 4,
+    keywords: ["Mana 2", "Draw 2"],
+    img: "https://cdn.midjourney.com/07dd14db-cf03-4317-bf9d-efdf88c7c91a/0_0.png",
+  },
+  {
+    name: "Spirit of the Wild",
+    faction: "Nature",
+    type: "Unit",
+    manaCost: 6,
+    hp: 4,
+    attackPower: 4,
+    keywords: ["Spirit"],
+  },
+  {
+    name: "Majestic Shaman",
+    faction: "Nature",
+    type: "Unit",
+    manaCost: 3,
+    hp: 1,
+    attackPower: 1,
+    keywords: ["Entangle", "Draw 1", "Repair 1"],
+    img: "https://cdn.midjourney.com/c5467438-49c7-4c7a-88be-e68470d65b49/0_2.png",
+  },
+  //Railgunner
+  {
+    name: "Commander Legionaire",
+    faction: "Technology",
+    type: "Unit",
+    manaCost: 6,
+    hp: 3,
+    attackPower: 3,
+    keywords: ["Summon 5"],
+    img: "https://cdn.midjourney.com/f781d2e0-686f-42ec-aab6-50ea54df3d52/0_0.png",
+  },
+  {
+    name: "Shielded Tank",
+    faction: "Technology",
+    type: "Unit",
+    manaCost: 8,
+    hp: 8,
+    attackPower: 5,
+    keywords: ["Push"],
+    img: "https://cdn.midjourney.com/bf273d12-4c97-428c-8153-4e60e02cd8ec/0_1.png",
+  },
+  {
+    name: "Steampunk Engineer",
+    faction: "Technology",
+    type: "Unit",
+    manaCost: 3,
+    hp: 2,
+    attackPower: 3,
+    keywords: ["Repair 2"],
+    img: "https://cdn.midjourney.com/a088284e-db24-455e-9144-63631250b24d/0_2.png",
+  },
+  {
+    name: "Plasma Gunner",
+    faction: "Technology",
+    type: "Unit",
+    manaCost: 3,
+    hp: 4,
+    attackPower: 1,
+    keywords: ["Ranged"],
+    img: "https://cdn.midjourney.com/90702387-5e30-455a-b533-4cbff45d1966/0_3.png",
+  },
+  {
+    name: "Tactical Drone",
+    faction: "Technology",
+    type: "Unit",
+    manaCost: 5,
+    hp: 3,
+    attackPower: 2,
+    keywords: ["Flight"],
+  },
+
+  {
+    name: "Merceneries Infantry",
+    faction: "Technology",
+    type: "Unit",
+    manaCost: 4,
+    hp: 2,
+    attackPower: 3,
+    keywords: ["Swarm 2"],
+    img: "  https://cdn.midjourney.com/f781d2e0-686f-42ec-aab6-50ea54df3d52/0_3.png",
+  },
+  {
+    name: "Heavy Infantry",
+    faction: "Technology",
+    type: "Unit",
+    manaCost: 4,
+    hp: 2,
+    attackPower: 3,
+    keywords: ["Shift 1"],
+    img: "https://cdn.midjourney.com/f781d2e0-686f-42ec-aab6-50ea54df3d52/0_2.png",
+  },
+  {
+    name: "Circuitry Wizard",
+    faction: "Technology",
+    type: "Unit",
+    manaCost: 6,
+    hp: 3,
+    attackPower: 2,
+    keywords: ["Spellcaster 3", "Shock 2", "Mana 2"],
+    img: "https://cdn.midjourney.com/79bef3cf-4236-4fcf-b4db-e6d820320c96/0_1.png",
+  },
+  {
+    name: "Mechanic Hulk",
+    faction: "Technology",
+    type: "Unit",
+    manaCost: 9,
+    hp: 8,
+    attackPower: 7,
+    keywords: ["Taunt", "Ward"],
+    img: "https://cdn.midjourney.com/169f4541-c63c-4293-8b56-cfca5c41569b/0_3.png",
+  },
+
+  {
+    name: "Scano Bot",
+    faction: "Technology",
+    type: "Unit",
+    manaCost: 1,
+    hp: 2,
+    attackPower: 1,
+    keywords: ["Spy 3", "Mana 1"],
+    img: "  https://cdn.midjourney.com/2ec74cd1-ede8-42cd-813c-155da516e4df/0_2.png",
+  },
+  {
+    name: "Repair O Bot",
+    faction: "Technology",
+    type: "Unit",
+    manaCost: 2,
+    hp: 1,
+    attackPower: 1,
+    keywords: ["Repair 1", "Shield 1"],
+    img: " https://cdn.midjourney.com/2ec74cd1-ede8-42cd-813c-155da516e4df/0_0.png",
+  },
+  {
+    name: "Swarm Thopter",
+    faction: "Technology",
+    type: "Unit",
+    manaCost: 7,
+    hp: 2,
+    attackPower: 4,
+    keywords: ["Swarm 2", "Flight"],
+    img: "https://cdn.midjourney.com/b16da4a2-d41b-40b5-97ef-4b1d7924ba13/0_0.png",
+  },
+  {
+    name: "Electromancer",
+    faction: "Technology",
+    type: "Unit",
+    manaCost: 6,
+    hp: 3,
+    attackPower: 5,
+    keywords: ["Shock 2"],
+    img: "https://cdn.midjourney.com/c3cdfb8f-ede6-4d88-acbd-ea10c8b018ca/0_2.png",
+  },
+  {
+    name: "Fuelmancer",
+    faction: "Technology",
+    type: "Unit",
+    manaCost: 4,
+    hp: 4,
+    attackPower: 1,
+    keywords: ["Shock 3"],
+    img: "https://cdn.midjourney.com/c3cdfb8f-ede6-4d88-acbd-ea10c8b018ca/0_3.png",
+  },
+
+  {
+    name: "Venomous Serpent",
+    faction: "Nature",
+    type: "Unit",
+    manaCost: 4,
+    hp: 2,
+    attackPower: 3,
+    keywords: ["Root", "Pull"],
+    img: "https://cdn.midjourney.com/390d5b17-9655-4cf6-a678-476f1e3745d4/0_1.png",
+  },
+  {
+    name: "Giant Eagle",
+    faction: "Nature",
+    type: "Unit",
+    manaCost: 7,
+    hp: 6,
+    attackPower: 5,
+    keywords: ["Flight"],
+    img: "https://cdn.midjourney.com/4688722a-23fb-44c4-ab22-c2d1b8622ec3/0_2.png",
+  },
+  {
+    name: "Ancient Treant",
+    faction: "Nature",
+    type: "Unit",
+    manaCost: 7,
+    hp: 7,
+    attackPower: 5,
+    keywords: ["Regeneration"],
+  },
+  {
+    name: "Swamp Witch",
+    faction: "Nature",
+    type: "Unit",
+    manaCost: 5,
+    hp: 3,
+    attackPower: 2,
+    keywords: ["Spellcaster 4", "Boost 2"],
+    img: "https://cdn.midjourney.com/ee0ce40f-48cc-4271-994c-d6b3838eb5db/0_3.png",
+  },
+  {
+    name: "Wild Hog",
+    faction: "Nature",
+    type: "Unit",
+    manaCost: 6,
+    hp: 5,
+    attackPower: 4,
+    keywords: ["Charge"],
+    img: "https://cdn.midjourney.com/507fd8a9-ce55-4575-93bb-537d3b91f217/0_2.png",
+  },
+  {
+    name: "Pixie Enchanter",
+    faction: "Nature",
+    type: "Unit",
+    manaCost: 4,
+    hp: 2,
+    attackPower: 2,
+    keywords: ["Draw 2"],
+    img: "https://cdn.midjourney.com/2f0f848c-cda6-42fd-85ef-75106fa8cbc1/0_1.png",
+  },
+  {
+    name: "Crystal Inspector",
+    faction: "Nature",
+    type: "Unit",
+    manaCost: 3,
+    hp: 1,
+    attackPower: 3,
+    keywords: ["Mana 3"],
+    img: "https://cdn.midjourney.com/6e74eff5-a211-4941-a39f-165cf4412139/0_0.png",
+  },
+  {
+    name: "Mossy Behemoth",
+    faction: "Nature",
+    type: "Unit",
+    manaCost: 8,
+    hp: 7,
+    attackPower: 5,
+    keywords: ["Swap"],
+    img: "https://cdn.midjourney.com/cc16868a-4ba8-4c41-9934-a6d67459b068/0_0.png",
+  },
+  {
+    name: "Aurora Spirit",
+    faction: "Nature",
+    type: "Unit",
+    manaCost: 5,
+    hp: 2,
+    attackPower: 4,
+    keywords: ["Spirit"],
+  },
+  {
+    name: "Arch Druid Eagle",
+    faction: "Nature",
+    type: "Unit",
+    manaCost: 5,
+    hp: 1,
+    attackPower: 3,
+    keywords: ["Draw 3"],
+    img: "https://cdn.midjourney.com/29aeaa19-22a8-46ff-a1bc-f38536f9a7ee/0_1.png",
+  },
+  {
+    name: "Crag Beast",
+    faction: "Nature",
+    type: "Unit",
+    manaCost: 7,
+    hp: 6,
+    attackPower: 5,
+    keywords: ["Charge"],
+  },
+  {
+    name: "Firestarter Phoenix",
+    faction: "Nature",
+    type: "Unit",
+    manaCost: 6,
+    hp: 4,
+    attackPower: 4,
+    keywords: ["Elemental"],
+  },
+  {
+    name: "Crystal Unicorn",
+    faction: "Nature",
+    type: "Unit",
+    manaCost: 6,
+    hp: 5,
+    attackPower: 5,
+    keywords: ["Charge"],
+    img: "https://cdn.midjourney.com/1ab2501c-ec4c-4a08-8542-2b009e655055/0_2.png",
+  },
+  {
+    name: "Moonlit Huntress",
+    faction: "Nature",
+    type: "Unit",
+    manaCost: 3,
+    hp: 2,
+    attackPower: 3,
+    keywords: ["Ghost"],
+    img: "https://cdn.midjourney.com/121efe17-3ab6-4534-b5c4-7cd2a99d1f01/0_0.png",
+  },
+  {
+    name: "Ancient Elderwood",
+    faction: "Nature",
+    type: "Unit",
+    manaCost: 9,
+    hp: 10,
+    attackPower: 6,
+    keywords: ["Regeneration"],
+  },
+  {
+    name: "Grove Protector",
+    faction: "Nature",
+    type: "Unit",
+    manaCost: 6,
+    hp: 5,
+    attackPower: 4,
+    keywords: ["Ward"],
+  },
+  {
+    name: "Mystic Shaman",
+    faction: "Nature",
+    type: "Unit",
+    manaCost: 4,
+    hp: 2,
+    attackPower: 1,
+    keywords: ["Empower"],
+  },
+  {
+    name: "Astral Owl",
+    faction: "Nature",
+    type: "Unit",
+    manaCost: 3,
+    hp: 2,
+    attackPower: 1,
+    keywords: ["Flight"],
+  },
+  {
+    name: "Primal Elemental",
+    faction: "Nature",
+    type: "Unit",
+    manaCost: 8,
+    hp: 7,
+    attackPower: 6,
+    keywords: ["Elemental"],
+  },
+
+  {
+    name: "Siege Tank",
+    faction: "Technology",
+    type: "Unit",
+    manaCost: 8,
+    hp: 9,
+    attackPower: 3,
+    keywords: ["Siege"],
+    img: "https://cdn.midjourney.com/169f4541-c63c-4293-8b56-cfca5c41569b/0_0.png",
+  },
+  {
+    name: "Stealth Infiltrator",
+    faction: "Technology",
+    type: "Unit",
+    manaCost: 5,
+    hp: 3,
+    attackPower: 3,
+    keywords: ["Stealth", "Ward"],
+    img: "https://cdn.midjourney.com/e4819436-7075-44e1-962d-ec57546e9b7e/0_0.png",
+  },
+  {
+    name: "Artillery Drone",
+    faction: "Technology",
+    type: "Unit",
+    manaCost: 7,
+    hp: 4,
+    attackPower: 5,
+    keywords: ["Ranged", "Siege"],
+  },
+  {
+    name: "Mech Miner",
+    faction: "Technology",
+    type: "Unit",
+    manaCost: 6,
+    hp: 2,
+    attackPower: 4,
+    keywords: ["Mana 4"],
+    img: "https://cdn.midjourney.com/6c12adec-7e38-44ad-8560-89f3d5c89cd4/0_0.png",
+  },
+  {
+    name: "Heavy Tank",
+    faction: "Technology",
+    type: "Unit",
+    manaCost: 9,
+    hp: 8,
+    attackPower: 7,
+    keywords: ["Armor", "Taunt"],
+  },
+  {
+    name: "Sniper Bot",
+    faction: "Technology",
+    type: "Unit",
+    manaCost: 5,
+    hp: 2,
+    attackPower: 6,
+    keywords: ["Ranged", "Stealth"],
+  },
+  {
+    name: "Recycle Bot",
+    faction: "Technology",
+    type: "Unit",
+    manaCost: 1,
+    hp: 2,
+    attackPower: 2,
+    keywords: ["Draw 2, Discard 2"],
+    img: "https://cdn.midjourney.com/a376455f-f7c2-4de9-bf34-2b5cb458cc0d/0_1.png",
+  },
+  {
+    name: "Nano Assassin",
+    faction: "Technology",
+    type: "Unit",
+    manaCost: 7,
+    hp: 4,
+    attackPower: 5,
+    keywords: ["Flight", "Charge"],
+    img: "https://cdn.midjourney.com/b16da4a2-d41b-40b5-97ef-4b1d7924ba13/0_1.png",
+  },
+  {
+    name: "Neon Blaster",
+    faction: "Technology",
+    type: "Unit",
+    manaCost: 6,
+    hp: 4,
+    attackPower: 2,
+    keywords: ["Ranged 2", "Shock 2"],
+    img: "https://cdn.midjourney.com/90702387-5e30-455a-b533-4cbff45d1966/0_0.png",
+  },
+  {
+    name: "Blast O Bot",
+    faction: "Technology",
+    type: "Unit",
+    manaCost: 2,
+    hp: 1,
+    attackPower: 1,
+    keywords: ["Spy 2", "Shock 1"],
+    img: "https://cdn.midjourney.com/a376455f-f7c2-4de9-bf34-2b5cb458cc0d/0_0.png",
+  },
+
+  {
+    name: "Spirit Bear",
+    faction: "Nature",
+    type: "Unit",
+    manaCost: 8,
+    hp: 6,
+    attackPower: 4,
+    keywords: ["Shift", "Charge"],
+    img: "https://cdn.midjourney.com/f72a57b3-8b9c-4818-9b25-febc04f8a8ea/0_2_384_N.webp",
+  },
+  {
+    name: "Jungle Stalker",
+    faction: "Nature",
+    type: "Unit",
+    manaCost: 6,
+    hp: 4,
+    attackPower: 5,
+    keywords: ["Stealth"],
+    img: "https://cdn.midjourney.com/6ff11cd0-8125-43f3-aee6-c5819fc80123/0_3.png",
+  },
+  {
+    name: "Ancient Guardian",
+    faction: "Nature",
+    type: "Unit",
+    manaCost: 8,
+    hp: 8,
+    attackPower: 5,
+    keywords: ["Taunt", "Ward"],
+    img: "https://cdn.midjourney.com/87cc5ef3-0d41-4ba8-a1b1-b4f78a3edad8/0_0.png",
+  },
+  {
+    name: "Wild Snake",
+    faction: "Nature",
+    type: "Unit",
+    manaCost: 6,
+    hp: 5,
+    attackPower: 3,
+    keywords: ["Shift 2"],
+    img: "https://cdn.midjourney.com/86b51b10-4b91-4e06-b2b6-5ed0a2a781e8/0_1.png",
+  },
+  {
+    name: "Spirit Wielder",
+    faction: "Nature",
+    type: "Unit",
+    manaCost: 4,
+    hp: 2,
+    attackPower: 3,
+    keywords: ["Boost 2"],
+    img: "https://cdn.midjourney.com/f9e3d15b-9a3a-4341-963c-99f08a814404/0_1.png",
+  },
+  {
+    name: "Druid Cook",
+    faction: "Nature",
+    type: "Unit",
+    manaCost: 3,
+    hp: 1,
+    attackPower: 2,
+    keywords: ["Repair 1", "Boost 2"],
+    img: "https://cdn.midjourney.com/d9022e39-e9e5-4bfc-9360-8df8b87f18c5/0_2.png",
+  },
+  {
+    name: "Ancient Protector",
+    faction: "Nature",
+    type: "Unit",
+    manaCost: 4,
+    hp: 4,
+    attackPower: 4,
+    keywords: ["Push"],
+    img: "https://cdn.midjourney.com/13e572b9-e50a-4b8a-9171-d035e3d411b3/0_1.png",
+  },
+  {
+    name: "Moonshadow Wolf",
+    faction: "Nature",
+    type: "Unit",
+    manaCost: 7,
+    hp: 3,
+    attackPower: 5,
+    keywords: ["Ghost", "Charge"],
+    img: "https://cdn.midjourney.com/8b00508e-823e-4440-8fcc-28285c4b7982/0_0.png",
+  },
+  {
+    name: "Bush Lurker",
+    faction: "Nature",
+    type: "Unit",
+    manaCost: 4,
+    hp: 1,
+    attackPower: 3,
+    keywords: ["Stealth"],
+    img: "https://cdn.midjourney.com/7a35e742-e560-4082-b491-8a7b8838c2bc/0_0.png",
+  },
+  {
+    name: "Crystal Golem",
+    faction: "Nature",
+    type: "Unit",
+    manaCost: 10,
+    hp: 8,
+    attackPower: 8,
+    keywords: ["Ward", "Freeze"],
+    img: "https://cdn.midjourney.com/93c45dc8-7a65-4976-946d-05171899939a/0_3.png",
+  },
+];
+import styles from "../styles/BattleRoyal.module.scss";
+import React, { useState } from "react";
+
+import Card from "../components/BattleRoyal/Card";
+//count tech unit cards, structrures, spells, count nature units, structures, spells
+
+const techCards = cards.filter((card) => card.faction === "Technology");
+const techUnits = techCards.filter((card) => card.type === "Unit");
+const techStructures = techCards.filter((card) => card.type === "Structure");
+const techSpells = techCards.filter((card) => card.type === "Spell");
+const natureCards = cards.filter((card) => card.faction === "Nature");
+const natureUnits = natureCards.filter((card) => card.type === "Unit");
+const natureStructures = natureCards.filter(
+  (card) => card.type === "Structure"
+);
+const natureSpells = natureCards.filter((card) => card.type === "Spell");
+
+const differentKeywords = cards.map((card) => card.keywords);
+const uniqueKeywords = [...new Set(differentKeywords.flat())];
+console.log(uniqueKeywords);
+
+const dashboardCount = {
+  techCards: techCards.length,
+  techUnits: techUnits.length,
+  techStructures: techStructures.length,
+  techSpells: techSpells.length,
+  natureCards: natureCards.length,
+  natureUnits: natureUnits.length,
+  natureStructures: natureStructures.length,
+  natureSpells: natureSpells.length,
+};
+
+const DashboardView = ({ dashboardCount }) => {
+  return (
+    <div style={{ display: "flex", flexWrap: "wrap" }}>
+      {Object.keys(dashboardCount).map((key) => (
+        <div
+          style={{
+            padding: ".25rem",
+            border: "1px solid black",
+            margin: ".25rem",
+            fontSize: "18px",
+            fontWeight: "500",
+          }}
+        >
+          {key}: {dashboardCount[key]}
+        </div>
+      ))}
+      <div style={{ display: "flex", flexWrap: "wrap" }}>
+        {uniqueKeywords.map((keyword) => (
+          <div
+            style={{
+              padding: ".25rem",
+              border: "1px solid black",
+              margin: ".25rem",
+            }}
+          >
+            {keyword}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+const getCardMargin = (index) => {
+  // Calculate the card's position within the current set of 9 cards
+  const positionWithinSet = index % 9;
+
+  // Apply 15px margin to the 7th, 8th, and 9th cards within each set
+  if (positionWithinSet >= 6 && positionWithinSet <= 8) {
+    return "50px"; // Apply the special margin
+  } else {
+    return "0"; // Apply 0 margin to all other cases
+  }
+};
+
+const BattleRoyal = () => {
+  const [isPrint, setIsPrint] = useState(false);
+  return (
+    <>
+      {isPrint ? (
+        <div className={styles.cardsMapper}>
+          {cards
+            .filter((c) => c.img)
+            .map((card, i) => (
+              <div key={i} style={{ marginBottom: getCardMargin(i) }}>
+                <Card card={card} />
+              </div>
+            ))}
+          <div className="btn btn-primary" onClick={() => setIsPrint(false)}>
+            Edit View
+          </div>
+        </div>
+      ) : (
+        <>
+          <div className="btn btn-primary" onClick={() => setIsPrint(true)}>
+            Print View
+          </div>
+          <DashboardView dashboardCount={dashboardCount} />
+          <div className={styles.cardsMapper}>
+            {cards
+              .sort((a, b) => a.manaCost - b.manaCost)
+              .map((card, i) => (
+                <Card card={card} />
+              ))}
+          </div>
+        </>
+      )}
+    </>
+  );
+};
+export default BattleRoyal;
