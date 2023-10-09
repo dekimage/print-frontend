@@ -6,7 +6,7 @@ import techBorderImg from "../../assets/battleRoyal/borderblue.png";
 import natureBorderImg from "../../assets/battleRoyal/bordergreen.png";
 import bodyCoverImg from "../../assets/battleRoyal/bodycover.png";
 
-const Card = ({ card }) => {
+const Card = ({ card, isEditMode, handleAddCardToPrint, isInPrint }) => {
   const { name, faction, type, cost, hp, atk, keywords, effect, img } = card;
 
   // Define the CSS class based on faction
@@ -25,7 +25,14 @@ const Card = ({ card }) => {
       break;
   }
   return (
-    <div className={`${styles.card} ${faction}`}>
+    <div
+      className={`${styles.card} ${faction}`}
+      onClick={() => {
+        if (isEditMode) {
+          handleAddCardToPrint(card);
+        }
+      }}
+    >
       <div
         className={styles.header}
         style={{
@@ -37,6 +44,7 @@ const Card = ({ card }) => {
           // backgroundColor: factionColor
         }}
       >
+        {isInPrint && <div className={styles.addedForPrint}>+</div>}
         <div className="flex_center" style={{ position: "relative" }}>
           <img src={costIcon} height="40px" alt="" />
           <div className={styles.stat}>{cost}</div>

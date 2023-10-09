@@ -11,6 +11,11 @@ function Layout({
   setSelectedFilters,
   setIsPrint,
   showBackButton = true,
+  sortConfig,
+  sortMethod,
+  setSortMethod,
+  isEditMode,
+  setIsEditMode,
 }) {
   return (
     <div className={styles.layoutContainer}>
@@ -28,6 +33,11 @@ function Layout({
         selectedFilters={selectedFilters}
         setSelectedFilters={setSelectedFilters}
         setIsPrint={setIsPrint}
+        sortConfig={sortConfig}
+        sortMethod={sortMethod}
+        setSortMethod={setSortMethod}
+        isEditMode={isEditMode}
+        setIsEditMode={setIsEditMode}
       />
       <main className={styles.main}>{children}</main>
 

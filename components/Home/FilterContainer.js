@@ -9,12 +9,18 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Badge from "@mui/material/Badge";
 import styles from "../../styles/FilterContainer.module.scss";
+import { MenuItem, Select } from "@mui/material";
 
 function FilterComponent({
   filterConfig = {},
   selectedFilters,
   setSelectedFilters,
   setIsPrint,
+  sortConfig,
+  sortMethod,
+  setSortMethod,
+  isEditMode,
+  setIsEditMode,
 }) {
   const [showFilter, setShowFilter] = useState(false);
 
@@ -54,9 +60,30 @@ function FilterComponent({
             </Button>
           )}
 
-          <Button variant="contained" style={{ marginLeft: "1rem" }}>
+          {/* <Button variant="contained" style={{ marginLeft: "1rem" }}>
             Sort
-          </Button>
+          </Button> */}
+          <Select
+            style={{ marginLeft: "2rem", height: "2.5rem" }}
+            value={sortMethod}
+            onChange={(e) => {
+              setSortMethod(e.target.value);
+            }}
+            label="Sort By"
+            variant="outlined"
+          >
+            <MenuItem value="Sort By">
+              <em>Sort By</em>
+            </MenuItem>
+            {sortConfig.flatMap((option, i) => [
+              <MenuItem key={i + 1} value={`${option.key}Asc`}>
+                {`${option.label} Asc`}
+              </MenuItem>,
+              <MenuItem key={i + 10} value={`${option.key}Desc`}>
+                {`${option.label} Desc`}
+              </MenuItem>,
+            ])}
+          </Select>
         </div>
 
         <TextField
@@ -69,6 +96,13 @@ function FilterComponent({
           }
         />
         <Button
+          style={isEditMode ? { backgroundColor: "#f8663a" } : {}}
+          variant="contained"
+          onClick={() => setIsEditMode(!isEditMode)}
+        >
+          {isEditMode ? "Exit Edit" : "Edit Mode"}
+        </Button>
+        <Button
           variant="contained"
           style={{ marginLeft: "1rem" }}
           onClick={() => setIsPrint(true)}
@@ -79,8 +113,8 @@ function FilterComponent({
 
       {showFilter && (
         <div className={styles.accordionContainer}>
-          {Object.keys(filterConfig).map((category) => (
-            <Accordion key={category}>
+          {Object.keys(filterConfig).map((category, i) => (
+            <Accordion key={i}>
               <AccordionSummary expandIcon={<ExpandMoreIcon />}>
                 <div className={styles.filterName}>{category}</div>
                 <Badge

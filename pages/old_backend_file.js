@@ -124,8 +124,9 @@ const Home = () => {
   // 3. GET_YUMEDO
   // 4. GET_DOMINION
   // 5. GET_PELICANS
+  // GET_HEROES
 
-  const { data, error, loading } = useQuery(GET_PELICANS);
+  const { data, error, loading } = useQuery(GET_HEROES);
 
   function formatPagination(cards) {
     var perChunk = 3; // items per chunk
@@ -156,7 +157,7 @@ const Home = () => {
       // 5. heroes
       // 6. pelicans
       console.log(data);
-      setCards(data["pelicans"]);
+      setCards(data["heroes"]);
     }
   }, [data]);
 
@@ -309,8 +310,8 @@ const Home = () => {
             {cardsInCollection.map((card, i) => (
               <div className={styles.cardForPrint} key={i}>
                 {/* <Card card={card} /> */}
-                {/* <HeroCard card={card} /> */}
-                <PelicanCard card={card} />
+                <HeroCard card={card} />
+                {/* <PelicanCard card={card} /> */}
                 <div
                   className={styles.removeCard}
                   onClick={() => removeFromCollection(card)}
@@ -327,7 +328,7 @@ const Home = () => {
             {cardsForPrint.map((card, i) => (
               <div className={styles.cardForPrint} key={i}>
                 {/* <Card card={card} /> */}
-                {/* <HeroCard card={card} /> */}
+                <HeroCard card={card} />
                 {/* <PelicanCard card={card} /> */}
               </div>
             ))}
