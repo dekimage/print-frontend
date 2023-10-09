@@ -6,7 +6,6 @@ import { generateOrderCards, getStats } from "../gpt-functions/egypt";
 import { Button, Autocomplete, TextField } from "@mui/material";
 
 const Gpt = ({}) => {
-  // const data = generateOrderCards(60, 50);
   const [isPrint, setIsPrint] = useState(false);
   const data = generateOrderCards(60, 100);
 

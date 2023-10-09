@@ -7,17 +7,7 @@ import natureBorderImg from "../../assets/battleRoyal/bordergreen.png";
 import bodyCoverImg from "../../assets/battleRoyal/bodycover.png";
 
 const Card = ({ card }) => {
-  const {
-    name,
-    faction,
-    type,
-    manaCost,
-    hp,
-    attackPower,
-    keywords,
-    effect,
-    img,
-  } = card;
+  const { name, faction, type, cost, hp, atk, keywords, effect, img } = card;
 
   // Define the CSS class based on faction
   // const factionClass =
@@ -49,7 +39,7 @@ const Card = ({ card }) => {
       >
         <div className="flex_center" style={{ position: "relative" }}>
           <img src={costIcon} height="40px" alt="" />
-          <div className={styles.stat}>{manaCost}</div>
+          <div className={styles.stat}>{cost}</div>
         </div>
         <div className={styles.name}>{name}</div>
       </div>
@@ -89,7 +79,7 @@ const Card = ({ card }) => {
           {type == "Unit" ? (
             <div className="flex_center" style={{ position: "relative" }}>
               <img src={atkIcon} height="40px" alt="" />
-              <div className={styles.stat}>{attackPower}</div>
+              <div className={styles.stat}>{atk}</div>
             </div>
           ) : (
             <div style={{ width: "40px" }}></div>

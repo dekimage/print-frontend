@@ -1,7 +1,6 @@
 import "../styles/globals.scss";
 import React from "react";
 import Head from "next/head";
-import Store from "../context/store";
 import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "@apollo/react-hooks";
 
@@ -23,12 +22,10 @@ const MyApp = ({ Component, pageProps }) => {
 
   return (
     <ApolloProvider client={client}>
-      <Store>
-        <Head>
-          <title>Print Cards App</title>
-        </Head>
-        <Component {...pageProps} />
-      </Store>
+      <Head>
+        <title>Print Cards App</title>
+      </Head>
+      <Component {...pageProps} />
     </ApolloProvider>
   );
 };

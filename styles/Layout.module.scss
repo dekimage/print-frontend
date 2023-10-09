@@ -1,0 +1,42 @@
+.layoutContainer {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.header {
+  background-color: #333;
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  .pageTitle {
+    margin: 0;
+    font-size: 1.5rem;
+  }
+}
+
+.backButton {
+  position: absolute;
+  left: 10px;
+  display: inline-block;
+  margin-right: 20px;
+  background-color: #666666;
+  padding: 5px 15px;
+  border-radius: 4px;
+  color: #ffffff;
+  text-decoration: none;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: #838383;
+  }
+}
+
+.main {
+  flex: 1;
+  padding: 20px;
+}

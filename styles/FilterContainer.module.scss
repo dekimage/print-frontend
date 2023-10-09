@@ -1,0 +1,26 @@
+.filterContainer {
+  width: 100%;
+  background-color: #f5f5f5;
+}
+
+.searchContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.accordionContainer {
+  margin-top: 20px;
+}
+
+.checkboxContainer {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.filterName {
+  font-size: 1.2rem;
+  font-weight: 700;
+  padding-right: 1rem;
+}
