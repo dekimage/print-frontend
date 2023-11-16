@@ -6,6 +6,7 @@ import styles from "../styles/Index.module.scss";
 
 import cover from "../assets/Home/allgamescover.png";
 import battleRoyalCover from "../assets/Home/battleRoyalCover.png";
+import piratesCover from "../assets/Home/piratesCover.png";
 import egyptCover from "../assets/Home/egyptCover.png";
 import galaxyCover from "../assets/Home/galaxyCover.png";
 
@@ -17,18 +18,18 @@ export default function Home() {
       image: battleRoyalCover,
       link: "/battle-royal",
     },
-    { id: 2, name: "Egypt Merchants", image: egyptCover, link: "/egypt" },
     {
-      id: 3,
+      id: 2,
+      name: "Wacky Pirates",
+      image: piratesCover,
+      link: "/pirates",
+    },
+    { id: 3, name: "Egypt Merchants", image: egyptCover, link: "/egypt" },
+    {
+      id: 4,
       name: "Galaxy Spaceships",
       image: galaxyCover,
       link: "/galaxy",
-    },
-    {
-      id: 4,
-      name: "Wacky Pirates",
-      image: egyptCover,
-      link: "/pirates",
     },
   ];
 

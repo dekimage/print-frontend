@@ -5,6 +5,8 @@ import Card from "../projects/pirates/Card";
 
 const cards = pirateCards;
 
+console.log(cards);
+
 const differentKeywords = cards.map((card) => card.keywords);
 const uniqueKeywords = [...new Set(differentKeywords.flat())];
 

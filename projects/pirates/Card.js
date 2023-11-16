@@ -4,6 +4,7 @@ import techBorderImg from "../../assets/battleRoyal/borderblue.png";
 import natureBorderImg from "../../assets/battleRoyal/bordergreen.png";
 import bodyCoverImg from "../../assets/battleRoyal/bodycover.png";
 import { KeywordRenderer } from "./KeywordRenderer";
+import heartIcon from "../../assets/pirates/heart.png";
 
 const Card = ({ card, isEditMode, handleAddCardToPrint, isInPrint }) => {
   const { name, faction, type, cost, hp, atk, keywords, effect, img } = card;
@@ -32,6 +33,14 @@ const Card = ({ card, isEditMode, handleAddCardToPrint, isInPrint }) => {
           <div className="flex_center" style={{ position: "relative" }}>
             <img src={goldIcon} height="40px" alt="" />
             <div className={styles.stat}>{cost}</div>
+          </div>
+        )}
+        {type == "Boss" && (
+          <div className="flex_center" style={{ position: "relative" }}>
+            <img src={heartIcon} height="46px" alt="" />
+            <div className={styles.stat} style={{ color: "white" }}>
+              {card.hp}
+            </div>
           </div>
         )}
         <div className={styles.name}>{name}</div>

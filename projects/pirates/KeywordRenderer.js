@@ -18,6 +18,7 @@ const renderIcons = (keyword) => {
       case "gold":
         icons.push(<img src={GoldIcon} height="40px" alt="" />);
         break;
+
       default:
         break;
     }
@@ -58,12 +59,7 @@ export function generateCopies(config) {
   // Iterate over each resource type in the config
   for (const resourceConfig of config) {
     for (let i = 0; i < resourceConfig.quantity; i++) {
-      copies.push({
-        type: "Resource",
-        name: resourceConfig.name,
-        keywords: resourceConfig.keywords,
-        img: resourceConfig.img,
-      });
+      copies.push(resourceConfig);
     }
   }
 

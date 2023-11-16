@@ -4,6 +4,7 @@ import { battleRoyalCards } from "../projects/battleRoyal/data";
 import Card from "../components/BattleRoyal/Card";
 
 const cards = battleRoyalCards;
+console.log(cards);
 
 const differentKeywords = cards.map((card) => card.keywords);
 const uniqueKeywords = [...new Set(differentKeywords.flat())];
