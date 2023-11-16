@@ -17,12 +17,18 @@ export default function Home() {
       image: battleRoyalCover,
       link: "/battle-royal",
     },
-    { id: 1, name: "Egypt Merchants", image: egyptCover, link: "/egypt" },
+    { id: 2, name: "Egypt Merchants", image: egyptCover, link: "/egypt" },
     {
-      id: 1,
+      id: 3,
       name: "Galaxy Spaceships",
       image: galaxyCover,
       link: "/galaxy",
+    },
+    {
+      id: 4,
+      name: "Wacky Pirates",
+      image: egyptCover,
+      link: "/pirates",
     },
   ];
 

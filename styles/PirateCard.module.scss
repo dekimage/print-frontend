@@ -1,0 +1,144 @@
+@import "variables";
+@import "mixins";
+@import "placeholders";
+
+.cardsMapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  border: 10px solid black;
+  border-radius: 10px;
+  width: 240px;
+  height: 336px;
+  margin-right: 1px;
+  margin-bottom: 1px;
+  z-index: 20;
+  position: relative;
+  justify-content: space-between;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #f5f5f5;
+}
+
+.body {
+  @extend %flex_center;
+  height: 50px;
+  // background-color: rgb(255, 232, 189);
+  padding: 0 0.5rem;
+}
+
+.stat {
+  @extend %flex_center;
+  position: absolute;
+  left: 50%;
+  bottom: 45%;
+  transform: translate(-50%, 50%);
+  font-size: 22px;
+  font-weight: 700;
+  height: 75%;
+  width: 75%;
+  border-radius: 50%;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.header {
+  @extend %flex_center;
+  padding: 0.25rem 0;
+  max-height: 40px;
+}
+
+.art {
+  width: 100%;
+  height: 100%;
+}
+
+.middleBorder {
+  background-color: rgba(0, 0, 0, 0.507);
+  // opacity: 0.5;
+  position: absolute;
+  width: 100%;
+  top: 79%;
+  @extend %flex_center;
+
+  &_type {
+    color: white;
+    font-size: 12px;
+    opacity: 0.8;
+    vertical-align: center;
+  }
+}
+
+.name {
+  flex-grow: 1;
+  font-size: 20px;
+  font-weight: 700;
+  margin-left: 0.25rem;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.effect {
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.card-keywords {
+  font-size: 14px;
+  font-weight: 700;
+  color: #000000;
+}
+
+.card-description {
+  text-align: center;
+  @extend %flex_center;
+  font-size: 14px;
+  font-weight: 700;
+  color: black;
+  margin-top: 1rem;
+  line-height: 1;
+}
+
+.footer {
+  padding-top: 0.33rem;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+  // background-color: rgb(255, 223, 168);
+}
+
+.attack-power,
+.hp {
+  width: 50%;
+  text-align: center;
+  padding: 4px;
+  border-radius: 4px;
+  background-color: #eee;
+  color: #333;
+}
+
+.addedForPrint {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: greenyellow;
+  font-size: 24px;
+  padding: 1rem;
+  font-weight: 500;
+  z-index: 10000000;
+}
+
+.keywordsWrapper {
+  @extend %flex_center;
+}

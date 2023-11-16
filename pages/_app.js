@@ -24,6 +24,10 @@ const MyApp = ({ Component, pageProps }) => {
     <ApolloProvider client={client}>
       <Head>
         <title>Print Cards App</title>
+        <style>
+          @import
+          url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&family=Teko:wght@400;500&display=swap');
+        </style>
       </Head>
       <Component {...pageProps} />
     </ApolloProvider>
