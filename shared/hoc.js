@@ -110,10 +110,7 @@ const withCardLayout = (options) => {
           {cardsForPrint
             .filter((c) => c.img)
             .map((card, i) => (
-              <div
-                key={i}
-                //  style={{ marginBottom: getCardMargin(i) }}
-              >
+              <div key={i} style={{ marginBottom: getCardMargin(i) }}>
                 <Card card={card} />
               </div>
             ))}

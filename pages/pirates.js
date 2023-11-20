@@ -5,15 +5,13 @@ import Card from "../projects/pirates/Card";
 
 const cards = pirateCards;
 
-console.log(cards);
-
 const differentKeywords = cards.map((card) => card.keywords);
 const uniqueKeywords = [...new Set(differentKeywords.flat())];
 
 const filterConfig = {
   type: ["Pirate", "Trap", "Resource", "Command", "Boss"],
   cost: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-  keywords: uniqueKeywords,
+  // keywords: uniqueKeywords,
 };
 
 const sortConfig = [
@@ -35,14 +33,17 @@ const PiratesPage = (props) => {
     >
       {processedCards.map((card, i) => {
         const isInPrint = printCards.some((c) => c.name === card.name);
+
         return (
-          <Card
-            card={card}
-            isEditMode={isEditMode}
-            handleAddCardToPrint={handleAddCardToPrint}
-            isInPrint={isInPrint}
-            key={i}
-          />
+          <div key={i}>
+            <Card
+              card={card}
+              isEditMode={isEditMode}
+              handleAddCardToPrint={handleAddCardToPrint}
+              isInPrint={isInPrint}
+              key={i}
+            />
+          </div>
         );
       })}
     </div>

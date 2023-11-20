@@ -7,19 +7,12 @@ import japanIcon from "../../assets/Egypt/japan.png";
 import romeIcon from "../../assets/Egypt/rome.png";
 import indiaIcon from "../../assets/Egypt/india.png";
 
-// import woodIcon from "../../assets/Egypt/wood.png";
-// import stoneIcon from "../../assets/Egypt/stone.png";
-// import gemsIcon from "../../assets/Egypt/gems.png";
-// import foodIcon from "../../assets/Egypt/food.png";
-// import herbsIcon from "../../assets/Egypt/herbs.png";
-// import spiceIcon from "../../assets/Egypt/spices.png";
-
-import woodIcon from "../../assets/Egypt/drop.png";
-import stoneIcon from "../../assets/Egypt/hex.png";
+import dropIcon from "../../assets/Egypt/drop.png";
+import hexIcon from "../../assets/Egypt/hex.png";
 import gemsIcon from "../../assets/Egypt/gem.png";
-import foodIcon from "../../assets/Egypt/plus.png";
-import herbsIcon from "../../assets/Egypt/star.png";
-import spiceIcon from "../../assets/Egypt/heart.png";
+import plusIcon from "../../assets/Egypt/plus.png";
+import starIcon from "../../assets/Egypt/star.png";
+import heartIcon from "../../assets/Egypt/heart.png";
 
 const iconMap = {
   arabia: arabiaIcon,
@@ -31,12 +24,12 @@ const iconMap = {
 };
 
 const resourceIconMap = {
-  wood: woodIcon,
-  stone: stoneIcon,
+  drop: dropIcon,
+  hex: hexIcon,
   gems: gemsIcon,
-  food: foodIcon,
-  herbs: herbsIcon,
-  spice: spiceIcon,
+  plus: plusIcon,
+  star: starIcon,
+  heart: heartIcon,
 };
 
 const calculateZoneColor = (zone) => {
@@ -126,22 +119,37 @@ export const StatComponent = ({ data, type }) => {
   );
 };
 
-// const order = {
-//   name: "Thebes",
-//   vp: 3,
-//   destinations: [
-//     {
-//       zone: "Thebes",
-//       resources: ["Wood", "Stone"],
-//     },
-//     {
-//       zone: "Memphis",
-//       resources: ["Wood", "Stone"],
-//     },
-//     {
-//       zone: "Heliopolis",
-//       resources: ["Wood", "Stone"],
-//     },
-//   ],
-//   gold: 1,
-// };
+export const UpgradeCard = ({ card }) => {
+  const { cost, vp, effectOne, effectTwo } = card;
+  const renderEffects = (effects) => {
+    return effects.map((effect) => {
+      switch (effect) {
+        case "to":
+          return <span>&rarr;</span>;
+        case "or":
+          return <span>/</span>;
+        case "and":
+          return <span>&amp;</span>;
+        default:
+          const imgSrc = resourceIconMap[effect];
+          return <img height="40px" src={imgSrc} alt={effect} />;
+      }
+    });
+  };
+
+  return (
+    <div className={styles.card}>
+      <div
+        style={{ borderBottom: "10px solid black" }}
+        className={styles.effectContainer}
+      >
+        {renderEffects(effectOne)}
+      </div>
+      {effectTwo && (
+        <div className={styles.effectContainer}>{renderEffects(effectTwo)}</div>
+      )}
+      <div className={styles.cost}>{cost}</div>
+      <div className={styles.upgradeVp}>{vp}</div>
+    </div>
+  );
+};

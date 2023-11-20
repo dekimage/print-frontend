@@ -36,11 +36,12 @@
   @extend %flex_center;
   position: absolute;
   left: 50%;
-  bottom: 55%;
+  bottom: 48%;
   transform: translate(-50%, 50%);
   font-size: 32px;
   font-weight: 700;
-  background-color: #ffffff69;
+  // background-color: #ffffff69;
+
   height: 75%;
   width: 75%;
   border-radius: 50%;
@@ -90,7 +91,7 @@
 }
 
 .card-keywords {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 700;
   color: #000000;
 }

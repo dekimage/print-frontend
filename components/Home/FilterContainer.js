@@ -60,9 +60,6 @@ function FilterComponent({
             </Button>
           )}
 
-          {/* <Button variant="contained" style={{ marginLeft: "1rem" }}>
-            Sort
-          </Button> */}
           <Select
             style={{ marginLeft: "2rem", height: "2.5rem" }}
             value={sortMethod}

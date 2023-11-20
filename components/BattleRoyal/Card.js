@@ -1,10 +1,14 @@
 import styles from "../../styles/BattleRoyal.module.scss";
 import atkIcon from "../../assets/battleRoyal/atk.png";
 import hpIcon from "../../assets/battleRoyal/hp.png";
-import costIcon from "../../assets/battleRoyal/cost.png";
+import durabilityIcon from "../../assets/battleRoyal/durability.png";
+
+// import costIcon from "../../assets/battleRoyal/cost.png";
 import techBorderImg from "../../assets/battleRoyal/borderblue.png";
 import natureBorderImg from "../../assets/battleRoyal/bordergreen.png";
 import bodyCoverImg from "../../assets/battleRoyal/bodycover.png";
+
+import costIcon from "../../assets/pirates/gold.png";
 
 const Card = ({ card, isEditMode, handleAddCardToPrint, isInPrint }) => {
   const { name, faction, type, cost, hp, atk, keywords, effect, img } = card;
@@ -46,7 +50,7 @@ const Card = ({ card, isEditMode, handleAddCardToPrint, isInPrint }) => {
       >
         {isInPrint && <div className={styles.addedForPrint}>+</div>}
         <div className="flex_center" style={{ position: "relative" }}>
-          <img src={costIcon} height="40px" alt="" />
+          <img src={costIcon} height="46px" alt="" />
           <div className={styles.stat}>{cost}</div>
         </div>
         <div className={styles.name}>{name}</div>
@@ -95,7 +99,11 @@ const Card = ({ card, isEditMode, handleAddCardToPrint, isInPrint }) => {
 
           {type == "Unit" || type == "Structure" ? (
             <div className="flex_center" style={{ position: "relative" }}>
-              <img src={hpIcon} height="40px" alt="" />
+              <img
+                src={type == "Structure" ? durabilityIcon : hpIcon}
+                height="40px"
+                alt=""
+              />
               <div className={styles.stat}>{hp}</div>
             </div>
           ) : (

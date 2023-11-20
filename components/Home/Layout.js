@@ -6,7 +6,7 @@ import FilterComponent from "./FilterContainer";
 function Layout({
   children,
   pageTitle,
-  filterOptions,
+  filterConfig,
   selectedFilters,
   setSelectedFilters,
   setIsPrint,
@@ -29,7 +29,7 @@ function Layout({
         {/* Other header contents */}
       </header>
       <FilterComponent
-        filterConfig={filterOptions}
+        filterConfig={filterConfig}
         selectedFilters={selectedFilters}
         setSelectedFilters={setSelectedFilters}
         setIsPrint={setIsPrint}

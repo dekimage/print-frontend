@@ -35,12 +35,12 @@ export default function Home() {
 
   return (
     <div className={styles.container}>
-      <div
+      {/* <div
         className={styles.headerContainer}
         style={{ backgroundImage: `url(${cover})` }}
       >
         <div className={styles.titleWrapper}>My Games</div>
-      </div>
+      </div> */}
 
       <div className={styles.gamesContainer}>
         {games.map((game) => (

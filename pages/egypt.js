@@ -1,11 +1,75 @@
 import { Fragment, useEffect, useState } from "react";
 
 import styles from "../styles/Egypt.module.scss";
-import { OrderCard, StatComponent } from "../components/Egypt/OrderCard";
+import {
+  OrderCard,
+  StatComponent,
+  UpgradeCard,
+} from "../components/Egypt/OrderCard";
 import { generateOrderCards, getStats } from "../gpt-functions/egypt";
 import { Button, Autocomplete, TextField } from "@mui/material";
+import { getCardMargin } from "../shared/functions";
+import withCardLayout from "../shared/hoc";
 
-const Gpt = ({}) => {
+const upgradeCards = [
+  {
+    cost: 6,
+    vp: 1,
+    effectOne: ["deliver"],
+  },
+  {
+    cost: 12,
+    vp: 2,
+    effectOne: ["plus", "or", "drop"],
+    effectTwo: ["portal", "and", "gold_1"],
+  },
+  {
+    cost: 8,
+    vp: 3,
+    effectOne: ["heart", "to", "plus"],
+    effectTwo: ["portal", "and", "cost_1"],
+    both: true,
+  },
+  {
+    cost: 8,
+    vp: 2,
+    effectOne: ["deliver", "plus", "cost_1"],
+    effectTwo: ["gold_1"],
+  },
+  {
+    cost: 12,
+    vp: 4,
+    effectOne: ["heart", "to", "gold_3"],
+    effectTwo: ["heart"],
+  },
+  {
+    cost: 8,
+    vp: 4,
+    effectOne: ["hex", "to", "any"],
+    effectTwo: ["gold_1"],
+  },
+  {
+    cost: 10,
+    vp: 2,
+    effectOne: ["heart", "or", "drop", "to", "any"],
+    effectTwo: ["gem"],
+    both: true,
+  },
+];
+
+const sortConfig = [
+  { key: "name", label: "Name A-Z" },
+  { key: "cost", label: "Cost" },
+  { key: "vp", label: "Vp" },
+];
+
+const filterConfig = {
+  type: ["Zone", "Resource"],
+  cost: [1, 2, 3, 4, 5, 6, 7, 8],
+  vp: [1, 2, 3, 4, 5, 6, 7, 8],
+};
+
+const TradingTactics = () => {
   const [isPrint, setIsPrint] = useState(false);
   const data = generateOrderCards(60, 100);
 
@@ -13,18 +77,6 @@ const Gpt = ({}) => {
   const stats = getStats(cards);
   const refreshCards = () => {
     setCards(generateOrderCards(60, 100));
-  };
-
-  const getCardMargin = (index) => {
-    // Calculate the card's position within the current set of 9 cards
-    const positionWithinSet = index % 9;
-
-    // Apply 15px margin to the 7th, 8th, and 9th cards within each set
-    if (positionWithinSet >= 6 && positionWithinSet <= 8) {
-      return "45px"; // Apply the special margin
-    } else {
-      return "0"; // Apply 0 margin to all other cases
-    }
   };
 
   return (
@@ -47,6 +99,14 @@ const Gpt = ({}) => {
           </div>
         </div>
       )}
+      <div className="flex_center">
+        {upgradeCards.map((card, i) => (
+          <div key={i} style={{ marginBottom: getCardMargin(i) }}>
+            <UpgradeCard card={card} />
+          </div>
+        ))}
+      </div>
+
       <div className={styles.cardsForPrint}>
         {cards.map((card, i) => (
           <div key={i} style={{ marginBottom: getCardMargin(i) }}>
@@ -65,4 +125,11 @@ const Gpt = ({}) => {
   );
 };
 
-export default Gpt;
+export default withCardLayout({
+  page: TradingTactics,
+  title: "Trading Tactics",
+  filterConfig,
+  sortConfig,
+  Card: OrderCard,
+  cards: generateOrderCards(60, 100),
+});

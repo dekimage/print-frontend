@@ -39,6 +39,7 @@ const BattleRoyalPage = (props) => {
     >
       {processedCards.map((card, i) => {
         const isInPrint = printCards.some((c) => c.name === card.name);
+
         return (
           <Card
             card={card}

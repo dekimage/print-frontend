@@ -68,12 +68,12 @@ export const generateOrderCards = (X, Y) => {
 
   let cards = [];
   let inventoryResources = {
-    wood: Y,
-    stone: Y,
+    drop: Y,
+    hex: Y,
     gems: Y,
-    food: Y,
-    herbs: Y,
-    spice: Y,
+    plus: Y,
+    star: Y,
+    heart: Y,
   };
   let inventoryZones = {
     egypt: TOTAL_ZONES,
@@ -84,14 +84,14 @@ export const generateOrderCards = (X, Y) => {
     india: TOTAL_ZONES,
   };
   let zones = ["egypt", "peru", "arabia", "rome", "japan", "india"];
-  let resourceOptions = ["wood", "stone", "gems", "food", "herbs", "spice"];
+  let resourceOptions = ["drop", "hex", "gems", "plus", "star", "heart"];
 
   const prohibitedMap = {
-    egypt: "food",
-    peru: "herbs",
-    arabia: "spice",
-    rome: "stone",
-    japan: "wood",
+    egypt: "plus",
+    peru: "star",
+    arabia: "heart",
+    rome: "hex",
+    japan: "drop",
     india: "gems",
   };
 
@@ -269,7 +269,7 @@ export const generateOrderCards = (X, Y) => {
 
 export const getStats = (orderCards) => {
   const zones = ["egypt", "peru", "arabia", "rome", "japan", "india"];
-  const resources = ["wood", "stone", "gems", "food", "herbs", "spice"];
+  const resources = ["drop", "hex", "gems", "plus", "star", "heart"];
   let stats = {
     zones: {},
     resources: {},
