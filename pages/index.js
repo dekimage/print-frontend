@@ -4,48 +4,147 @@ import Button from "@mui/material/Button";
 import GameItem from "../components/Home/GameItem";
 import styles from "../styles/Index.module.scss";
 
-import cover from "../assets/Home/allgamescover.png";
-import battleRoyalCover from "../assets/Home/battleRoyalCover.png";
-import piratesCover from "../assets/Home/piratesCover.png";
-import egyptCover from "../assets/Home/egyptCover.png";
-import galaxyCover from "../assets/Home/galaxyCover.png";
+import cover from "../assets/Home/sky.png";
+import comingSoonImage from "../assets/Home/+7.png";
+import logoImage from "../assets/Home/armana logo.png";
+import battleRoyalCover from "../assets/Home/lane-royal-box.png";
+import piratesCover from "../assets/Home/pirate-deception-box.png";
+import egyptCover from "../assets/Home/trade-route-tactics-box.png";
+import galaxyCover from "../assets/Home/galactic-spaceships-box.png";
+
+import hypeImg from "../assets/Home/hype.png";
+
+import { Alert, Card, CardContent, CardMedia } from "@mui/material";
 
 export default function Home() {
   const games = [
     {
       id: 1,
-      name: "Battle Royal",
+      name: "Lane Royale",
       image: battleRoyalCover,
-      link: "/battle-royal",
+      link: "/lane-royale",
+      progress: 90,
     },
     {
       id: 2,
-      name: "Wacky Pirates",
+      name: "Pirate Deception",
       image: piratesCover,
       link: "/pirates",
+      progress: 80,
     },
-    { id: 3, name: "Egypt Merchants", image: egyptCover, link: "/egypt" },
+    {
+      id: 3,
+      name: "Trade Route Tactics",
+      image: egyptCover,
+      link: "/trt",
+      progress: 60,
+    },
     {
       id: 4,
       name: "Galaxy Spaceships",
       image: galaxyCover,
       link: "/galaxy",
+      progress: 10,
     },
   ];
 
+  const [isGoogleFormOpen, setIsGoogleFormOpen] = React.useState(false);
+
   return (
     <div className={styles.container}>
-      {/* <div
+      <div className={styles.header}>
+        <div className={styles.logoWrapper}>
+          <img height="50px" src={logoImage} alt="logo" />
+        </div>
+        Armana Games
+      </div>
+
+      <div
         className={styles.headerContainer}
         style={{ backgroundImage: `url(${cover})` }}
       >
-        <div className={styles.titleWrapper}>My Games</div>
-      </div> */}
+        <div className={styles.titleWrapper}>Our Games</div>
+      </div>
+      <div className={styles.alertContainer}>
+        <div className={styles.hypeImg}>
+          <img src={hypeImg} alt="hype img" height="180px" />
+        </div>
+        <div>
+          <Alert
+            severity="info"
+            sx={{ marginBottom: "1rem", fontSize: "18px" }}
+          >
+            Kickstarter coming soon! Sign up to get notified when it launches.
+          </Alert>
+
+          <Button
+            type="submit"
+            sx={{
+              height: "48px",
+              backgroundColor: "#05ce78",
+            }}
+            variant="contained"
+            disableElevation
+            onClick={() => setIsGoogleFormOpen(isGoogleFormOpen ? false : true)}
+          >
+            {isGoogleFormOpen ? "Close Google Form" : "I want to be notified"}
+          </Button>
+          {isGoogleFormOpen && (
+            <iframe
+              src="https://docs.google.com/forms/d/e/1FAIpQLSfKi8rWYoQ1IVQaIsPUAicS8kNiskug1baUv5oICZkARg65kQ/viewform?embedded=true"
+              width="640"
+              height="518"
+              frameborder="0"
+              marginheight="0"
+              marginwidth="0"
+            >
+              Loading…
+            </iframe>
+          )}
+
+          {/* <form action="">
+            <TextField
+              required
+              id="filled-required"
+              label="Email"
+              variant="filled"
+            />
+            <Button
+              type="submit"
+              sx={{
+                height: "56px",
+                backgroundColor: "#05ce78",
+                marginLeft: "1rem",
+              }}
+              variant="contained"
+              disableElevation
+            >
+              Notify me
+            </Button>
+          </form> */}
+        </div>
+      </div>
 
       <div className={styles.gamesContainer}>
         {games.map((game) => (
           <GameItem key={game.id} game={game} />
         ))}
+        <Card sx={{ width: "300px", height: "550px" }}>
+          <div style={{ fontSize: "80px" }}>7+</div>
+          {/* <CardMedia
+            component="img"
+            height="300"
+            image={comingSoonImage}
+            alt={"+7"}
+          /> */}
+          <CardContent sx={{ fontSize: "28px" }}>
+            + 7 New Games Coming Soon...
+          </CardContent>
+        </Card>
+      </div>
+      <div className={styles.footer}>
+        <div className={styles.link}>Contact</div>
+        <div className={styles.link}>Armana Solutions LLC &copy; 2023</div>
       </div>
     </div>
   );

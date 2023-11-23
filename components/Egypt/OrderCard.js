@@ -14,6 +14,8 @@ import plusIcon from "../../assets/Egypt/plus.png";
 import starIcon from "../../assets/Egypt/star.png";
 import heartIcon from "../../assets/Egypt/heart.png";
 
+import deliverIcon from "../../assets/Egypt/deliver.png";
+
 const iconMap = {
   arabia: arabiaIcon,
   egypt: egyptIcon,
@@ -30,6 +32,7 @@ const resourceIconMap = {
   plus: plusIcon,
   star: starIcon,
   heart: heartIcon,
+  deliver: deliverIcon,
 };
 
 const calculateZoneColor = (zone) => {
