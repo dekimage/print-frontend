@@ -13,6 +13,9 @@ import gemsIcon from "../../assets/Egypt/gem.png";
 import plusIcon from "../../assets/Egypt/plus.png";
 import starIcon from "../../assets/Egypt/star.png";
 import heartIcon from "../../assets/Egypt/heart.png";
+import anyIcon from "../../assets/Egypt/any.png";
+import portalIcon from "../../assets/Egypt/portal.png";
+import bothIcon from "../../assets/Egypt/both.png";
 
 import deliverIcon from "../../assets/Egypt/deliver.png";
 
@@ -28,11 +31,13 @@ const iconMap = {
 const resourceIconMap = {
   drop: dropIcon,
   hex: hexIcon,
-  gems: gemsIcon,
+  gem: gemsIcon,
   plus: plusIcon,
   star: starIcon,
   heart: heartIcon,
   deliver: deliverIcon,
+  any: anyIcon,
+  portal: portalIcon,
 };
 
 const calculateZoneColor = (zone) => {
@@ -122,17 +127,53 @@ export const StatComponent = ({ data, type }) => {
   );
 };
 
+function extractNumber(variableName) {
+  // Use regular expression to match and extract the number
+  const match = variableName.match(/\d+/);
+
+  // Check if a number was found
+  if (match) {
+    // Convert the matched string to a number and return it
+    return parseInt(match[0], 10);
+  } else {
+    // Return a default value or handle the case where no number is found
+    return null;
+  }
+}
+
+const plusOrMinus = (effect) => (effect.includes("cost") ? "-" : "+");
+
 export const UpgradeCard = ({ card }) => {
-  const { cost, vp, effectOne, effectTwo } = card;
+  const { cost, vp, effectOne, effectTwo, both } = card;
   const renderEffects = (effects) => {
     return effects.map((effect) => {
+      if (
+        effect.includes("gold") ||
+        effect.includes("cost") ||
+        effect.includes("vp")
+      ) {
+        return (
+          <div className={styles.goldOrVpContainer}>
+            {plusOrMinus(effect)}
+            <div
+              className={
+                effect.includes("vp") ? [styles.vpIcon] : [styles.goldIcon]
+              }
+            >
+              {extractNumber(effect)}
+            </div>
+          </div>
+        );
+      }
+
       switch (effect) {
         case "to":
           return <span>&rarr;</span>;
         case "or":
           return <span>/</span>;
         case "and":
-          return <span>&amp;</span>;
+          return <span></span>;
+
         default:
           const imgSrc = resourceIconMap[effect];
           return <img height="40px" src={imgSrc} alt={effect} />;
@@ -142,6 +183,11 @@ export const UpgradeCard = ({ card }) => {
 
   return (
     <div className={styles.card}>
+      {both && (
+        <div className={styles.both}>
+          <img src={bothIcon} height="40px" />
+        </div>
+      )}
       <div
         style={{ borderBottom: "10px solid black" }}
         className={styles.effectContainer}

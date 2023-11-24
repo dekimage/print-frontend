@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Layout from "../components/Home/Layout";
-import { getCardMargin } from "../shared/functions";
+import { getCardMargin, getCardMarginTop } from "../shared/functions";
 import styles from "../styles/BattleRoyal.module.scss";
 
 const filterCards = (cardsArray, filters) => {
@@ -99,6 +99,7 @@ const withCardLayout = (options) => {
 
     if (isPrint) {
       const cardsForPrint = printCards.length ? printCards : cards;
+      console.log({ cardsForPrint });
       return (
         <div
           style={{
@@ -107,13 +108,17 @@ const withCardLayout = (options) => {
             justifyContent: "center",
           }}
         >
-          {cardsForPrint
-            .filter((c) => c.img)
-            .map((card, i) => (
-              <div key={i} style={{ marginBottom: getCardMargin(i) }}>
-                <Card card={card} />
-              </div>
-            ))}
+          {cardsForPrint.map((card, i) => (
+            <div
+              key={i}
+              style={{
+                marginTop: getCardMarginTop(i),
+                marginBottom: getCardMargin(i),
+              }}
+            >
+              <Card card={card} />
+            </div>
+          ))}
         </div>
       );
     }
