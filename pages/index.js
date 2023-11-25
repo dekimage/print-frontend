@@ -12,9 +12,12 @@ import piratesCover from "../assets/Home/pirate-deception-box.png";
 import egyptCover from "../assets/Home/trade-route-tactics-box.png";
 import galaxyCover from "../assets/Home/galactic-spaceships-box.png";
 
+import kickstarterImg from "../assets/Home/kickstarter.png";
+
 import hypeImg from "../assets/Home/hype.png";
 
 import { Alert, Card, CardContent, CardMedia } from "@mui/material";
+import Link from "next/link";
 
 export default function Home() {
   const games = [
@@ -70,25 +73,41 @@ export default function Home() {
           <img src={hypeImg} alt="hype img" height="180px" />
         </div>
         <div>
+          <div className="flex_center mb1">
+            <img src={kickstarterImg} alt="kickstarter" height="34px" />
+          </div>
+
           <Alert
             severity="info"
-            sx={{ marginBottom: "1rem", fontSize: "18px" }}
+            sx={{ marginBottom: "2rem", marginTop: "2rem", fontSize: "18px" }}
           >
-            Kickstarter coming soon! Sign up to get notified when it launches.
+            Kickstarter coming soon! Fill the one-question Google Form to get
+            notified when it launches.
           </Alert>
+          <div className={styles.ksBtn}>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfKi8rWYoQ1IVQaIsPUAicS8kNiskug1baUv5oICZkARg65kQ/viewform?usp=sf_link">
+              <Button
+                type="submit"
+                sx={{
+                  height: "48px",
+                  backgroundColor: "#05ce78",
+                }}
+                variant="contained"
+                disableElevation
+                // onClick={() =>
+                //   setIsGoogleFormOpen(isGoogleFormOpen ? false : true)
+                // }
+              >
+                {isGoogleFormOpen
+                  ? "Close Google Form"
+                  : "I want to be notified"}
+              </Button>
+            </a>
+            <div style={{ marginTop: ".5rem", fontStyle: "italic" }}>
+              Opens Google Form with 1 Question
+            </div>
+          </div>
 
-          <Button
-            type="submit"
-            sx={{
-              height: "48px",
-              backgroundColor: "#05ce78",
-            }}
-            variant="contained"
-            disableElevation
-            onClick={() => setIsGoogleFormOpen(isGoogleFormOpen ? false : true)}
-          >
-            {isGoogleFormOpen ? "Close Google Form" : "I want to be notified"}
-          </Button>
           {isGoogleFormOpen && (
             <iframe
               src="https://docs.google.com/forms/d/e/1FAIpQLSfKi8rWYoQ1IVQaIsPUAicS8kNiskug1baUv5oICZkARg65kQ/viewform?embedded=true"
@@ -130,7 +149,9 @@ export default function Home() {
           <GameItem key={game.id} game={game} />
         ))}
         <Card sx={{ width: "300px", height: "550px" }}>
-          <div style={{ fontSize: "80px" }}>7+</div>
+          <div style={{ fontSize: "80px", textAlign: "center" }}>
+            Coming Soon
+          </div>
           {/* <CardMedia
             component="img"
             height="300"
@@ -143,7 +164,7 @@ export default function Home() {
         </Card>
       </div>
       <div className={styles.footer}>
-        <div className={styles.link}>Contact</div>
+        {/* <div className={styles.link}>Contact</div> */}
         <div className={styles.link}>Armana Solutions LLC &copy; 2023</div>
       </div>
     </div>

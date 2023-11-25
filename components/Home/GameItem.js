@@ -25,7 +25,10 @@ function GameItem({ game }) {
               <LinearProgress value={game.progress} variant="determinate" />
               <div>{game.progress}%</div>
             </div>
-            <div className={styles.kickstarterLink}>Kickstarter Link</div>
+            <div className={styles.kickstarterLink}>View Game</div>
+            <div className={styles.kickstarterLinkDisabled}>
+              Kickstarter Link
+            </div>
             <div style={{ fontStyle: "italic", color: "#8a8a8a" }}>
               When progress is at 100% the Kickstarter Link will be available
             </div>
