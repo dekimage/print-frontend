@@ -501,7 +501,7 @@ const characterCards = [
     name: "Trader",
     type: "Character",
     img: "https://cdn.midjourney.com/4296d1e9-0ed9-4dc9-8b73-da502fc488b5/0_2.png",
-    effect: "You may draw a resource card instead of a aquiring trap card.",
+    effect: "You may draw a resource card instead of a acquiring trap card.",
     quantity: 1,
   },
   {
@@ -509,7 +509,7 @@ const characterCards = [
     type: "Character",
     img: "https://cdn.midjourney.com/89c1ce35-e714-437d-b79f-45ed6f38aee7/0_2.png",
     effect:
-      "Before you aquire a trap card, you may look at the top 2 cards of the Trap Cards Deck and choose 1 to keep.",
+      "Before you acquire a trap card, you may look at the top 2 cards of the Trap Cards Deck and choose 1 to keep.",
     quantity: 1,
   },
 ];
