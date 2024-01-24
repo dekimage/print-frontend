@@ -221,72 +221,72 @@ const resourceConfig = [
     name: "Cutlass Strike",
     keywords: ["atk-1"],
     type: "Resource",
-    quantity: 12,
+    quantity: 8,
     img: "https://cdn.discordapp.com/attachments/1151710646296137809/1174715887559913524/tonibg__gold_treasure_and_swords_style_of_hearthstone_8f035fb7-a2a0-4ac2-aa1e-cdbb6118e007.png?ex=65689a6c&is=6556256c&hm=ccc5145f3d6e2750760972decee618ef5f8c1d0d9530db6c71b6eba4599c7b16&",
   },
   {
     name: "Doubloon Dash",
     keywords: ["gold-1"],
     type: "Resource",
-    quantity: 12,
+    quantity: 8,
     img: "https://cdn.discordapp.com/attachments/1151710646296137809/1174713249112014848/tonibg__bag_of_gold_style_of_hearthstone_63b1240e-68d4-4cbd-8c09-af889bc402e3.png?ex=656897f7&is=655622f7&hm=162acb75828ed567c3514e19690fec74e13a70e2cf451aaf4fdc6f32686afaa4&",
   },
   {
     name: "Twin Saber Assault",
     keywords: ["atk-2"],
     type: "Resource",
-    quantity: 6,
+    quantity: 4,
     img: "https://cdn.discordapp.com/attachments/1151710646296137809/1174719253962825760/tonibg__gold_treasure_and_swords_style_of_hearthstone_92cd3076-570d-4e56-99be-81d443befe14.png?ex=65689d8f&is=6556288f&hm=e7d682ba52bebc26521cfbbd1a9d0d365bc3d8849a8f5760f35b625c225d1557&",
   },
   {
     name: "Galleon's Greed",
     keywords: ["gold-2"],
     type: "Resource",
-    quantity: 6,
+    quantity: 4,
     img: "https://cdn.discordapp.com/attachments/1151710646296137809/1174713266795196466/tonibg__bag_of_gold_style_of_hearthstone_103afe77-339b-48f7-a0be-4ad87d0941b3.png?ex=656897fb&is=655622fb&hm=aaec0d9025ba73a2367bada86fcf186f1a745734462c3acc89a96f6d27f1063b&",
   },
   {
     name: "Raider's Riches",
     keywords: ["atk-2", "or", "gold-1"],
     type: "Resource",
-    quantity: 5,
+    quantity: 3,
     img: "https://cdn.discordapp.com/attachments/1151710646296137809/1174714495633985656/tonibg__gold_treasure_and_swords_style_of_hearthstone_89ff1d9b-9f97-4504-99c9-05ad8c196eea.png?ex=65689920&is=65562420&hm=fcd29f73b27c2ddbbd75d472cbf4194885f43739d273b23720bef3141335a608&",
   },
   {
     name: "Goldhook Gambit",
     keywords: ["gold-2", "or", "atk-1"],
     type: "Resource",
-    quantity: 5,
+    quantity: 3,
     img: "https://cdn.discordapp.com/attachments/1151710646296137809/1174713066601058357/tonibg__gold_treasure_and_swords_style_of_hearthstone_18203340-052c-4739-9477-0ba70f123109.png?ex=656897cc&is=655622cc&hm=de00fccfbbd0ea9aa37ea2cc82904bd5d7cbbe02c4efc8350179f960df6404a3&",
   },
   {
     name: "Raider's Riches",
     keywords: ["atk-2", "and", "gold-1"],
     type: "Resource",
-    quantity: 4,
+    quantity: 3,
     img: "https://cdn.discordapp.com/attachments/1151710646296137809/1174713051639980093/tonibg__gold_treasure_and_swords_style_of_hearthstone_089c53fb-f2f1-4b25-bdaf-f9f3a988c6fa.png?ex=656897c8&is=655622c8&hm=0b2ac02db8cabd8906a0ef293673ba09ebccf2999de95f1909dc3bb8013f2ce2&",
   },
   {
     name: "Goldhook Gambit",
     keywords: ["gold-2", "and", "atk-1"],
     type: "Resource",
-    quantity: 4,
+    quantity: 3,
     img: "https://cdn.discordapp.com/attachments/1151710646296137809/1174714226347081821/tonibg__gold_treasure_and_swords_style_of_hearthstone_d5411e82-eb5e-4e4a-862b-476f54f9b5a6.png?ex=656898e0&is=655623e0&hm=38ba3c811c3cee21df3911c1714386c02d2e2ed31079a3c7a3eb1e1c5d389055&",
   },
-  {
-    name: "Trident Thrust",
-    keywords: ["atk-3"],
-    type: "Resource",
-    quantity: 3,
-    img: "https://cdn.discordapp.com/attachments/1151710646296137809/1174714168461492335/tonibg__gold_treasure_and_swords_style_of_hearthstone_a3f8766e-a047-40ec-bfb6-79f951538146.png?ex=656898d2&is=655623d2&hm=100ba2a1bd51da8057006d1ba02feb7b7c68bfdd1d0a7107fe69075edf67331f&",
-  },
-  {
-    name: "Treasure Trove Triumph",
-    keywords: ["gold-3"],
-    type: "Resource",
-    quantity: 3,
-    img: "https://cdn.discordapp.com/attachments/1151710646296137809/1174713301775699968/tonibg__gold_treasure_style_of_hearthstone_e7e7d919-b6f6-40f0-8724-7997e45daf16.png?ex=65689804&is=65562304&hm=50b39d5b2d14e7772cb111c0edfa636f16d14b3cf2b814e086fa199b5f8dab40&",
-  },
+  // {
+  //   name: "Trident Thrust",
+  //   keywords: ["atk-3"],
+  //   type: "Resource",
+  //   quantity: 3,
+  //   img: "https://cdn.discordapp.com/attachments/1151710646296137809/1174714168461492335/tonibg__gold_treasure_and_swords_style_of_hearthstone_a3f8766e-a047-40ec-bfb6-79f951538146.png?ex=656898d2&is=655623d2&hm=100ba2a1bd51da8057006d1ba02feb7b7c68bfdd1d0a7107fe69075edf67331f&",
+  // },
+  // {
+  //   name: "Treasure Trove Triumph",
+  //   keywords: ["gold-3"],
+  //   type: "Resource",
+  //   quantity: 3,
+  //   img: "https://cdn.discordapp.com/attachments/1151710646296137809/1174713301775699968/tonibg__gold_treasure_style_of_hearthstone_e7e7d919-b6f6-40f0-8724-7997e45daf16.png?ex=65689804&is=65562304&hm=50b39d5b2d14e7772cb111c0edfa636f16d14b3cf2b814e086fa199b5f8dab40&",
+  // },
 ];
 
 const pirateResourcesCards = generateCopies(resourceConfig);
@@ -321,15 +321,15 @@ const trapsConfig = [
     type: "Trap",
     img: "https://cdn.discordapp.com/attachments/1151710646296137809/1174744745587781642/tonibg__bomb_explosition_pirates_wrackage_style_of_hearthstone_163793bd-ad6f-497b-a2de-5303e9bcf882.png?ex=6568b54d&is=6556404d&hm=690eeccf195231120eea5f3aa3d7cd3f68ba6a385c084c5946fb293bcb46af73&",
     effect: "No player takes action on this location",
-    quantity: 3,
+    quantity: 1,
   },
   {
     name: "Taxes Trap",
     type: "Trap",
     img: "https://cdn.discordapp.com/attachments/1151710646296137809/1174744948227186688/tonibg__taxes_paying_style_of_hearthstone_35b573a2-f812-41a9-9bd2-0d5735b8e317.png?ex=6568b57d&is=6556407d&hm=8a4e489ce2d2027464fea6570a6e0be4dcc27c726457e905f182a20200737348&",
     effect:
-      "Each player who is on this location must pay you 2 of any resource cards",
-    quantity: 3,
+      "Each player who is on this location must pay you 1 of any resource cards",
+    quantity: 1,
   },
   {
     name: "Trickery Trap",
@@ -337,14 +337,30 @@ const trapsConfig = [
     img: "https://cdn.discordapp.com/attachments/1151710646296137809/1174744997707391006/tonibg__trickery_jack_in_box_shaco_style_of_hearthstone_c50c7a8f-d435-43d8-9dd6-cfeb5dd222de.png?ex=6568b589&is=65564089&hm=20fbc29b139b28a501156b32b76780675d72ebb5fe87731e6d6e442fe096ee1f&",
     effect:
       "If you are alone on this location: do NOT take action. Otherwise, move everyone else anywhere",
-    quantity: 3,
+    quantity: 1,
   },
   {
     name: "Opportunity Trap",
     type: "Trap",
     img: "https://cdn.discordapp.com/attachments/1151710646296137809/1174745055488122961/tonibg__opportunity_to_grab_resources_style_of_hearthstone_9cb74eff-78f7-4ead-93b9-f87ae6ef36d0.png?ex=6568b596&is=65564096&hm=a878c0feb3e319fc1a6123b0f9b87bd13b3486b2f1be5d52eaf5364e045262a5&",
-    effect: "If you are alone on this location: draw 4 resource cards",
-    quantity: 3,
+    effect: "If you are alone on this location: draw 2 resource cards",
+    quantity: 1,
+  },
+  {
+    name: "Walk the Plank",
+    type: "Trap",
+    img: "https://cdn.midjourney.com/07fcaac3-c5d8-44fa-8263-258d20a12b14/0_0.png",
+    effect:
+      "Each player who is on this location must sacrifice 1 pirate card or discard any 3 resource cards (must have at least 3).",
+    quantity: 1,
+  },
+  {
+    name: "Bounty Trap",
+    type: "Trap",
+    img: "https://cdn.midjourney.com/a72b0397-0ca8-4acb-953f-49c4c8f3ab54/0_1.png",
+    effect:
+      "Flip 1 boss you own face-down. That boss is considered captured and it doesn't count towards winning the game. The owner may pay 3 gold to release it at any time.",
+    quantity: 1,
   },
 ];
 
@@ -385,14 +401,7 @@ const bossCards = [
     effect: "Tier 1",
     img: "https://cdn.discordapp.com/attachments/1151710646296137809/1174825357271105576/tonibg__big_cloud_monster_character_style_of_hearthstone_60d8e598-19ae-40ce-bccf-9c664a774933.png?ex=65690060&is=65568b60&hm=f01940324883f37502928156de14e5d2d6fa86358375a6abe87281cc2dfe3aa6&",
   },
-  {
-    type: "Boss",
-    name: "Boss Lavarus",
-    hp: 5,
-    vp: 1,
-    effect: "Tier  2",
-    img: "https://cdn.discordapp.com/attachments/1151710646296137809/1174825477404368957/tonibg__big_lava_monster_character_style_of_hearthstone_4ae815b1-e06a-4d01-8e98-df04c2e24e5e.png?ex=6569007d&is=65568b7d&hm=abe8a0663c3baa5b68663a8a94f24be282cbf73bdb9aa3f1321ea68373f54640&",
-  },
+
   {
     type: "Boss",
     name: "Boss Infestooze",
@@ -408,14 +417,6 @@ const bossCards = [
     vp: 1,
     effect: "Tier 3",
     img: "https://cdn.discordapp.com/attachments/1151710646296137809/1174826303082479636/tonibg__big_t-rex_monster_character_style_of_hearthstone_673884e1-253e-4899-a456-b395f608de21.png?ex=65690141&is=65568c41&hm=e53adea0510d9eeec31edcb630fdc738b2e54c14d4dd51632863229d02b27161&",
-  },
-  {
-    type: "Boss",
-    name: "Boss Red Beakorus",
-    hp: 8,
-    vp: 1,
-    effect: "Tier 3",
-    img: "https://cdn.discordapp.com/attachments/1151710646296137809/1174826373420949587/tonibg__big_red_beak_pterodyctle_saurus_monster_character_style_0e3ea4f6-e4d4-4bdf-92fb-268d86a49c93.png?ex=65690152&is=65568c52&hm=453c9be3d2cf76c746465717f677a550672c16017567833d2a25848b4867be65&",
   },
   {
     type: "Boss",
@@ -441,13 +442,75 @@ const bossCards = [
     effect: "Tier 2",
     img: "https://cdn.discordapp.com/attachments/1151710646296137809/1174831254676443146/tonibg__large_gorilla_monster_style_of_hearthstone_b8745839-d923-40fa-976a-f45c87043eeb.png?ex=656905de&is=655690de&hm=02faf4f835542ff823e376acb37fb1dbda7fb7cc09110edf4e2200c6f4bdd9dc&",
   },
+  // {
+  //   type: "Boss",
+  //   name: "Boss Red Beakorus",
+  //   hp: 8,
+  //   vp: 1,
+  //   effect: "Tier 3",
+  //   img: "https://cdn.discordapp.com/attachments/1151710646296137809/1174826373420949587/tonibg__big_red_beak_pterodyctle_saurus_monster_character_style_0e3ea4f6-e4d4-4bdf-92fb-268d86a49c93.png?ex=65690152&is=65568c52&hm=453c9be3d2cf76c746465717f677a550672c16017567833d2a25848b4867be65&",
+  // },
+  // {
+  //   type: "Boss",
+  //   name: "Boss Swamp Lurker",
+  //   hp: 7,
+  //   vp: 1,
+  //   effect: "Tier 3",
+  //   img: "https://cdn.discordapp.com/attachments/1151710646296137809/1174831042193006592/tonibg__large_monster_style_of_hearthstone_fd67aba5-a7db-44b0-970f-e3a289ce16e6.png?ex=656905ab&is=655690ab&hm=3d991be442cc4801102660ecf7fa97ba4a6ddd39081899e78bff099ea271e167&",
+  // },
+  // {
+  //   type: "Boss",
+  //   name: "Boss Lavarus",
+  //   hp: 5,
+  //   vp: 1,
+  //   effect: "Tier  2",
+  //   img: "https://cdn.discordapp.com/attachments/1151710646296137809/1174825477404368957/tonibg__big_lava_monster_character_style_of_hearthstone_4ae815b1-e06a-4d01-8e98-df04c2e24e5e.png?ex=6569007d&is=65568b7d&hm=abe8a0663c3baa5b68663a8a94f24be282cbf73bdb9aa3f1321ea68373f54640&",
+  // },
+];
+
+const characterCards = [
   {
-    type: "Boss",
-    name: "Boss Swamp Lurker",
-    hp: 7,
-    vp: 1,
-    effect: "Tier 3",
-    img: "https://cdn.discordapp.com/attachments/1151710646296137809/1174831042193006592/tonibg__large_monster_style_of_hearthstone_fd67aba5-a7db-44b0-970f-e3a289ce16e6.png?ex=656905ab&is=655690ab&hm=3d991be442cc4801102660ecf7fa97ba4a6ddd39081899e78bff099ea271e167&",
+    name: "Buccaneer",
+    type: "Character",
+    img: "https://cdn.midjourney.com/e22cda42-8baa-4a77-91cf-d8dc61e64b38/0_3.png",
+    effect: "In Attack Phase, you always win ties.",
+    quantity: 1,
+  },
+  {
+    name: "Charmer",
+    type: "Character",
+    img: "https://cdn.midjourney.com/4dde87eb-b220-4474-84ae-0280ef45010a/0_3.png",
+    effect: "During Recruit Phase, you always recruit first.",
+    quantity: 1,
+  },
+  {
+    name: "Scout",
+    type: "Character",
+    img: "https://cdn.midjourney.com/66aae280-ded6-4d39-8b13-43611ce5941c/0_1.png",
+    effect: "During Recruit Phase, you may reroll 1 pirate for free each turn.",
+    quantity: 1,
+  },
+  {
+    name: "Negotiator",
+    type: "Character",
+    img: "https://cdn.midjourney.com/7e814aba-bf34-4528-992a-e16921f7f7bb/0_3.png",
+    effect: "Once per game you may spend up to 2 gold as combat damage.",
+    quantity: 1,
+  },
+  {
+    name: "Trader",
+    type: "Character",
+    img: "https://cdn.midjourney.com/4296d1e9-0ed9-4dc9-8b73-da502fc488b5/0_2.png",
+    effect: "You may draw a resource card instead of a aquiring trap card.",
+    quantity: 1,
+  },
+  {
+    name: "Huntress",
+    type: "Character",
+    img: "https://cdn.midjourney.com/89c1ce35-e714-437d-b79f-45ed6f38aee7/0_2.png",
+    effect:
+      "Before you aquire a trap card, you may look at the top 2 cards of the Trap Cards Deck and choose 1 to keep.",
+    quantity: 1,
   },
 ];
 
@@ -457,4 +520,5 @@ export const pirateCards = [
   ...phasesCards,
   ...trapCards,
   ...bossCards,
+  ...characterCards,
 ];
