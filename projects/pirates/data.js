@@ -61,11 +61,11 @@ const pirateCharactersCards = [
     img: "https://cdn.discordapp.com/attachments/1151710646296137809/1174693860186787963/tonibg__pirate_Sea_Dog_Salamander_art_style_of_hearthstone_d0733d60-1d02-4c5d-a0e4-6d01baec0254.png?ex=656885e9&is=655610e9&hm=3052b4053845b5bd9f3e24a4e57cdc152a4880de8f16f5d20f1495b0c190f050&",
   },
   {
-    name: "Dolphin Deckhand",
+    name: "Roarin' Roger",
     type: "Pirate",
     cost: 7,
     keywords: ["atk-2", "or", "gold-3"],
-    img: "https://cdn.discordapp.com/attachments/1151710646296137809/1174693730926723114/tonibg__pirate_Deckhand_Dolphin_art_style_of_hearthstone_db27040c-8351-4a76-9cf4-779d72b60646.png?ex=656885ca&is=655610ca&hm=0813af8cb6f48575a6a82a667997840b3dcd3d5d5d2016f5cd5c997bc8b0fabf&",
+    img: "https://cdn.midjourney.com/652ba7bc-038b-4788-92b9-f174e525263d/0_3.png",
   },
   {
     name: "Swashbuckling Sheep",
@@ -103,11 +103,11 @@ const pirateCharactersCards = [
     img: "https://cdn.discordapp.com/attachments/1151710646296137809/1174694008656760862/tonibg__pirate_Treasure_Tortoise_art_style_of_hearthstone_951aeb78-4ec7-4c55-9575-e210804bdde8.png?ex=6568860c&is=6556110c&hm=0a03a524396b6728f235d160628e7fbea8faaf4fa8f9ae293b28211b63cb0b0b&",
   },
   {
-    name: "Gold Keeper Turtle",
+    name: "Hisspants Calypso",
     type: "Pirate",
     cost: 5,
     keywords: ["gold-3"],
-    img: "https://cdn.discordapp.com/attachments/1151710646296137809/1174694027250118747/tonibg__pirate_Treasure_Tortoise_art_style_of_hearthstone_c482d25f-e00d-47dc-91d6-9f31d57d47c6.png?ex=65688610&is=65561110&hm=a280cbd0b1feb549b4dbe8d4bd11889f38e932daa302135d08a9d5df05132e6f&",
+    img: "https://cdn.midjourney.com/b52a6943-0054-4f83-a23f-a371b5c7f6ba/0_2.png",
   },
   {
     name: "Swashbuckling Squirrel",
@@ -124,7 +124,7 @@ const pirateCharactersCards = [
     img: "https://cdn.discordapp.com/attachments/1151710646296137809/1174693591747145778/tonibg__pirate_Jolly_Roger_Rabbit_art_style_of_hearthstone_032832f5-21b1-4520-9257-d07eae260447.png?ex=656885a9&is=655610a9&hm=5ac5bd2b045474657967527c14d9248ace30caee90395d9d57ed00326ba1d1b7&",
   },
   {
-    name: "Corsair Cat",
+    name: "Firetail Fiona",
     type: "Pirate",
     cost: 4,
     keywords: ["atk-1", "and", "gold-1"],
@@ -145,11 +145,11 @@ const pirateCharactersCards = [
     img: "https://cdn.discordapp.com/attachments/1151710646296137809/1174693229678039061/tonibg__pirate_Turtle-arr_Shellback_art_style_of_hearthstone_2276996a-9350-437e-8cbe-b6f132f51b91.png?ex=65688552&is=65561052&hm=79cc1f7e2deb938aa78e8de5495aced7dd9edb33a27674d13480d6394a313707&",
   },
   {
-    name: " Sea Dog Salamander",
+    name: "Salty Seraphina",
     type: "Pirate",
     cost: 4,
     keywords: ["atk-1", "and", "gold-1"],
-    img: "https://cdn.discordapp.com/attachments/1151710646296137809/1174693875907051560/tonibg__pirate_Sea_Dog_Salamander_art_style_of_hearthstone_75219b07-f885-4a51-bf02-555539973795.png?ex=656885ec&is=655610ec&hm=164c32ddbb2cfdbf1c1d6815d1edbb6b0877c015b9b71b1d9268680fd39b826b&",
+    img: "https://cdn.midjourney.com/c84cf447-16c3-4656-89af-829fc1173689/0_3.png",
   },
   {
     name: "Lady Foxy",
@@ -194,11 +194,11 @@ const pirateCharactersCards = [
     img: "https://cdn.discordapp.com/attachments/1151710646296137809/1174693823423721613/tonibg__pirate_Rogue_Rat_art_style_of_hearthstone_598ecbef-179e-46ec-af9b-0d989eaf179c.png?ex=656885e0&is=655610e0&hm=6ba391dedd386664137065aab4e7af31db5f0be650a20fe4242be50b5f7a05c0&",
   },
   {
-    name: "Scuttlebutt Skunk",
+    name: "Aroma Annabelle",
     type: "Pirate",
     cost: 2,
     keywords: ["atk-1"],
-    img: "https://cdn.discordapp.com/attachments/1151710646296137809/1174694217717649460/tonibg__pirate_Scuttlebutt_Skunk_art_style_of_hearthstone_d5467575-bb40-4e4b-ba67-5ac0cd60b45f.png?ex=6568863e&is=6556113e&hm=29b0cccfb291363be28edcf1d595931070f162f5f90fdbc029cb4178eaa22949&",
+    img: "https://cdn.midjourney.com/feaaf10c-c032-467c-86b0-86db94f1fba2/0_3.png",
   },
   {
     name: "Goldgrubbing Gecko",
