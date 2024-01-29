@@ -3,12 +3,13 @@ import withCardLayout from "../shared/hoc";
 
 import Card from "../projects/CookingMadness/Card";
 import { cookingCards } from "../projects/CookingMadness/data";
+import StatsDashboard from "../projects/CookingMadness/StatsDashboard";
 
 const cards = cookingCards;
 console.log(cards);
 
 const filterConfig = {
-  type: ["Recepie", "Ingridient", "Customer", "Mishap", "Equipment", "Cook"],
+  type: ["Recipe", "Ingridient", "Customer", "Mishap", "Equipment", "Cook"],
   ingridientCategory: ["Fruit", "Vegetable", "Meat", "Dairy", "Nuts", "Spice"],
   recepieCategory: ["Soup", "Salad", "Main Dish", "Dessert"],
 };
@@ -20,26 +21,31 @@ const CookingMadnessPage = (props) => {
     props;
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexWrap: "wrap",
-        justifyContent: "center",
-      }}
-    >
-      {processedCards.map((card, i) => {
-        const isInPrint = printCards.some((c) => c.name === card.name);
+    <div>
+      <StatsDashboard
+        recipes={cards.filter((card) => card.type === "Recipe")}
+      />
+      <div
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          justifyContent: "center",
+        }}
+      >
+        {processedCards.map((card, i) => {
+          const isInPrint = printCards.some((c) => c.name === card.name);
 
-        return (
-          <Card
-            card={card}
-            isEditMode={isEditMode}
-            handleAddCardToPrint={handleAddCardToPrint}
-            isInPrint={isInPrint}
-            key={i}
-          />
-        );
-      })}
+          return (
+            <Card
+              card={card}
+              isEditMode={isEditMode}
+              handleAddCardToPrint={handleAddCardToPrint}
+              isInPrint={isInPrint}
+              key={i}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 };

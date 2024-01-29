@@ -17,7 +17,7 @@ import saladIcon from "../../assets/cookingMadness/salad.png";
 import mainDishIcon from "../../assets/cookingMadness/main.png";
 import dessertIcon from "../../assets/cookingMadness/dessert.png";
 
-const ingridientIcon = (type) => {
+export const ingridientIcon = (type) => {
   const ingridientsIcons = {
     Fruit: fruitIcon,
     Vegetable: vegetableIcon,
@@ -43,7 +43,7 @@ const cardTypeImgCover = (type) => {
   const cardTypeImgCovers = {
     Customer: techBorderImg,
     Ingridient: bodyCoverImg,
-    Recepie: natureBorderImg,
+    Recipe: natureBorderImg,
   };
   return cardTypeImgCovers[type];
 };
@@ -52,7 +52,7 @@ const getCardBgByType = (type, isFooter = false) => {
   const colorsByType = {
     Customer: isFooter ? "#a2d2ff" : "#4394e0",
     Ingridient: isFooter ? "#fce97c" : "#fff3b0",
-    Recepie: isFooter ? "#d9ed92" : "#b5e48c",
+    Recipe: isFooter ? "#d9ed92" : "#b5e48c",
     Mishap: isFooter ? "#ff9c9c" : "#e75e5e",
   };
 
@@ -79,8 +79,8 @@ const getBgByType = (type) => {
 const generateIcon = (card) => {
   if (card.type == "Ingridient") {
     return ingridientIcon(card.ingridientCategory);
-  } else if (card.type == "Recepie") {
-    return recepieIcon(card.recepieCategory);
+  } else if (card.type == "Recipe") {
+    return recepieIcon(card.RecipeCategory);
   }
 };
 
@@ -122,7 +122,7 @@ const Card = ({ card, isEditMode, handleAddCardToPrint, isInPrint }) => {
     type,
     ingridients,
     ingridientCategory,
-    recepieCategory,
+    RecipeCategory,
     effect,
     img,
     eats,
@@ -172,8 +172,8 @@ const Card = ({ card, isEditMode, handleAddCardToPrint, isInPrint }) => {
                 >
                   <img
                     src={generateIcon({
-                      type: "Recepie",
-                      recepieCategory: eat,
+                      type: "Recipe",
+                      RecipeCategory: eat,
                     })}
                     height="40px"
                     alt=""
@@ -184,12 +184,12 @@ const Card = ({ card, isEditMode, handleAddCardToPrint, isInPrint }) => {
           </div>
         )}
 
-        {(type == "Ingridient" || type == "Recepie") && (
+        {(type == "Ingridient" || type == "Recipe") && (
           <div
             className={styles.type}
             style={{
               backgroundColor: getBgByType(
-                recepieCategory || ingridientCategory
+                RecipeCategory || ingridientCategory
               ),
               position: "absolute",
               left: "5px",
