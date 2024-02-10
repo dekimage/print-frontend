@@ -2,8 +2,14 @@ import burnImg from "../../assets/cookingMadness/burnt.png";
 import destroyImg from "../../assets/cookingMadness/destroyed.png";
 import dirtyImg from "../../assets/cookingMadness/dirty.png";
 import explodeImg from "../../assets/cookingMadness/explode.png";
+import messImg from "../../assets/cookingMadness/mess.png";
 
-const ingridients = [
+import {
+  generateCopies,
+  generateCopiesStatic,
+} from "../pirates/KeywordRenderer";
+
+const ingridientsCopies = [
   {
     name: "Apple",
     type: "Ingridient",
@@ -115,6 +121,7 @@ const ingridients = [
 ];
 
 const Recipes = [
+  // DESSERTS
   {
     name: "Apple Pie",
     type: "Recipe",
@@ -130,264 +137,163 @@ const Recipes = [
     img: "https://cdn.midjourney.com/0db699a2-9b3b-4365-a95f-2c7f610d318c/0_2.png",
   },
   {
-    name: "Strawberry Ice Cake",
+    name: "Strawberry Cake",
     type: "Recipe",
     RecipeCategory: "Dessert",
     ingridients: ["Strawberry", "Milk", "Fruit"],
     img: "https://cdn.midjourney.com/6e283316-cc5f-40d3-b8c3-cb0034f7805e/0_0.png",
   },
   {
+    name: "Strawberry Jam",
+    type: "Recipe",
+    RecipeCategory: "Dessert",
+    ingridients: ["Strawberry", "Sugar", "Dairy"],
+    img: "https://cdn.midjourney.com/f99b3dbd-6017-42e0-8dc6-00e92b87f426/0_2.png",
+  },
+  {
+    name: "Cinnamon Rolls",
+    type: "Recipe",
+    RecipeCategory: "Dessert",
+    ingridients: ["Cinnamon", "Hazlenuts", "Fruit"],
+    img: "https://cdn.midjourney.com/50984c01-4e11-4552-bdd3-004bf4c1bb40/0_0.png",
+  },
+  {
+    name: "Nuts Pudding",
+    type: "Recipe",
+    RecipeCategory: "Dessert",
+    ingridients: ["Butter", "Peanuts", "Nuts"],
+    img: "https://cdn.midjourney.com/b0853df0-a74a-47b2-895d-9438b5c5c7dd/0_0.png",
+  },
+
+  // SOUPS
+  {
     name: "Potato Soup",
     type: "Recipe",
     RecipeCategory: "Soup",
-    ingridients: ["Potato", "Vegetable", "Spice", "Dairy"],
+    ingridients: ["Potato", "Vegetable", "Dairy"],
     img: "https://cdn.midjourney.com/bb949525-3bb7-44fd-9f7d-25f5f8f53eba/0_1.png",
   },
   {
     name: "Mushroom Soup",
     type: "Recipe",
     RecipeCategory: "Soup",
-    ingridients: ["Mushrooms", "Vegetable", "Spice", "Dairy"],
+    ingridients: ["Mushrooms", "Nuts", "Dairy"],
     img: "https://cdn.midjourney.com/a5b419e2-0d1e-49b6-a9d3-f1efc596af24/0_1.png",
   },
   {
     name: "Tomato Soup",
     type: "Recipe",
     RecipeCategory: "Soup",
-    ingridients: ["Tomato", "Salt", "Dairy"],
+    ingridients: ["Tomato", "Spice", "Dairy"],
     img: "https://cdn.midjourney.com/d76349f1-325a-42ce-9302-0979aa3ab425/0_0.png",
   },
+  {
+    name: "Fish Stew",
+    type: "Recipe",
+    RecipeCategory: "Soup",
+    ingridients: ["Fish", "Nuts", "Spice"],
+    img: "https://cdn.midjourney.com/04d7bc5a-7794-447d-bdf1-cc96b6483e2a/0_1.png",
+  },
+  {
+    name: "Mushroom Pot",
+    type: "Recipe",
+    RecipeCategory: "Soup",
+    ingridients: ["Mushrooms", "Nuts", "Spice"],
+    img: "https://cdn.midjourney.com/915bf179-568c-4599-b547-1a580a8c8759/0_1.png",
+  },
+  {
+    name: "Nuts Cream Soup",
+    type: "Recipe",
+    RecipeCategory: "Soup",
+    ingridients: ["Cashew nuts", "Fruit", "Spice"],
+    img: "https://cdn.midjourney.com/e1229a27-da0e-43a3-a454-e11107dc6a52/0_2.png",
+  },
+  // SALADS
   {
     name: "Fresh Salad",
     type: "Recipe",
     RecipeCategory: "Salad",
-    ingridients: ["Tomato", "Vegetable", "Spice"],
+    ingridients: ["Nuts", "Vegetable", "Spice"],
     img: "https://cdn.midjourney.com/b9c3207c-4637-4042-ae0f-67c5bf82bc69/0_0.png",
+  },
+  {
+    name: "Mixed Salad",
+    type: "Recipe",
+    RecipeCategory: "Salad",
+    img: "https://cdn.midjourney.com/494345c5-06e0-4b71-b109-05935a0c2207/0_3.png",
+    ingridients: ["Spice", "Fruit", "Vegetable"],
   },
   {
     name: "Chicken Salad",
     type: "Recipe",
     RecipeCategory: "Salad",
     img: "https://cdn.midjourney.com/86e9c935-7446-4a82-afd7-6485cc075b4b/0_0.png",
-    ingridients: ["Chicken", "Vegetable", "Vegetable"],
+    ingridients: ["Meat", "Spice", "Vegetable"],
   },
+  {
+    name: "Caesar Salad",
+    type: "Recipe",
+    RecipeCategory: "Salad",
+    img: "https://cdn.midjourney.com/9fd422aa-ecac-4364-9ee7-14f00cacd325/0_0.png",
+    ingridients: ["Nuts", "Meat", "Vegetable"],
+  },
+  {
+    name: "Fruit Salad",
+    type: "Recipe",
+    RecipeCategory: "Salad",
+    img: "https://cdn.midjourney.com/494345c5-06e0-4b71-b109-05935a0c2207/0_0.png",
+    ingridients: ["Fruit", "Fruit", "Vegetable"],
+  },
+  {
+    name: "Ritona Salad",
+    type: "Recipe",
+    RecipeCategory: "Salad",
+    img: "https://cdn.midjourney.com/cc9fc068-2631-48c7-9d1c-54386346fb06/0_3.png",
+    ingridients: ["Nuts", "Dairy", "Vegetable"],
+  },
+
+  // MAIN DISHES
   {
     name: "Beef n Chips",
     type: "Recipe",
     RecipeCategory: "Main Dish",
-    ingridients: ["Beef", "Potato", "Meat"],
+    ingridients: ["Beef", "Nuts", "Meat", "Vegetable"],
     img: "https://cdn.midjourney.com/121eb730-cd3e-4270-a513-d7d3b7ea13a9/0_2.png",
   },
-  // AUTO GENERATED
   {
-    name: "Apple Pie",
-    type: "Recipe",
-    RecipeCategory: "Dessert",
-    ingridients: ["Apple", "Dairy", "Spice"],
-    img: "IMG_URL",
-  },
-  {
-    name: "Banana Smoothie",
-    type: "Recipe",
-    RecipeCategory: "Dessert",
-    ingridients: ["Banana", "Dairy", "Nuts"],
-    img: "IMG_URL",
-  },
-  {
-    name: "Strawberry Salad",
-    type: "Recipe",
-    RecipeCategory: "Salad",
-    ingridients: ["Strawberry", "Vegetable", "Nuts"],
-    img: "IMG_URL",
-  },
-  {
-    name: "Cinnamon Tea",
-    type: "Recipe",
-    RecipeCategory: "Dessert",
-    ingridients: ["Cinnamon", "Fruit", "Dairy"],
-    img: "IMG_URL",
-  },
-  {
-    name: "Salted Caramel",
-    type: "Recipe",
-    RecipeCategory: "Dessert",
-    ingridients: ["Salt", "Dairy", "Sugar"],
-    img: "IMG_URL",
-  },
-  {
-    name: "Sugary Doughnut",
-    type: "Recipe",
-    RecipeCategory: "Dessert",
-    ingridients: ["Sugar", "Fruit", "Dairy"],
-    img: "IMG_URL",
-  },
-  {
-    name: "Milky Cereal",
-    type: "Recipe",
-    RecipeCategory: "Dessert",
-    ingridients: ["Milk", "Fruit", "Nuts"],
-    img: "IMG_URL",
-  },
-  {
-    name: "Cheese Omelette",
-    type: "Recipe",
-    RecipeCategory: "Dessert",
-    ingridients: ["Cheese", "Meat", "Vegetable"],
-    img: "IMG_URL",
-  },
-  {
-    name: "Buttered Toast",
-    type: "Recipe",
-    RecipeCategory: "Dessert",
-    ingridients: ["Butter", "Vegetable", "Spice"],
-    img: "IMG_URL",
-  },
-  {
-    name: "Chicken Soup",
-    type: "Recipe",
-    RecipeCategory: "Soup",
-    ingridients: ["Chicken", "Vegetable", "Spice"],
-    img: "IMG_URL",
-  },
-  {
-    name: "Beef Stew",
+    name: "Tao Pai",
     type: "Recipe",
     RecipeCategory: "Main Dish",
-    ingridients: ["Beef", "Vegetable", "Spice"],
-    img: "IMG_URL",
+    ingridients: ["Peanuts", "Dairy", "Meat", "Vegetable"],
+    img: "https://cdn.midjourney.com/ccf6a7c2-0c99-4b26-949f-ff3d1b67073d/0_0.png",
   },
   {
-    name: "Fish Tacos",
+    name: "Curry Chicken",
     type: "Recipe",
     RecipeCategory: "Main Dish",
-    ingridients: ["Fish", "Vegetable", "Fruit"],
-    img: "IMG_URL",
+    ingridients: ["Chicken", "Spice", "Spice", "Meat"],
+    img: "https://cdn.midjourney.com/7440465c-2d46-4949-be38-8366d12e36dd/0_1.png",
   },
   {
-    name: "Potato Gratin",
+    name: "Sour Sweet",
     type: "Recipe",
     RecipeCategory: "Main Dish",
-    ingridients: ["Potato", "Dairy", "Spice"],
-    img: "IMG_URL",
+    ingridients: ["Salt", "Fruit", "Meat", "Meat"],
+    img: "https://cdn.midjourney.com/7440465c-2d46-4949-be38-8366d12e36dd/0_0.png",
   },
   {
-    name: "Tomato Soup",
-    type: "Recipe",
-    RecipeCategory: "Soup",
-    ingridients: ["Tomato", "Meat", "Nuts"],
-    img: "IMG_URL",
-  },
-  {
-    name: "Mushroom Risotto",
+    name: "Som Tad",
     type: "Recipe",
     RecipeCategory: "Main Dish",
-    ingridients: ["Mushrooms", "Dairy", "Spice"],
-    img: "IMG_URL",
+    ingridients: ["Cheese", "Fruit", "Meat", "Dairy"],
+    img: "https://cdn.midjourney.com/ccf6a7c2-0c99-4b26-949f-ff3d1b67073d/0_1.png",
   },
   {
-    name: "Peanut Butter Jelly",
-    type: "Recipe",
-    RecipeCategory: "Dessert",
-    ingridients: ["Peanuts", "Fruit", "Dairy"],
-    img: "IMG_URL",
-  },
-  {
-    name: "Cashew Chicken",
+    name: "Salmon Cuve",
     type: "Recipe",
     RecipeCategory: "Main Dish",
-    ingridients: ["Cashew Nuts", "Meat", "Vegetable"],
-    img: "IMG_URL",
-  },
-  {
-    name: "Hazelnut Dessert",
-    type: "Recipe",
-    RecipeCategory: "Dessert",
-    ingridients: ["Hazlenuts", "Fruit", "Dairy"],
-    img: "IMG_URL",
-  },
-  {
-    name: "Apple Crumble",
-    type: "Recipe",
-    RecipeCategory: "Dessert",
-    ingridients: ["Apple", "Nuts", "Sugar"],
-    img: "IMG_URL",
-  },
-  {
-    name: "Banana Pancakes",
-    type: "Recipe",
-    RecipeCategory: "Dessert",
-    ingridients: ["Banana", "Dairy", "Spice"],
-    img: "IMG_URL",
-  },
-  {
-    name: "Strawberry Jam",
-    type: "Recipe",
-    RecipeCategory: "Dessert",
-    ingridients: ["Strawberry", "Sugar", "Spice"],
-    img: "IMG_URL",
-  },
-  {
-    name: "Cinnamon Rolls",
-    type: "Recipe",
-    RecipeCategory: "Dessert",
-    ingridients: ["Cinnamon", "Dairy", "Fruit"],
-    img: "IMG_URL",
-  },
-  {
-    name: "Salted Fish",
-    type: "Recipe",
-    RecipeCategory: "Main Dish",
-    ingridients: ["Salt", "Fish", "Vegetable"],
-    img: "IMG_URL",
-  },
-  {
-    name: "Sugary Fruit Salad",
-    type: "Recipe",
-    RecipeCategory: "Salad",
-    ingridients: ["Sugar", "Fruit", "Nuts"],
-    img: "IMG_URL",
-  },
-  {
-    name: "Milkshake",
-    type: "Recipe",
-    RecipeCategory: "Dessert",
-    ingridients: ["Milk", "Fruit", "Sugar"],
-    img: "IMG_URL",
-  },
-  {
-    name: "Cheesy Potatoes",
-    type: "Recipe",
-    RecipeCategory: "Main Dish",
-    ingridients: ["Cheese", "Vegetable", "Spice"],
-    img: "IMG_URL",
-  },
-  {
-    name: "Buttered Corn",
-    type: "Recipe",
-    RecipeCategory: "Main Dish",
-    ingridients: ["Butter", "Vegetable", "Spice"],
-    img: "IMG_URL",
-  },
-  {
-    name: "Chicken Alfredo",
-    type: "Recipe",
-    RecipeCategory: "Main Dish",
-    ingridients: ["Chicken", "Dairy", "Spice"],
-    img: "IMG_URL",
-  },
-  {
-    name: "Beef Burger",
-    type: "Recipe",
-    RecipeCategory: "Main Dish",
-    ingridients: ["Beef", "Dairy", "Vegetable"],
-    img: "IMG_URL",
-  },
-  {
-    name: "Fish Stew",
-    type: "Recipe",
-    RecipeCategory: "Soup",
-    ingridients: ["Fish", "Vegetable", "Spice"],
-    img: "IMG_URL",
+    ingridients: ["Fish", "Dairy", "Meat", "Nuts"],
+    img: "https://cdn.midjourney.com/6cbb38d7-40b1-431e-a9e7-2ac7640581f3/0_0.png",
   },
 ];
 
@@ -396,41 +302,40 @@ const customers = [
     name: "Ronald Buck",
     type: "Customer",
     img: "https://cdn.midjourney.com/d9a026eb-731d-471a-8adc-beadb53e84ac/0_2.png",
-    eats: ["Dessert", "Soup"],
+    eats: ["Salad", "Dessert"],
     effect:
-      "Once per turn, you may trade a Fruit from your hand with a Vegetable from the table.",
+      "Once per turn, you may trade a Fruit Ingridient from your inventory with a Vegetable Ingridient from the table.",
   },
   {
     name: "Rebeca Smith",
     type: "Customer",
     img: "https://cdn.midjourney.com/130a0545-2ca2-4206-b44b-d601fa00cfb3/0_0.png",
-    eats: ["Main Dish", "Salad"],
-    effect:
-      "Once per turn, you may trade a Fruit from your hand with a Vegetable from the table.",
+    eats: ["Salad", "Dessert"],
+    effect: "Once per turn, you may reserve 1 Recpie for free.",
   },
   {
     name: "Zephyra Nightsong",
     type: "Customer",
     img: "https://cdn.midjourney.com/70689726-af40-4820-94c1-e3585a63b803/0_3.png",
-    eats: ["Dessert", "Salad"],
+    eats: ["Salad", "Dessert"],
     effect:
-      "Once per turn, you may trade a Fruit from your hand with a Vegetable from the table.",
+      "Once per turn if there is a Customer on the table, you may draw 1 additional Ingridient.",
   },
   {
     name: "Lunara Flameborn",
     type: "Customer",
     img: "https://cdn.midjourney.com/c7b97b4c-6670-488a-b65d-65179d51b4ce/0_1.png",
-    eats: ["Dessert", "Soup"],
+    eats: ["Salad", "Main Dish"],
     effect:
-      "Once per turn, you may trade a Fruit from your hand with a Vegetable from the table.",
+      "Once per turn, if there are 2 or more Recipes on the table, you may reveal 3 cards from the deck and choose 1 Ingridient to keep.",
   },
   {
     name: "Mirelle Shadowend",
     type: "Customer",
     img: "https://cdn.midjourney.com/c7b97b4c-6670-488a-b65d-65179d51b4ce/0_0.png",
-    eats: ["Dessert", "Main Dish"],
+    eats: ["Salad", "Main Dish"],
     effect:
-      "Once per turn, you may trade a Fruit from your hand with a Vegetable from the table.",
+      "Once per turn, you may trade a Spice Ingridient from your inventory with a Dairy Ingridient from the table.",
   },
   {
     name: "Gavran Ironheart",
@@ -438,18 +343,72 @@ const customers = [
     img: "https://cdn.midjourney.com/60ad5501-90b2-4d6a-95e4-70d01eb3b634/0_3.png",
     eats: ["Salad", "Soup"],
     effect:
-      "Once per turn, you may trade a Fruit from your hand with a Vegetable from the table.",
+      "Once per turn, you may trade a Nuts Ingridient from your inventory with a Meat Ingridient from the table.",
   },
   {
     name: "Eldric Stormblade",
     type: "Customer",
     img: "https://cdn.midjourney.com/b5b0a799-c67e-431a-b5b6-12c22fcbb8a9/0_0.png",
-    eats: ["Soup", "Main Dish"],
+    eats: ["Dessert", "Main Dish"],
     effect:
-      "Once per turn, you may trade a Fruit from your hand with a Vegetable from the table.",
+      "Once per turn, you may trade a reserved Recipe for any Ingridient on the table. Also, your maximum Recipe limit is 2.",
+  },
+
+  {
+    name: "Marco Delgado",
+    type: "Customer",
+    img: "https://cdn.midjourney.com/9b2de921-e108-498f-8e01-0bd3ac2eaa34/0_2.png",
+    eats: ["Dessert", "Soup"],
+    effect:
+      "Once per turn, if this is your 2nd Customer and there are maximum of 6 cards on table, you may choose to return a Mishap card to the bottom of the deck.",
+  },
+  {
+    name: "Julia Fontaine",
+    type: "Customer",
+    img: "https://cdn.midjourney.com/36fe37b5-d6cd-4be4-9eb2-b09f5dd2e748/0_2.png",
+    eats: ["Dessert", "Soup"],
+    effect:
+      "Once per Game, you may draw 4 cards from the deck and choose any Ingridients to keep.",
+  },
+  {
+    name: "Ethan Moreau",
+    type: "Customer",
+    img: "https://cdn.midjourney.com/0b296aa9-12a5-482d-b63c-54654abbcca6/0_2.png",
+    eats: ["Soup", "Main Dish"],
+    effect: "You can triple with just 2 Meat or Dairy Ingridients.",
+  },
+  {
+    name: "Sofia Ricci",
+    type: "Customer",
+    img: "https://cdn.midjourney.com/713e144d-b5af-423d-bdc9-d627f885dd6b/0_1.png",
+    eats: ["Soup", "Main Dish"],
+    effect: "You can triple with just 2 Nuts or Fruit Ingridients.",
+  },
+  {
+    name: "Oliver Stein",
+    type: "Customer",
+    img: "https://cdn.midjourney.com/0b296aa9-12a5-482d-b63c-54654abbcca6/0_3.png",
+    eats: ["Soup", "Main Dish"],
+    effect: "You can triple with just 2 Spice or Vegetable Ingridients.",
+  },
+  {
+    name: "Nadia Petrova",
+    type: "Customer",
+    img: "https://cdn.midjourney.com/ca587216-3466-4fa9-9346-b03b205b2a37/0_2.png",
+    eats: ["Salad", "Main Dish"],
+    effect:
+      "Once per Game, you may take all Nuts and Vegetable Ingridients from the table.",
+  },
+  {
+    name: "Liam Gallagher",
+    type: "Customer",
+    img: "https://cdn.midjourney.com/011aa815-a766-42ad-8e1d-037a738fce86/0_1.png",
+    eats: ["Dessert", "Soup"],
+    effect:
+      "Once per Game, you may draw 4 cards from the deck and choose 1 Recipe card to cook with no cost.",
   },
 ];
-const mishaps = [
+const mishapsCopies = [
   {
     name: "Burnt",
     img: burnImg,
@@ -474,16 +433,33 @@ const mishaps = [
     effect: "Skip Turn.",
     type: "Mishap",
   },
+  {
+    name: "Messed Up",
+    img: messImg,
+    effect: "Skip Turn.",
+    type: "Mishap",
+  },
 ];
 
-const tools = [{}];
+const ingridients = generateCopiesStatic(ingridientsCopies, 3);
+const mishaps = generateCopiesStatic(mishapsCopies, 3);
+
+const tools = [
+  {
+    name: "Protective Gloves",
+    img: messImg,
+    effect: "Discard this to avoid a Mishap.",
+    type: "Tool",
+    ingridients: ["Fruit"],
+  },
+];
 const cooks = [{}];
 
 export const cookingCards = [
-  ...ingridients,
-  ...Recipes,
-  ...customers,
-  ...mishaps,
+  // ...ingridients,
+  // ...Recipes,
+  // ...customers,
+  // ...mishaps,
   // ...tools,
   // ...cooks,
 ];

@@ -13,7 +13,7 @@ export const getCardMarginTop = (index) => {
   const positionWithinSet = index % 9;
 
   if (positionWithinSet >= 0 && positionWithinSet <= 2) {
-    return "18px";
+    return "20px";
   } else {
     return "0";
   }

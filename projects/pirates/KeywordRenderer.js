@@ -65,3 +65,16 @@ export function generateCopies(config) {
 
   return copies;
 }
+
+export function generateCopiesStatic(cards, quantity) {
+  const copies = [];
+
+  // Iterate over each resource type in the config
+  for (const resourceConfig of cards) {
+    for (let i = 0; i < quantity; i++) {
+      copies.push(resourceConfig);
+    }
+  }
+
+  return copies;
+}

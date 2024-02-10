@@ -106,7 +106,7 @@ const StatsDashboard = ({ recipes }) => {
           }}
         >
           <div>
-            <h3>Specific Ingredients</h3>
+            <h3>Specific Ingredients (4)</h3>
             <div
               style={{
                 display: "grid",
@@ -122,10 +122,11 @@ const StatsDashboard = ({ recipes }) => {
                     </div>
                   )
               )}
+              Total: {Object.keys(ingredientCounts).length}
             </div>
           </div>
           <div>
-            <h3>Generic Ingredients</h3>
+            <h3>Generic Ingredients (9)</h3>
             <div
               style={{
                 display: "grid",
@@ -155,9 +156,8 @@ const StatsDashboard = ({ recipes }) => {
               alignItems: "center",
             }}
           >
-            {/* ... existing sections */}
             <div>
-              <h3>Aggregated Generic Ingredients</h3>
+              <h3>Aggregated Generic Ingredients (12)</h3>
               <div
                 style={{
                   display: "grid",
@@ -171,6 +171,40 @@ const StatsDashboard = ({ recipes }) => {
                     {genericType}: {genericCounts[genericType]}
                   </div>
                 ))}
+              </div>
+            </div>
+          </div>
+
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
+            <div>
+              <h3>Total Ingredients (13)</h3>
+              <div
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "auto auto",
+                  gap: "10px",
+                }}
+              >
+                {Object.keys(genericCounts).map((genericType) => (
+                  <div key={genericType} style={ingredientStyle}>
+                    <img src={generateIcon(genericType)} height="30px" alt="" />
+                    {genericType}:{" "}
+                    {genericCounts[genericType] + ingredientCounts[genericType]}
+                  </div>
+                ))}
+                Total:{" "}
+                {Object.keys(genericCounts)
+                  .map(
+                    (genericType) =>
+                      genericCounts[genericType] + ingredientCounts[genericType]
+                  )
+                  .reduce((a, b) => a + b, 0)}
               </div>
             </div>
           </div>
