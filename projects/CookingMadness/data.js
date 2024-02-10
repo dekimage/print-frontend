@@ -444,15 +444,39 @@ const mishapsCopies = [
 const ingridients = generateCopiesStatic(ingridientsCopies, 3);
 const mishaps = generateCopiesStatic(mishapsCopies, 3);
 
-const tools = [
+const toolsConfig = [
   {
     name: "Protective Gloves",
-    img: messImg,
+    img: "https://cdn.midjourney.com/ed7575d0-392e-4a93-9e1f-68dcc50f5537/0_0.png",
+    effect:
+      "Discard this to avoid a Mishap. You stop drawing cards immediately.",
+    type: "Tool",
+    quantity: 2,
+  },
+  {
+    name: "Protective Headgear",
+    img: "https://cdn.midjourney.com/5e4eaba4-33b6-4795-8d03-127ca5aaa5e5/0_0.png",
     effect: "Discard this to avoid a Mishap.",
     type: "Tool",
-    ingridients: ["Fruit"],
+    quantity: 2,
+  },
+  {
+    name: "Fair Trade",
+    img: "https://cdn.midjourney.com/cee54247-e112-42de-b565-6dff2d9938dc/0_0.png",
+    effect:
+      "Discard this to trade 1 Ingridient you own with one from the table. Use this on your turn or when it is your priority on opponent's turn.",
+    type: "Tool",
+    quantity: 3,
+  },
+  {
+    name: "GMO Joker",
+    img: "https://cdn.midjourney.com/6300ef5e-bd91-49a6-8b22-b52b9724f482/0_1.png",
+    effect: "Use this card as any Ingridient.",
+    type: "Tool",
+    quantity: 2,
   },
 ];
+const tools = generateCopies(toolsConfig);
 const cooks = [{}];
 
 export const cookingCards = [
@@ -460,6 +484,6 @@ export const cookingCards = [
   ...Recipes,
   ...customers,
   ...mishaps,
-  // ...tools,
+  ...tools,
   // ...cooks,
 ];

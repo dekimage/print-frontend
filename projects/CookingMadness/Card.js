@@ -54,6 +54,7 @@ const getCardBgByType = (type, isFooter = false) => {
     Ingridient: isFooter ? "#fce97c" : "#fff3b0",
     Recipe: isFooter ? "#d9ed92" : "#b5e48c",
     Mishap: isFooter ? "#ff9c9c" : "#e75e5e",
+    Tool: isFooter ? "#b7b7a4" : "#6b705c",
   };
 
   return colorsByType[type];
