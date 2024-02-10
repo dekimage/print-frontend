@@ -456,10 +456,10 @@ const tools = [
 const cooks = [{}];
 
 export const cookingCards = [
-  // ...ingridients,
-  // ...Recipes,
-  // ...customers,
-  // ...mishaps,
+  ...ingridients,
+  ...Recipes,
+  ...customers,
+  ...mishaps,
   // ...tools,
   // ...cooks,
 ];
