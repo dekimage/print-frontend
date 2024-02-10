@@ -24,38 +24,39 @@ export default function Home() {
   const games = [
     {
       id: 1,
-      name: "Lane Royale",
-      image: battleRoyalCover,
-      link: "/lane-royale",
-      progress: 90,
+      name: "Cooking Madness",
+      image: cookingCover,
+      link: "/cooking-madness",
+      progress: 100,
     },
     {
       id: 2,
       name: "Pirate Deception",
       image: piratesCover,
       link: "/pirates",
-      progress: 80,
+      progress: 100,
     },
     {
       id: 3,
-      name: "Trade Route Tactics",
-      image: egyptCover,
-      link: "/trt",
-      progress: 60,
+      name: "Lane Royale",
+      image: battleRoyalCover,
+      link: "/lane-royale",
+      progress: 100,
     },
     {
       id: 4,
-      name: "Cooking Madness",
-      image: cookingCover,
-      link: "/cooking-madness",
-      progress: 10,
+      name: "Trade Route Tactics",
+      image: egyptCover,
+      link: "/trt",
+      progress: 100,
     },
+
     {
       id: 5,
       name: "Galaxy Spaceships",
       image: galaxyCover,
       link: "/galaxy",
-      progress: 10,
+      progress: 15,
     },
   ];
 
