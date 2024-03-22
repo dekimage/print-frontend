@@ -12,6 +12,7 @@ import piratesCover from "../assets/Home/pirate-deception-box.png";
 import egyptCover from "../assets/Home/trade-route-tactics-box.png";
 import galaxyCover from "../assets/Home/galactic-spaceships-box.png";
 import cookingCover from "../assets/Home/cooking-madness-box.png";
+import hodCover from "../assets/Home/heroes-of-dominion-box.png";
 
 import kickstarterImg from "../assets/Home/kickstarter.png";
 
@@ -53,6 +54,14 @@ export default function Home() {
 
     {
       id: 5,
+      name: "Heroes of Dominion",
+      image: hodCover,
+      link: "/heroes-of-dominion",
+      progress: 15,
+    },
+
+    {
+      id: 6,
       name: "Galaxy Spaceships",
       image: galaxyCover,
       link: "/galaxy",
