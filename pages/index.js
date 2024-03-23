@@ -13,6 +13,7 @@ import egyptCover from "../assets/Home/trade-route-tactics-box.png";
 import galaxyCover from "../assets/Home/galactic-spaceships-box.png";
 import cookingCover from "../assets/Home/cooking-madness-box.png";
 import hodCover from "../assets/Home/heroes-of-dominion-box.png";
+import miniBattlesCover from "../assets/Home/miniBattlesCover.png";
 
 import kickstarterImg from "../assets/Home/kickstarter.png";
 
@@ -45,23 +46,29 @@ export default function Home() {
       progress: 100,
     },
     {
+      id: 5,
+      name: "Miniaturized Battles",
+      image: miniBattlesCover,
+      link: "/miniaturized-battles",
+      progress: 50,
+    },
+
+    {
       id: 4,
+      name: "Heroes of Dominion",
+      image: hodCover,
+      link: "/heroes-of-dominion",
+      progress: 85,
+    },
+    {
+      id: 6,
       name: "Trade Route Tactics",
       image: egyptCover,
       link: "/trt",
       progress: 100,
     },
-
     {
-      id: 5,
-      name: "Heroes of Dominion",
-      image: hodCover,
-      link: "/heroes-of-dominion",
-      progress: 15,
-    },
-
-    {
-      id: 6,
+      id: 7,
       name: "Galaxy Spaceships",
       image: galaxyCover,
       link: "/galaxy",
