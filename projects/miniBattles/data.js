@@ -22,6 +22,18 @@ import goblin3 from "../../assets/miniBattles/goblin3.png";
 import goblin4 from "../../assets/miniBattles/goblin4.png";
 import goblin5 from "../../assets/miniBattles/goblin5.png";
 
+import cactus1 from "../../assets/miniBattles/cactus1.png";
+import cactus2 from "../../assets/miniBattles/cactus2.png";
+import cactus3 from "../../assets/miniBattles/cactus3.png";
+import cactus4 from "../../assets/miniBattles/cactus4.png";
+import cactus5 from "../../assets/miniBattles/cactus5.png";
+
+import naga1 from "../../assets/miniBattles/naga1.png";
+import naga2 from "../../assets/miniBattles/naga2.png";
+import naga3 from "../../assets/miniBattles/naga3.png";
+import naga4 from "../../assets/miniBattles/naga4.png";
+import naga5 from "../../assets/miniBattles/naga5.png";
+
 const Factions = {
   necropolis: {
     name: "Necropolis",
@@ -51,6 +63,20 @@ const Factions = {
     secondaryColor: "#e09f9f",
     imgUrl:
       "https://cdn.midjourney.com/b5f94154-f912-432e-bac6-d0bb990e30fb/0_3.png",
+  },
+  cactus: {
+    name: "Cactus",
+    color: "#a2ad4e",
+    secondaryColor: "#b6dbb7",
+    imgUrl:
+      "https://cdn.midjourney.com/2213376b-e338-41d8-b1a0-6e4b0933a046/0_3.png",
+  },
+  naga: {
+    name: "Naga",
+    color: "#80a6bf",
+    secondaryColor: "#a2cce8",
+    imgUrl:
+      "https://cdn.midjourney.com/75bfc8d5-8ae9-4161-bef8-f5328614d896/0_2.png",
   },
 };
 
@@ -405,9 +431,190 @@ const goblinCards = [
   },
 ];
 
+const cactusCards = [
+  {
+    name: "Cactus Warrior",
+    tier: 1,
+    hp: 4,
+    mp: 2,
+    heroImg: cactus1,
+    faction: Factions.cactus,
+    atkDice: 2,
+    defDice: 1,
+    atkJson: [
+      { on: "1-2", do: "deal 1 dmg" },
+      { on: "3-4", do: "deal 2 dmg" },
+      { on: "5-6", do: "deal 2 dmg. apply 1 curse" },
+    ],
+    defJson: [{ on: "5-6", do: "block 1 dmg" }],
+  },
+  {
+    name: "Cactus Archer",
+    tier: 2,
+    hp: 6,
+    mp: 3,
+    heroImg: cactus2,
+    faction: Factions.cactus,
+    atkDice: 3,
+    defDice: 1,
+    atkJson: [
+      { on: "1-2", do: "deal 1 dmg" },
+      { on: "3-4", do: "deal 2 dmg" },
+      { on: "5-6", do: "deal 2 dmg. apply 1 curse" },
+    ],
+    defJson: [{ on: "5-6", do: "block 2 dmg" }],
+  },
+  {
+    name: "Cactus Shaman",
+    tier: 3,
+    hp: 8,
+    mp: 1,
+    heroImg: cactus3,
+    faction: Factions.cactus,
+    atkDice: 3,
+    defDice: 2,
+    atkJson: [
+      { on: "1-4", do: "deal 2 dmg" },
+      { on: "5", do: "deal 3 dmg" },
+      { on: "6", do: "deal 4 dmg. apply 1 curse" },
+    ],
+    defJson: [{ on: "4-6", do: "block 2 dmg" }],
+  },
+  {
+    name: "Cactus Berserker",
+    tier: 4,
+    hp: 12,
+    mp: 6,
+    heroImg: cactus4,
+    faction: Factions.cactus,
+    atkDice: 3,
+    defDice: 2,
+
+    atkJson: [
+      { on: "1-2", do: "deal 2 dmg" },
+      { on: "3-4", do: "deal 3 dmg" },
+      { on: "5-6", do: "deal 4 dmg. apply 1 curse" },
+    ],
+    defJson: [
+      { on: "4-5", do: "block 1 dmg" },
+      { on: "6", do: "block 2 dmg" },
+    ],
+  },
+  {
+    name: "Cactus King",
+    tier: 5,
+    hp: 16,
+    mp: 5,
+    heroImg: cactus5,
+    faction: Factions.cactus,
+    atkDice: 4,
+    defDice: 4,
+    atkJson: [
+      { on: "1-2", do: "deal 2 dmg" },
+      { on: "3-4", do: "deal 3 dmg" },
+      { on: "5-6", do: "deal 3 dmg. apply 1 curse" },
+    ],
+    defJson: [
+      { on: "3-5", do: "block 1 dmg" },
+      { on: "6", do: "block 2 dmg" },
+    ],
+  },
+];
+
+const nagaCards = [
+  {
+    name: "Naga Warrior",
+    tier: 1,
+    hp: 4,
+    mp: 2,
+    heroImg: naga1,
+    faction: Factions.naga,
+    atkDice: 2,
+    defDice: 1,
+    atkJson: [
+      { on: "1-2", do: "deal 1 dmg" },
+      { on: "3-4", do: "deal 2 dmg" },
+      { on: "5-6", do: "deal 2 dmg. apply 1 curse" },
+    ],
+    defJson: [{ on: "5-6", do: "block 1 dmg" }],
+  },
+  {
+    name: "Naga Archer",
+    tier: 2,
+    hp: 6,
+    mp: 3,
+    heroImg: naga2,
+    faction: Factions.naga,
+    atkDice: 3,
+    defDice: 1,
+    atkJson: [
+      { on: "1-2", do: "deal 1 dmg" },
+      { on: "3-4", do: "deal 2 dmg" },
+      { on: "5-6", do: "deal 2 dmg. apply 1 curse" },
+    ],
+    defJson: [{ on: "5-6", do: "block 2 dmg" }],
+  },
+  {
+    name: "Naga Shaman",
+    tier: 3,
+    hp: 8,
+    mp: 1,
+    heroImg: naga3,
+    faction: Factions.naga,
+    atkDice: 3,
+    defDice: 2,
+    atkJson: [
+      { on: "1-4", do: "deal 2 dmg" },
+      { on: "5", do: "deal 3 dmg" },
+      { on: "6", do: "deal 4 dmg. apply 1 curse" },
+    ],
+    defJson: [{ on: "4-6", do: "block 2 dmg" }],
+  },
+  {
+    name: "Naga Berserker",
+    tier: 4,
+    hp: 12,
+    mp: 6,
+    heroImg: naga4,
+    faction: Factions.naga,
+    atkDice: 3,
+    defDice: 2,
+    atkJson: [
+      { on: "1-2", do: "deal 2 dmg" },
+      { on: "3-4", do: "deal 3 dmg" },
+      { on: "5-6", do: "deal 4 dmg. apply 1 curse" },
+    ],
+    defJson: [
+      { on: "4-5", do: "block 1 dmg" },
+      { on: "6", do: "block 2 dmg" },
+    ],
+  },
+  {
+    name: "Naga King",
+    tier: 5,
+    hp: 16,
+    mp: 5,
+    heroImg: naga5,
+    faction: Factions.naga,
+    atkDice: 4,
+    defDice: 4,
+    atkJson: [
+      { on: "1-2", do: "deal 2 dmg" },
+      { on: "3-4", do: "deal 3 dmg" },
+      { on: "5-6", do: "deal 3 dmg. apply 1 curse" },
+    ],
+    defJson: [
+      { on: "3-5", do: "block 1 dmg" },
+      { on: "6", do: "block 2 dmg" },
+    ],
+  },
+];
+
 export const miniCards = [
   ...necropolisCards,
   ...havenCards,
   ...trollCards,
   ...goblinCards,
+  ...cactusCards,
+  ...nagaCards,
 ];

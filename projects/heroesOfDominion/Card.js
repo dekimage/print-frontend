@@ -108,6 +108,7 @@ function EffectText({ effect }) {
     "Teleport 1": <span style={teleportStyle}>Teleport 1</span>,
     "Teleport 2": <span style={teleportStyle}>Teleport 2</span>,
     "Teleport 3": <span style={teleportStyle}>Teleport 3</span>,
+    "Teleport 5": <span style={teleportStyle}>Teleport 5</span>,
     "Teleport 9": <span style={teleportStyle}>Teleport 9</span>,
     "Jump 1": <span style={jumpStyle}>Jump 1</span>,
     "Jump 2": <span style={jumpStyle}>Jump 2</span>,

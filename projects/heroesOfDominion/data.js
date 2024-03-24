@@ -77,8 +77,7 @@ const TEMPLATE = {
   effect: "EFFECT",
 };
 
-const heroesCardsConfig = [
-  // Monkey
+const monkeyCards = [
   {
     name: "Mecha Punch",
     img: monkey1img,
@@ -120,7 +119,9 @@ const heroesCardsConfig = [
     effect:
       "Pull yourself towards a target. If the target is Enemy Hero: Apply 1 Stun.",
   },
-  // Demon
+];
+
+const demonCards = [
   {
     name: "Sharp Hook",
     img: demon1img,
@@ -161,8 +162,9 @@ const heroesCardsConfig = [
     hero: heroNames.demon,
     effect: "Deal 2 Dmg. Apply Stun.",
   },
+];
 
-  // Blinky
+const blinkyCards = [
   {
     name: "Zap",
     img: blinky1img,
@@ -204,8 +206,9 @@ const heroesCardsConfig = [
     effect: "Teleport 9. Then repeat the last ability card you played.",
     // effect: "add up to 3 "Blinky" cards from your discard pile to your hand."
   },
+];
 
-  // Archer
+const archerCards = [
   // {
   //   name: "Arrow Rain",
   //   img: archer1img,
@@ -215,6 +218,7 @@ const heroesCardsConfig = [
   //   hero: heroNames.archer,
   //   effect: "Deal 1 Dmg to all adjecent heroes.",
   // },
+
   {
     name: "Blowing Arrow",
     img: archer1img,
@@ -254,8 +258,9 @@ const heroesCardsConfig = [
     hero: heroNames.archer,
     effect: "Gain 3 MP. Draw 3 Cards. Discard any that are not Archer cards.",
   },
+];
 
-  // Assasin
+const assasinCards = [
   {
     name: "Stealth",
     img: assasin1img,
@@ -298,88 +303,185 @@ const heroesCardsConfig = [
     effect:
       "Swap with any friendly hero. Then you may use 1 basic ability from that hero from the discard pile.",
   },
+];
 
-  // Warlock
+const warlockCards = [
   {
-    name: "Shadow Bolt",
+    name: "Life Swap",
     img: warlock1img,
     rarity: "basic",
-    range: "0",
+    range: "0-3",
+    rangeType: "any",
     quantity: 1,
     hero: heroNames.warlock,
-    effect:
-      "Draw 1 Card. Then, if you have 3+ Warlock cards in discard pile: Gain 1 Lock.",
+    effect: "Deal 1 Dmg or Heal 1 Dmg. Fear 1.",
   },
   {
     name: "Siphon Life",
     img: warlock2img,
     rarity: "basic",
-    range: "1-1",
+    range: "2-5",
+    rangeType: "line",
     quantity: 1,
     hero: heroNames.warlock,
-    effect:
-      "Deal 1 Dmg. Heal 1. Then, if you have 3+ Warlock cards in discard pile: Gain 1 Lock.",
-  },
-  {
-    name: "Curse",
-    img: warlock3img,
-    rarity: "super",
-    range: "1-1",
-    quantity: 1,
-    hero: heroNames.warlock,
-    effect:
-      "Deal 1 Dmg. Apply 1 Curse. Then, if you have 3+ Warlock cards in discard pile: Gain 1 Lock.",
+    effect: "Deal 1 Dmg. If you have Lifesteal, Deal 2 Dmg instead.",
   },
   {
     name: "Dark Ritual",
-    img: warlock4img,
+    img: warlock3img,
     rarity: "super",
-    range: "1-1",
+    range: "0",
+    rangeType: "self",
     quantity: 1,
     hero: heroNames.warlock,
-    effect:
-      "Deal 1 Dmg. Apply 1 Curse. Then, if you have 3+ Warlock cards in discard pile: Gain 1 Lock.",
+    effect: "Pay 2 HP, Draw 2 Cards. Gain 2 Lifesteal.",
   },
+  {
+    name: "Forbidden Curse",
+    img: warlock4img,
+    rarity: "mega",
+    range: "1-4",
+    rangeType: "line",
+    quantity: 1,
+    hero: heroNames.warlock,
+    effect: "Deal 2 Dmg. Target Hero Discards 2 Cards.",
+  },
+];
 
-  // Goblin
+const goblinCards = [
   {
-    name: "Goblin Punch",
-    img: goblin1img,
+    name: "Bomb Strike",
+    img: goblin3img,
     rarity: "basic",
-    range: "1-1",
+    range: "1-4",
+    rangeType: "line",
     quantity: 1,
     hero: heroNames.goblin,
-    effect: "Deal 1 Dmg. Gain 1 MP.",
+    effect:
+      "Place a random Bomb Token. (Deal 2 Dmg. / Lose 3 MP / Discard 2 Cards.)",
   },
   {
-    name: "Goblin Kick",
+    name: "Goblin Scream",
+    img: goblin4img,
+    rarity: "basic",
+    range: "1-5",
+    rangeType: "line",
+    quantity: 1,
+    hero: heroNames.goblin,
+    effect: "Pull 1. Apply Gravity. Gain 1 Fire.",
+  },
+  {
+    name: "Chain Reaction",
+    img: goblin1img,
+    rarity: "super",
+    range: "1-4",
+    rangeType: "any",
+    quantity: 1,
+    hero: heroNames.goblin,
+    effect:
+      "Deal 1 Dmg. Activate any adjecent Bomb Tokens to that hero and apply their effects. Draw 1 Card for each Bomb.",
+  },
+  {
+    name: "Mega Nuke",
     img: goblin2img,
+    rarity: "mega",
+    range: "1-4",
+    rangeType: "line",
+    quantity: 1,
+    hero: heroNames.goblin,
+    effect:
+      "Deal 2 Dmg on the target cell & Deal 1 Dmg + Push 1 to adjecent cells to it.",
+  },
+];
+
+const hecarimCards = [
+  {
+    name: "Relentless Charge",
+    img: hecarim1img,
     rarity: "basic",
     range: "1-1",
     quantity: 1,
-    hero: heroNames.goblin,
+    hero: heroNames.hecarim,
+    effect:
+      "Gain 1 MP. You may spend your MP to move and then stop on a hero. Deal x Dmg where x = MP - 2 spent.",
+  },
+  {
+    name: "Lasso Throw",
+    img: hecarim2img,
+    rarity: "basic",
+    range: "1-1",
+    quantity: 1,
+    hero: heroNames.hecarim,
     effect: "Deal 1 Dmg. Push 1.",
   },
   {
-    name: "Goblin Grab",
-    img: goblin3img,
+    name: "Flying Charge",
+    img: hecarim3img,
     rarity: "super",
     range: "1-1",
     quantity: 1,
-    hero: heroNames.goblin,
-    effect: "Deal 1 Dmg. Pull 1.",
+    hero: heroNames.hecarim,
+    effect:
+      "Gain 3 MP. You may spend your MP to move and then stop on a hero. Push x where x = MP - 2 spent. If the push results in collision, apply Stun.",
   },
   {
-    name: "Goblin Throw",
-    img: goblin4img,
+    name: "Earthwave Smash",
+    img: hecarim4img,
+    rarity: "mega",
+    range: "1-5",
+    rangeType: "any",
+    quantity: 1,
+    hero: heroNames.hecarim,
+    effect: "Teleport 5. Deal 2 Dmg to all adjecent heroes.",
+  },
+];
+
+const orcCards = [
+  {
+    name: "Axe Slash",
+    img: orc1img,
+    rarity: "basic",
+    range: "1-1",
+    rangeType: "self",
+    quantity: 1,
+    hero: heroNames.orc,
+    effect:
+      "Deal 1 Dmg. Gain 1 Lock. If you already had Lock, Deal 2 Dmg instead.",
+  },
+  {
+    name: "Aggresive Jump",
+    img: orc2img,
+    rarity: "basic",
+    range: "1-4",
+    rangeType: "line",
+    quantity: 1,
+    hero: heroNames.orc,
+    effect: "Jump 3. You must target enemy hero to activate this ability.",
+  },
+  {
+    name: "Combustion Blaster",
+    img: orc3img,
+    rarity: "super",
+    range: "1-3",
+    rangeType: "line",
+    quantity: 1,
+    hero: heroNames.orc,
+    effect:
+      "Deal 2 Dmg. If this ability targets a wall, push yourself away from it 3 cells.",
+  },
+  {
+    name: "Perfect Exection",
+    img: orc4img,
     rarity: "mega",
     range: "1-1",
+    rangeType: "self",
     quantity: 1,
-    hero: heroNames.goblin,
-    effect: "Deal 1 Dmg. Push 1. Pull 1.",
+    hero: heroNames.orc,
+    effect: "Deal 3 Dmg. If it defeats the hero, Gain 3 MP.",
   },
+];
 
-  // Mantis
+const mantisCards = [
   {
     name: "Mantis Punch",
     img: mantis1img,
@@ -416,80 +518,19 @@ const heroesCardsConfig = [
     hero: heroNames.mantis,
     effect: "Deal 1 Dmg. Push 1. Pull 1.",
   },
+];
 
-  // Hecarim
-  {
-    name: "Boulder Lasso",
-    img: hecarim1img,
-    rarity: "basic",
-    range: "1-1",
-    quantity: 1,
-    hero: heroNames.hecarim,
-    effect: "Deal 1 Dmg. Gain 1 MP.",
-  },
-  {
-    name: "Boulder Kick",
-    img: hecarim2img,
-    rarity: "basic",
-    range: "1-1",
-    quantity: 1,
-    hero: heroNames.hecarim,
-    effect: "Deal 1 Dmg. Push 1.",
-  },
-  {
-    name: "Boulder Grab",
-    img: hecarim3img,
-    rarity: "super",
-    range: "1-1",
-    quantity: 1,
-    hero: heroNames.hecarim,
-    effect: "Deal 1 Dmg. Pull 1.",
-  },
-  {
-    name: "Boulder Throw",
-    img: hecarim4img,
-    rarity: "mega",
-    range: "1-1",
-    quantity: 1,
-    hero: heroNames.hecarim,
-    effect: "Deal 1 Dmg. Push 1. Pull 1.",
-  },
-  {
-    name: "Boulder Lasso",
-    img: orc1img,
-    rarity: "basic",
-    range: "1-1",
-    quantity: 1,
-    hero: heroNames.orc,
-    effect: "Deal 1 Dmg. Gain 1 MP.",
-  },
-  {
-    name: "Boulder Kick",
-    img: orc2img,
-    rarity: "basic",
-    range: "1-1",
-    quantity: 1,
-    hero: heroNames.orc,
-    effect: "Deal 1 Dmg. Push 1.",
-  },
-  {
-    name: "Boulder Grab",
-    img: orc3img,
-    rarity: "super",
-    range: "1-1",
-    quantity: 1,
-    hero: heroNames.orc,
-    effect: "Deal 1 Dmg. Pull 1.",
-  },
-  {
-    name: "Boulder Throw",
-    img: orc4img,
-    rarity: "mega",
-    range: "1-1",
-    quantity: 1,
-    hero: heroNames.orc,
-    effect: "Deal 1 Dmg. Push 1. Pull 1.",
-  },
+const heroesCardsConfig = [
+  ...monkeyCards,
+  ...demonCards,
+  ...archerCards,
+  ...blinkyCards,
+  ...assasinCards,
+  ...warlockCards,
+  ...goblinCards,
+  ...hecarimCards,
+  ...orcCards,
+  ...mantisCards,
 ];
 
 const spells = generateCopies(heroesCardsConfig);
