@@ -1,0 +1,198 @@
+.card {
+  position: relative;
+  width: 63mm;
+  height: 88mm;
+  margin: 0;
+  // border-radius: 15px;
+  border: 6px solid black;
+  overflow: hidden;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+  background-color: #f3f3f3;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+  }
+}
+
+.header {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 80px;
+  // padding: 0.5rem;
+  // border-top-left-radius: 15px;
+  // border-top-right-radius: 15px;
+}
+
+.name {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+  z-index: 2;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 5px 0;
+  margin: 0;
+}
+
+.power {
+  font-size: 64px;
+  font-weight: bold;
+  color: white;
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.art {
+  height: 180px;
+  width: 100%;
+  // background-color: #e0e0e0;
+  position: relative;
+  overflow: hidden;
+}
+
+.body {
+  flex: 1;
+  padding: 4px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  // border-bottom-left-radius: 15px;
+  // border-bottom-right-radius: 15px;
+}
+
+.effect {
+  flex: 1;
+  font-size: 16px;
+  line-height: 1.4;
+  color: #333;
+  overflow-y: auto;
+  margin-bottom: 10px;
+}
+
+.factionIconContainer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+}
+
+.factionIcon {
+  font-size: 20px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 0;
+  border-top-left-radius: 8px;
+  padding: 5px 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.addedForPrint {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background-color: #4caf50;
+  color: white;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  z-index: 3;
+}
+
+/* Arrow positioning */
+.leftArrowContainer,
+.rightArrowContainer,
+.upArrowContainer,
+.diagonalLeftArrowContainer,
+.diagonalRightArrowContainer {
+  color: white;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.leftArrowContainer {
+  position: absolute;
+  left: 10px;
+  top: 60%;
+  transform: translateY(-50%);
+}
+
+.rightArrowContainer {
+  position: absolute;
+  right: 10px;
+  top: 60%;
+  transform: translateY(-50%);
+}
+
+.upArrowContainer {
+  position: absolute;
+  top: -5px; /* Slightly above the card border */
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 0 0 50% 50%;
+  padding-top: 5px;
+}
+
+.diagonalLeftArrowContainer {
+  position: absolute;
+  top: 5px;
+  left: 10px;
+}
+
+.diagonalRightArrowContainer {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+
+.leftArrow,
+.rightArrow,
+.upArrow,
+.diagonalLeftArrow,
+.diagonalRightArrow {
+  stroke: white;
+  fill: none;
+  stroke-width: 3px;
+}
+
+/* Print optimizations */
+@media print {
+  .card {
+    box-shadow: none;
+    page-break-inside: avoid;
+    break-inside: avoid;
+    margin: 0;
+    border-radius: 0;
+  }
+
+  .card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}
