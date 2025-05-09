@@ -74,7 +74,7 @@ const hellGnollsCards = [
     power: 2,
     arrowsConfig: ["up"],
     faction: "hellGnolls",
-    effect: "Draw 2 cards.",
+    effect: "Draw 2 cards, then discard 1.",
     img: hell2Img,
   },
   {
@@ -82,7 +82,7 @@ const hellGnollsCards = [
     power: 2,
     arrowsConfig: ["up"],
     faction: "hellGnolls",
-    effect: "Draw 2 cards.",
+    effect: "Draw 2 cards, then discard 1.",
     img: hell2Img,
   },
   {
@@ -90,7 +90,7 @@ const hellGnollsCards = [
     power: 2,
     arrowsConfig: ["up"],
     faction: "hellGnolls",
-    effect: "Draw 2 cards.",
+    effect: "Draw 2 cards, then discard 1.",
     img: hell2Img,
   },
 
@@ -113,17 +113,17 @@ const hellGnollsCards = [
   {
     name: "Ash Shaman",
     power: 4,
-    arrowsConfig: ["up", "left"],
+    arrowsConfig: ["up", "diagonalLeft"],
     faction: "hellGnolls",
-    effect: "Draw 1 card for each unit she links to.",
+    effect: "If you have no cards in hand: Draw 2 cards.",
     img: hell4Img,
   },
   {
     name: "Ash Shaman",
     power: 4,
-    arrowsConfig: ["up", "right"],
+    arrowsConfig: ["up", "diagonalRight"],
     faction: "hellGnolls",
-    effect: "Draw 1 card for each unit she links to.",
+    effect: "If you have no cards in hand: Draw 2 cards.",
     img: hell4Img,
   },
   {
@@ -148,7 +148,7 @@ const hellGnollsCards = [
     power: 6,
     arrowsConfig: ["up"],
     faction: "hellGnolls",
-    effect: "Your opponent discards a random card.",
+    effect: "You and your opponent discard a card.",
     img: hell6Img,
   },
   {
@@ -156,7 +156,7 @@ const hellGnollsCards = [
     power: 6,
     arrowsConfig: ["up"],
     faction: "hellGnolls",
-    effect: "Your opponent discards a random card.",
+    effect: "You and your opponent discard a card.",
     img: hell6Img,
   },
   {
@@ -164,7 +164,7 @@ const hellGnollsCards = [
     power: 7,
     arrowsConfig: ["left", "right", "up"],
     faction: "hellGnolls",
-    effect: "Take any opponent's unit: Place it anywhere on the map.",
+    effect: "Sacrifice a unit: Place 1 unit from discard pile on the board.",
     img: hell7Img,
   },
   {
@@ -172,7 +172,7 @@ const hellGnollsCards = [
     power: 7,
     arrowsConfig: ["left", "right", "up"],
     faction: "hellGnolls",
-    effect: "Take any opponent's unit: Place it anywhere on the map.",
+    effect: "Sacrifice a unit: Place 1 unit from discard pile on the board.",
     img: hell7Img,
   },
 ];
@@ -222,25 +222,25 @@ const sporelingsCards = [
   {
     name: "Mycelium Warrior",
     power: 2,
-    arrowsConfig: ["left", "up"],
+    arrowsConfig: ["left", "right", "up"],
     faction: "sporelings",
-    effect: "Draw 1 card. Return a card from the board to its owner's hand.",
+    effect: "Draw 1 card or return an enemy unit from board to hand.",
     img: s2Img,
   },
   {
     name: "Mycelium Warrior",
     power: 2,
-    arrowsConfig: ["left", "up"],
+    arrowsConfig: ["left", "right", "up"],
     faction: "sporelings",
-    effect: "Draw 1 card. Return a card from the board to its owner's hand.",
+    effect: "Draw 1 card or return an enemy unit from board to hand.",
     img: s2Img,
   },
   {
     name: "Mycelium Warrior",
     power: 2,
-    arrowsConfig: ["right", "up"],
+    arrowsConfig: ["left", "right", "up"],
     faction: "sporelings",
-    effect: "Draw 1 card. Return a card from the board to its owner's hand.",
+    effect: "Draw 1 card or return an enemy unit from board to hand.",
     img: s2Img,
   },
 
@@ -265,7 +265,8 @@ const sporelingsCards = [
     power: 4,
     arrowsConfig: ["left", "right", "up"],
     faction: "sporelings",
-    effect: "Draw 1 card OR return a friendly unit to your hand.",
+    effect:
+      "Draw 1 card OR return a friendly unit from discard pile to your hand.",
     img: s4Img,
   },
   {
@@ -273,23 +274,24 @@ const sporelingsCards = [
     power: 4,
     arrowsConfig: ["left", "right", "up"],
     faction: "sporelings",
-    effect: "Draw 1 card OR return a friendly unit to your hand.",
+    effect:
+      "Draw 1 card OR return a friendly unit from discard pile to your hand.",
     img: s4Img,
   },
   {
     name: "Fungal Defender",
     power: 5,
-    arrowsConfig: ["right", "left"],
+    arrowsConfig: ["up"],
     faction: "sporelings",
-    effect: "Can be placed anywhere on the map.",
+    effect: "Move 1 unit 1 space in any direction.",
     img: s5Img,
   },
   {
     name: "Fungal Defender",
     power: 5,
-    arrowsConfig: ["left", "right"],
+    arrowsConfig: ["up"],
     faction: "sporelings",
-    effect: "Can be placed anywhere on the map.",
+    effect: "Move 1 unit 1 space in any direction.",
     img: s5Img,
   },
 
