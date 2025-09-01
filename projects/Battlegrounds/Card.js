@@ -138,6 +138,18 @@ const Card = ({ card, isEditMode, handleAddCardToPrint, isInPrint }) => {
         </div>
       </div>
 
+      {/* Tier symbol in top-left corner */}
+      <div className={styles.tierSymbol}>
+        <img
+          src={`/battlegrounds/symbols/tier${tier}.png`}
+          alt={`Tier ${tier}`}
+          onError={(e) => {
+            console.error(`Failed to load tier symbol: tier${tier}.png`);
+            e.target.style.display = "none";
+          }}
+        />
+      </div>
+
       {/* Tribe symbol in top-right corner */}
       <div className={styles.tribeSymbol}>
         <img
