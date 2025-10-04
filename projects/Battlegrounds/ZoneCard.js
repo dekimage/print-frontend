@@ -3,7 +3,15 @@ import styles from "../../styles/BattlegroundsZoneCard.module.scss";
 import { calculateDefense, ageToRoman } from "./data";
 
 const ZoneCard = ({ card, isEditMode, handleAddCardToPrint, isInPrint }) => {
-  const { id, card: cardType, type, age, otherTribes, backgroundImage } = card;
+  const {
+    id,
+    card: cardType,
+    type,
+    age,
+    mainTribes,
+    otherTribes,
+    backgroundImage,
+  } = card;
 
   // Calculate defense dynamically
   const defense = calculateDefense(otherTribes);
@@ -28,6 +36,36 @@ const ZoneCard = ({ card, isEditMode, handleAddCardToPrint, isInPrint }) => {
     ));
   };
 
+  // Helper function to render main tribe symbols
+  const renderMainTribes = () => {
+    if (!mainTribes || mainTribes.length === 0) {
+      // Fallback to original behavior if no mainTribes array
+      return (
+        <img
+          src={`/battlegrounds/symbols/${type}.png`}
+          alt={`${type} symbol`}
+          onError={(e) => {
+            console.error(`Failed to load main tribe symbol: ${type}`);
+            e.target.style.display = "none";
+          }}
+        />
+      );
+    }
+
+    return mainTribes.map((tribe, index) => (
+      <img
+        key={index}
+        src={`/battlegrounds/symbols/${tribe}.png`}
+        alt={`${tribe} symbol`}
+        className={styles.mainTribeIcon}
+        onError={(e) => {
+          console.error(`Failed to load main tribe symbol: ${tribe}`);
+          e.target.style.display = "none";
+        }}
+      />
+    ));
+  };
+
   return (
     <div
       className={styles.zoneCard}
@@ -40,7 +78,7 @@ const ZoneCard = ({ card, isEditMode, handleAddCardToPrint, isInPrint }) => {
       {isInPrint && <div className={styles.addedForPrint}>+</div>}
 
       {/* Zone Background Image */}
-      <div className={styles.zoneBackground}>
+      {/* <div className={styles.zoneBackground}>
         <img
           src={backgroundImagePath}
           alt={`${type} zone background`}
@@ -65,32 +103,23 @@ const ZoneCard = ({ card, isEditMode, handleAddCardToPrint, isInPrint }) => {
         >
           {type} Zone Age {age}
         </div>
-      </div>
+      </div> */}
 
       {/* Other Tribes Container - Top */}
       <div className={styles.otherTribesContainer}>{renderOtherTribes()}</div>
 
-      {/* Main Tribe Symbol - Bottom Center */}
-      <div className={styles.mainTribeSymbol}>
-        <img
-          src={`/battlegrounds/symbols/${type}.png`}
-          alt={`${type} symbol`}
-          onError={(e) => {
-            console.error(`Failed to load main tribe symbol: ${type}`);
-            e.target.style.display = "none";
-          }}
-        />
-      </div>
+      {/* Main Tribe Symbols - Bottom Center */}
+      <div className={styles.mainTribeSymbol}>{renderMainTribes()}</div>
 
       {/* Age Badge - Bottom Left */}
-      <div className={styles.ageBadge}>
+      {/* <div className={styles.ageBadge}>
         <span>{ageRoman}</span>
-      </div>
+      </div> */}
 
       {/* Defense Badge - Bottom Right */}
-      <div className={styles.defenseBadge}>
+      {/* <div className={styles.defenseBadge}>
         <span>{defense}</span>
-      </div>
+      </div> */}
     </div>
   );
 };

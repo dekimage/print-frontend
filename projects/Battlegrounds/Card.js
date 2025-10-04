@@ -2,6 +2,9 @@ import React from "react";
 import styles from "../../styles/BattlegroundsCard.module.scss";
 import { parseEffect, typeColors } from "./data";
 
+// Global grayscale toggle - set to true to make ALL cards grayscale
+const GLOBAL_GRAYSCALE = true;
+
 const Card = ({ card, isEditMode, handleAddCardToPrint, isInPrint }) => {
   const {
     id,
@@ -9,8 +12,10 @@ const Card = ({ card, isEditMode, handleAddCardToPrint, isInPrint }) => {
     type,
     tier,
     image,
+    url,
     effect,
     readableEffect,
+    grayscale = false, // Default to false, can be overridden per card
   } = card;
 
   // Parse the effect string into renderable components
@@ -20,24 +25,31 @@ const Card = ({ card, isEditMode, handleAddCardToPrint, isInPrint }) => {
   const triggerComponent = effectComponents[0];
   const effectComponentsOnly = effectComponents.slice(1);
 
-  // Get the background image path from public directory
-  const backgroundImagePath = `/battlegrounds/cards/${image}`;
+  // Helper function to get local API proxy URL
+  const getLocalProxyUrl = (url) => {
+    return `/api/image-proxy?url=${encodeURIComponent(url)}`;
+  };
 
-  // Debug logging
-  console.log(`Card ${id}:`, {
-    type,
-    tier,
-    image,
-    backgroundImagePath,
-    effect,
-    effectComponents,
-  });
+  // Determine if we're using an external URL or local image
+  const isExternalImage = url && url.startsWith("http");
+
+  // For external images, use the API proxy directly to avoid CORS issues
+  const backgroundImagePath = isExternalImage
+    ? getLocalProxyUrl(url)
+    : `/battlegrounds/cards/${image}`;
+
+  // State to track if we should use external image styling
+  const [useExternalStyling, setUseExternalStyling] =
+    React.useState(isExternalImage);
+
+  // State to track proxy attempts
+  const [proxyAttempt, setProxyAttempt] = React.useState(0);
 
   // Helper function to render effect components
   const renderEffectComponent = (component, index) => {
     if (component.type === "image") {
       const symbolPath = `/battlegrounds/symbols/${component.value}`;
-      console.log(`Loading symbol: ${symbolPath}`);
+
       return (
         <img
           key={index}
@@ -48,9 +60,6 @@ const Card = ({ card, isEditMode, handleAddCardToPrint, isInPrint }) => {
               `Failed to load symbol: ${component.value} from ${symbolPath}`
             );
             e.target.style.display = "none";
-          }}
-          onLoad={() => {
-            console.log(`Successfully loaded symbol: ${component.value}`);
           }}
         />
       );
@@ -81,12 +90,26 @@ const Card = ({ card, isEditMode, handleAddCardToPrint, isInPrint }) => {
           <img
             src={backgroundImagePath}
             alt={`${type} tier ${tier}`}
-            className={styles.backgroundImage}
+            className={`${styles.backgroundImage} ${
+              useExternalStyling ? styles.externalImage : ""
+            } ${GLOBAL_GRAYSCALE || grayscale ? styles.grayscale : ""}`}
             onError={(e) => {
               console.error(
                 `Failed to load background image for ${type} tier ${tier}:`,
                 backgroundImagePath
               );
+
+              // If API proxy fails, try to fall back to local image
+              if (isExternalImage && image) {
+                console.log(
+                  `API proxy failed, falling back to local image: ${image}`
+                );
+                e.target.src = `/battlegrounds/cards/${image}`;
+                setUseExternalStyling(false); // Switch to local image styling
+                return; // Don't hide the image, let it try the fallback
+              }
+
+              // If both external and local fail, show placeholder
               e.target.style.display = "none";
               e.target.nextSibling.style.display = "flex";
             }}
@@ -111,7 +134,12 @@ const Card = ({ card, isEditMode, handleAddCardToPrint, isInPrint }) => {
       </div>
 
       {/* Effect Box Overlay - 40% height from bottom */}
-      <div className={styles.effectBox}>
+      <div
+        className={styles.effectBox}
+        style={{
+          backgroundColor: GLOBAL_GRAYSCALE ? "white" : undefined,
+        }}
+      >
         {/* Trigger background - black circle behind trigger */}
         {triggerComponent && <div className={styles.triggerBackground}></div>}
 

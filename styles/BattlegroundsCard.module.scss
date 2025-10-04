@@ -35,6 +35,21 @@
   position: absolute;
   top: -9%;
   left: -6%;
+
+  // External image styling - positioned in upper 50% centered
+  &.externalImage {
+    width: 80%;
+    height: 50%;
+    object-fit: contain;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  // Grayscale filter
+  &.grayscale {
+    filter: grayscale(100%);
+  }
 }
 
 .placeholderText {
@@ -141,7 +156,7 @@
     width: 100%;
     height: 100%;
     object-fit: contain;
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5)) brightness(1.5);
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5)) brightness(1.9);
   }
 }
 
