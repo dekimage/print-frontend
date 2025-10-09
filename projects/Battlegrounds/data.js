@@ -74,6 +74,17 @@ export const symbolMappings = {
   bounce: "bounce.png",
   fragment: "fragment.png",
   refresh: "refresh.png",
+
+  // Tier symbols
+  tier1: "tier1.png",
+  tier2: "tier2.png",
+  tier3: "tier3.png",
+  tier4: "tier4.png",
+  tier5: "tier5.png",
+  tier6: "tier6.png",
+
+  // Building symbols
+  tavern: "tavern.png",
 };
 
 // Helper function to parse effect string and return renderable components

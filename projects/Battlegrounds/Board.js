@@ -128,6 +128,156 @@ const Board = () => {
         {/* Empty Space - Bottom 35% */}
         <div className={styles.emptySpace}>
           <div className={styles.upgradeColumns}>
+            {/* Power Column (Tavern) */}
+            <div className={styles.upgradeColumn}>
+              <div className={styles.upgradeHeader}>
+                <img
+                  src={`/battlegrounds/symbols/${symbolMappings.tavern}`}
+                  alt="Power"
+                  className={styles.upgradeIcon}
+                />
+              </div>
+              <div className={styles.upgradeCell}>
+                <img
+                  src={`/battlegrounds/symbols/${symbolMappings.tier1}`}
+                  alt="Tier 1"
+                  className={styles.tierIcon}
+                />
+              </div>
+              <div className={styles.upgradeCost}>
+                <span className={styles.costValue}>4</span>
+                <img
+                  src={`/battlegrounds/symbols/${symbolMappings.gold}`}
+                  alt="Gold"
+                  className={styles.costIcon}
+                />
+              </div>
+              <div className={styles.upgradeCell}>
+                <img
+                  src={`/battlegrounds/symbols/${symbolMappings.tier2}`}
+                  alt="Tier 2"
+                  className={styles.tierIcon}
+                />
+              </div>
+              <div className={styles.upgradeCost}>
+                <span className={styles.costValue}>6</span>
+                <img
+                  src={`/battlegrounds/symbols/${symbolMappings.gold}`}
+                  alt="Gold"
+                  className={styles.costIcon}
+                />
+              </div>
+              <div className={styles.upgradeCell}>
+                <img
+                  src={`/battlegrounds/symbols/${symbolMappings.tier3}`}
+                  alt="Tier 3"
+                  className={styles.tierIcon}
+                />
+              </div>
+              <div className={styles.upgradeCost}>
+                <span className={styles.costValue}>6</span>
+                <img
+                  src={`/battlegrounds/symbols/${symbolMappings.gold}`}
+                  alt="Gold"
+                  className={styles.costIcon}
+                />
+              </div>
+              <div className={styles.upgradeCell}>
+                <img
+                  src={`/battlegrounds/symbols/${symbolMappings.tier4}`}
+                  alt="Tier 4"
+                  className={styles.tierIcon}
+                />
+              </div>
+              <div className={styles.upgradeCost}>
+                <span className={styles.costValue}>8</span>
+                <img
+                  src={`/battlegrounds/symbols/${symbolMappings.gold}`}
+                  alt="Gold"
+                  className={styles.costIcon}
+                />
+              </div>
+              <div className={styles.upgradeCell}>
+                <img
+                  src={`/battlegrounds/symbols/${symbolMappings.tier5}`}
+                  alt="Tier 5"
+                  className={styles.tierIcon}
+                />
+              </div>
+              <div className={styles.upgradeCost}>
+                <span className={styles.costValue}>8</span>
+                <img
+                  src={`/battlegrounds/symbols/${symbolMappings.gold}`}
+                  alt="Gold"
+                  className={styles.costIcon}
+                />
+              </div>
+              <div className={styles.upgradeCell}>
+                <img
+                  src={`/battlegrounds/symbols/${symbolMappings.tier6}`}
+                  alt="Tier 6"
+                  className={styles.tierIcon}
+                />
+              </div>
+            </div>
+
+            {/* Board Size Column */}
+            <div className={styles.upgradeColumn}>
+              <div className={styles.upgradeHeader}>
+                <img
+                  src={`/battlegrounds/symbols/${symbolMappings.boardSize}`}
+                  alt="Board Size"
+                  className={styles.upgradeIcon}
+                />
+              </div>
+              <div className={styles.upgradeCell}>3</div>
+              <div className={styles.upgradeCost}>
+                <span className={styles.costValue}>4</span>
+                <img
+                  src={`/battlegrounds/symbols/${symbolMappings.gold}`}
+                  alt="Gold"
+                  className={styles.costIcon}
+                />
+              </div>
+              <div className={styles.upgradeCell}>4</div>
+              <div className={styles.upgradeCost}>
+                <span className={styles.costValue}>6</span>
+                <img
+                  src={`/battlegrounds/symbols/${symbolMappings.gold}`}
+                  alt="Gold"
+                  className={styles.costIcon}
+                />
+              </div>
+              <div className={styles.upgradeCell}>5</div>
+              <div className={styles.upgradeCost}>
+                <span className={styles.costValue}>6</span>
+                <img
+                  src={`/battlegrounds/symbols/${symbolMappings.gold}`}
+                  alt="Gold"
+                  className={styles.costIcon}
+                />
+              </div>
+              <div className={styles.upgradeCell}>6</div>
+              <div className={styles.upgradeCost}>
+                <span className={styles.costValue}>8</span>
+                <img
+                  src={`/battlegrounds/symbols/${symbolMappings.gold}`}
+                  alt="Gold"
+                  className={styles.costIcon}
+                />
+              </div>
+              <div className={styles.upgradeCell}>7</div>
+              <div className={styles.upgradeCost}>
+                <span className={styles.costValue}>8</span>
+                <img
+                  src={`/battlegrounds/symbols/${symbolMappings.gold}`}
+                  alt="Gold"
+                  className={styles.costIcon}
+                />
+              </div>
+              <div className={styles.upgradeCell}>8</div>
+            </div>
+
             {/* Hand Size Column */}
             <div className={styles.upgradeColumn}>
               <div className={styles.upgradeHeader}>
@@ -183,6 +333,125 @@ const Board = () => {
                 />
               </div>
               <div className={styles.upgradeCell}>6</div>
+            </div>
+
+            {/* Exploration Column */}
+            <div className={styles.upgradeColumn}>
+              <div className={styles.upgradeHeader}>
+                <img
+                  src={`/battlegrounds/symbols/${symbolMappings.discover}`}
+                  alt="Exploration"
+                  className={styles.upgradeIcon}
+                />
+              </div>
+              <div className={styles.upgradeCell}>+1</div>
+              <div className={styles.upgradeCost}>
+                <span className={styles.costValue}>4</span>
+                <img
+                  src={`/battlegrounds/symbols/${symbolMappings.gold}`}
+                  alt="Gold"
+                  className={styles.costIcon}
+                />
+              </div>
+              <div className={styles.upgradeCell}>+2</div>
+              <div className={styles.upgradeCost}>
+                <span className={styles.costValue}>5</span>
+                <img
+                  src={`/battlegrounds/symbols/${symbolMappings.gold}`}
+                  alt="Gold"
+                  className={styles.costIcon}
+                />
+              </div>
+              <div className={styles.upgradeCell}>+3</div>
+            </div>
+
+            {/* Spacer */}
+            <div className={styles.columnSpacer}></div>
+
+            {/* Influence Column */}
+            <div className={styles.upgradeColumn}>
+              <div className={styles.upgradeHeader}>
+                <img
+                  src={`/battlegrounds/symbols/${symbolMappings.influence}`}
+                  alt="Influence"
+                  className={styles.upgradeIcon}
+                />
+              </div>
+              <div className={styles.upgradeCell}>1</div>
+              <div className={styles.upgradeCell}>2</div>
+              <div className={styles.upgradeCell}>3</div>
+              <div className={styles.upgradeCell}>4</div>
+              <div className={styles.upgradeCell}>5</div>
+              <div className={styles.upgradeCell}>6</div>
+            </div>
+
+            {/* Mirror Tokens Column */}
+            <div className={styles.upgradeColumn}>
+              <div className={styles.upgradeHeader}>
+                <img
+                  src={`/battlegrounds/symbols/${symbolMappings.mirror}`}
+                  alt="Mirror"
+                  className={styles.upgradeIcon}
+                />
+              </div>
+              <div className={styles.upgradeCell}>1</div>
+              <div className={styles.upgradeCell}>2</div>
+              <div className={styles.upgradeCell}>3</div>
+              <div className={styles.upgradeCell}>4</div>
+              <div className={styles.upgradeCell}>5</div>
+              <div className={styles.upgradeCell}>6</div>
+            </div>
+
+            {/* Fragment Tokens Column */}
+            <div className={styles.upgradeColumn}>
+              <div className={styles.upgradeHeader}>
+                <img
+                  src={`/battlegrounds/symbols/${symbolMappings.fragment}`}
+                  alt="Fragment"
+                  className={styles.upgradeIcon}
+                />
+              </div>
+              <div className={styles.upgradeCell}>1</div>
+              <div className={styles.upgradeCell}>2</div>
+              <div className={styles.upgradeCell}>3</div>
+              <div className={styles.upgradeCell}>4</div>
+              <div className={styles.upgradeCell}>5</div>
+              <div className={styles.upgradeCell}>6</div>
+            </div>
+
+            {/* Initiative Column */}
+            <div className={styles.upgradeColumn}>
+              <div className={styles.upgradeHeader}>
+                <img
+                  src={`/battlegrounds/symbols/${symbolMappings.initiative}`}
+                  alt="Initiative"
+                  className={styles.upgradeIcon}
+                />
+              </div>
+              <div className={styles.upgradeCell}>1</div>
+              <div className={styles.upgradeCell}>2</div>
+              <div className={styles.upgradeCell}>3</div>
+              <div className={styles.upgradeCell}>4</div>
+              <div className={styles.upgradeCell}>5</div>
+              <div className={styles.upgradeCell}>6</div>
+            </div>
+
+            {/* Income Column */}
+            <div className={styles.upgradeColumn}>
+              <div className={styles.upgradeHeader}>
+                <img
+                  src={`/battlegrounds/symbols/${symbolMappings.income}`}
+                  alt="Income"
+                  className={styles.upgradeIcon}
+                />
+              </div>
+              <div className={styles.upgradeCell}>+1</div>
+              <div className={styles.upgradeCell}>+2</div>
+              <div className={styles.upgradeCell}>+3</div>
+              <div className={styles.upgradeCell}>+4</div>
+              <div className={styles.upgradeCell}>+5</div>
+              <div className={styles.upgradeCell}>+6</div>
+              <div className={styles.upgradeCell}>+7</div>
             </div>
           </div>
         </div>
