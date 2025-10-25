@@ -58,36 +58,33 @@ const Card = ({ card, isEditMode, handleAddCardToPrint, isInPrint }) => {
     const rangeInfo = parseRange(ability.range);
     const stats = [];
 
-    // Range indicator - always show as text for now
-    stats.push(
-      <span key="range" className={styles.rangeText}>
-        {ability.range}
-      </span>
-    );
+    // Range is now displayed in the ability header, not in stats
 
     // Linear indicator
     if (ability.isLinear !== undefined) {
-      const linearIcon = ability.isLinear ? "linear.png" : "noLinear.png";
+      const linearEmoji = ability.isLinear ? "📏" : "🔄";
       stats.push(
-        <img
+        <span
           key="linear"
-          src={`/heroes-dominion/symbols/${linearIcon}`}
-          alt={ability.isLinear ? "Linear" : "Non-linear"}
-          className={styles.statIcon}
-        />
+          className={styles.statEmoji}
+          title={ability.isLinear ? "Linear" : "Non-linear"}
+        >
+          {linearEmoji}
+        </span>
       );
     }
 
     // Sight indicator
     if (ability.isSight !== undefined) {
-      const sightIcon = ability.isSight ? "sight.png" : "noSight.png";
+      const sightEmoji = ability.isSight ? "👁️" : "🚫";
       stats.push(
-        <img
+        <span
           key="sight"
-          src={`/heroes-dominion/symbols/${sightIcon}`}
-          alt={ability.isSight ? "Requires sight" : "No sight required"}
-          className={styles.statIcon}
-        />
+          className={styles.statEmoji}
+          title={ability.isSight ? "Requires sight" : "No sight required"}
+        >
+          {sightEmoji}
+        </span>
       );
     }
 
@@ -111,13 +108,15 @@ const Card = ({ card, isEditMode, handleAddCardToPrint, isInPrint }) => {
 
     // Area of effect indicator
     if (ability.areaOfEffect) {
+      const aoeEmoji = ability.areaOfEffect === "cross" ? "➕" : "💥";
       stats.push(
-        <img
+        <span
           key="aoe"
-          src={`/heroes-dominion/symbols/aoe_${ability.areaOfEffect}.png`}
-          alt={`${ability.areaOfEffect} AoE`}
-          className={styles.statIcon}
-        />
+          className={styles.statEmoji}
+          title={`${ability.areaOfEffect} AoE`}
+        >
+          {aoeEmoji}
+        </span>
       );
     }
 
@@ -150,11 +149,7 @@ const Card = ({ card, isEditMode, handleAddCardToPrint, isInPrint }) => {
 
         {/* HP Display - Top Left */}
         <div className={styles.hpDisplay}>
-          <img
-            src="/heroes-dominion/symbols/heart.png"
-            alt="HP"
-            className={styles.heartIcon}
-          />
+          <span className={styles.heartEmoji}>❤️</span>
           <span className={styles.hpText}>{hp}</span>
         </div>
 
@@ -173,10 +168,14 @@ const Card = ({ card, isEditMode, handleAddCardToPrint, isInPrint }) => {
             <span className={styles.abilityName}>
               {abilities[0]?.name || "Ability 1"}
             </span>
+            {/* Range in top right */}
+            {abilities[0] && (
+              <span className={styles.abilityRange}>{abilities[0].range}</span>
+            )}
           </div>
 
           <div className={styles.abilityBody}>
-            <div className={styles.abilityIcon}>
+            {/* <div className={styles.abilityIcon}>
               <img
                 src={`/heroes-dominion/abilities/${abilities[0]?.icon}`}
                 alt={abilities[0]?.name}
@@ -188,7 +187,7 @@ const Card = ({ card, isEditMode, handleAddCardToPrint, isInPrint }) => {
                   e.target.style.display = "none";
                 }}
               />
-            </div>
+            </div> */}
 
             <div className={styles.abilityContent}>
               <div className={styles.abilityEffect}>
@@ -213,6 +212,10 @@ const Card = ({ card, isEditMode, handleAddCardToPrint, isInPrint }) => {
             <span className={styles.abilityName}>
               {abilities[1]?.name || "Ability 2"}
             </span>
+            {/* Range in top right */}
+            {abilities[1] && (
+              <span className={styles.abilityRange}>{abilities[1].range}</span>
+            )}
           </div>
 
           <div className={styles.abilityBody}>
