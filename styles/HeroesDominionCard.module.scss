@@ -1,0 +1,319 @@
+.card {
+  position: relative;
+  width: 120mm;
+  height: 60mm;
+  margin: 0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: row;
+  border: 2px solid #333;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+}
+
+// Hero Image Section - 30% width, 100% height
+.imageSection {
+  position: relative;
+  width: 30%;
+  height: 100%;
+  overflow: hidden;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.heroImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+// HP Display - Top Left Corner
+.hpDisplay {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 4px 8px;
+  border-radius: 12px;
+  z-index: 10;
+}
+
+.heartIcon {
+  width: 16px;
+  height: 16px;
+  filter: brightness(1.2);
+}
+
+.hpText {
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+// Hero Name - Bottom of Image
+.heroName {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  padding: 12px 8px 8px;
+  z-index: 10;
+
+  span {
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    display: block;
+    text-align: center;
+  }
+}
+
+// Abilities Section - 70% width, 100% height
+.abilitiesSection {
+  width: 70%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: #f5f5f5;
+}
+
+// Individual Ability - 50% height each
+.ability {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid #ddd;
+  background: white;
+  position: relative;
+  overflow: hidden;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &:nth-child(odd) {
+    background: #fafafa;
+  }
+}
+
+// Ability Header with diagonal cut
+.abilityHeader {
+  position: relative;
+  height: 24px;
+  background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+  display: flex;
+  align-items: center;
+  padding-left: 12px;
+  padding-right: 20px;
+
+  // Diagonal cut on the right side
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 24px 12px 0 0;
+    border-color: #f5f5f5 transparent transparent transparent;
+  }
+}
+
+// Different gradient for second ability header
+.ability:nth-child(2) .abilityHeader {
+  background: linear-gradient(135deg, #2b6cb0 0%, #1e40af 100%);
+}
+
+.abilityName {
+  color: white;
+  font-size: 11px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  z-index: 1;
+  position: relative;
+}
+
+// Ability Body - contains icon, content, and stats
+.abilityBody {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: 8px;
+}
+
+// Ability Icon - Left side
+.abilityIcon {
+  width: 40px;
+  height: 40px;
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+.abilityImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 4px;
+  background: #f0f0f0;
+  padding: 4px;
+}
+
+// Ability Content - Center
+.abilityContent {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+}
+
+.abilityEffect {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+  line-height: 1.4;
+
+  // Regular text within effects
+  span:not(.keywordTag) {
+    font-size: 12px;
+    color: #333;
+    line-height: 1.3;
+  }
+}
+
+.readableEffectText {
+  font-size: 16px;
+  color: #333;
+  line-height: 1.3;
+  text-align: center;
+  font-weight: 500;
+  padding: 0 4px;
+}
+
+.keywordTag {
+  display: inline-block;
+  padding: 2px 6px;
+  margin: 0 2px;
+  border-radius: 4px;
+  border: 1px solid;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: capitalize;
+  white-space: nowrap;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+
+  &:first-child {
+    margin-left: 0;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.effectSymbol {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  vertical-align: middle;
+}
+
+// Ability Stats - Right side
+.abilityStats {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+  min-width: 60px;
+  flex-shrink: 0;
+}
+
+.statIcon {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+  filter: brightness(0.8);
+}
+
+.rangeText {
+  font-size: 12px;
+  font-weight: bold;
+  color: #333;
+  background: #e0e0e0;
+  padding: 2px 6px;
+  border-radius: 8px;
+  min-width: 20px;
+  text-align: center;
+}
+
+.maxTargetText {
+  font-size: 10px;
+  color: #666;
+  background: #f0f0f0;
+  padding: 1px 4px;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.usesPerTurnText {
+  font-size: 10px;
+  color: #333;
+  background: #e8f4fd;
+  padding: 1px 4px;
+  border-radius: 4px;
+  text-align: center;
+  border: 1px solid #b3d9ff;
+}
+
+.addedForPrint {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background-color: #2ecc71;
+  color: white;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  z-index: 20;
+  font-size: 14px;
+}
+
+/* Media query for printing */
+@media print {
+  .card {
+    box-shadow: none;
+    margin: 0;
+    page-break-inside: avoid;
+    break-inside: avoid;
+    border-radius: 0;
+  }
+
+  .card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}
