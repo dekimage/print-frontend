@@ -192,6 +192,7 @@ const insectsCards = [
     image: "d1.png",
     effect: "battlecry,star_1",
     readableEffect: "Gain 1 Star",
+    power: 1,
   },
   {
     id: "insects_2",
@@ -201,6 +202,7 @@ const insectsCards = [
     image: "d2.png",
     effect: "battlecry,boardSize,-2",
     readableEffect: "Next board upgrade costs 2 gold less",
+    power: 1,
   },
   {
     id: "insects_3",
@@ -210,6 +212,7 @@ const insectsCards = [
     image: "d3.png",
     effect: "sell,initiative_1",
     readableEffect: "Gain 1 Initiative",
+    power: 1,
   },
   {
     id: "insects_4",
@@ -219,6 +222,7 @@ const insectsCards = [
     image: "d4.png",
     effect: "battlecry,insects_2",
     readableEffect: "Gain 2 Insect Reputation",
+    power: 1,
   },
   {
     id: "insects_5",
@@ -228,6 +232,7 @@ const insectsCards = [
     image: "d5.png",
     effect: "battlecry,initiative_1",
     readableEffect: "Gain 1 Initiative",
+    power: 1,
   },
   {
     id: "insects_6",
@@ -237,6 +242,7 @@ const insectsCards = [
     image: "d6.png",
     effect: "sell,insects_1,star_1",
     readableEffect: "Gain 1 Insect Reputation and 1 Star",
+    power: 1,
   },
   {
     id: "insects_7",
@@ -246,6 +252,7 @@ const insectsCards = [
     image: "d7.png",
     effect: "battlecry,steal",
     readableEffect: "Steal a random minion",
+    power: 2,
   },
   {
     id: "insects_8",
@@ -255,6 +262,7 @@ const insectsCards = [
     image: "d8.png",
     effect: "pray,star_1",
     readableEffect: "Gain 1 Star",
+    power: 2,
   },
   {
     id: "insects_9",
@@ -264,6 +272,7 @@ const insectsCards = [
     image: "d9.png",
     effect: "battlecry,boardSize,-4",
     readableEffect: "Next board upgrade costs 4 gold less",
+    power: 2,
   },
   {
     id: "insects_10",
@@ -273,6 +282,7 @@ const insectsCards = [
     image: "d10.png",
     effect: "triggered,star_1",
     readableEffect: "When a non-insect is played, gain 1 Star",
+    power: 2,
   },
   {
     id: "insects_11",
@@ -282,6 +292,7 @@ const insectsCards = [
     image: "d11.png",
     effect: "endOfTurn,steal",
     readableEffect: "At end of turn, steal a random minion",
+    power: 2,
   },
   {
     id: "insects_12",
@@ -291,6 +302,7 @@ const insectsCards = [
     image: "d12.png",
     effect: "attack,star_1",
     readableEffect: "Gain 1 Star",
+    power: 2,
   },
   {
     id: "insects_13",
@@ -300,6 +312,7 @@ const insectsCards = [
     image: "d13.png",
     effect: "sell,steal_2",
     readableEffect: "Steal 2 random minions",
+    power: 3,
   },
   {
     id: "insects_14",
@@ -309,6 +322,7 @@ const insectsCards = [
     image: "d14.png",
     effect: "battlecry,initiative_2,insects_2",
     readableEffect: "Gain 2 Initiative and 2 Insect Reputation",
+    power: 3,
   },
   {
     id: "insects_15",
@@ -318,6 +332,7 @@ const insectsCards = [
     image: "d15.png",
     effect: "attack,initiative_2,OR,insects_2",
     readableEffect: "Gain 2 Initiative OR 2 Insect Reputation",
+    power: 3,
   },
   {
     id: "insects_16",
@@ -327,6 +342,7 @@ const insectsCards = [
     image: "d16.png",
     effect: "battlecry,star_1,all",
     readableEffect: "All minions gain 1 Star",
+    power: 3,
   },
   {
     id: "insects_17",
@@ -336,6 +352,7 @@ const insectsCards = [
     image: "d17.png",
     effect: "battlecry,boardSize,1",
     readableEffect: "Upgrade your board +1 slot",
+    power: 3,
   },
   {
     id: "insects_18",
@@ -345,6 +362,7 @@ const insectsCards = [
     image: "d18.png",
     effect: "battlecry,upgrade,board",
     readableEffect: "Upgrade your board +1 slot",
+    power: 3,
   },
 ];
 
@@ -358,6 +376,7 @@ const boarsCards = [
     image: "q1.png",
     effect: "sell,influence_1",
     readableEffect: "Gain 1 Influence",
+    power: 1,
   },
   {
     id: "boars_2",
@@ -367,6 +386,7 @@ const boarsCards = [
     image: "q2.png",
     effect: "battlecry,boars_1",
     readableEffect: "Gain 1 Fox Reputation",
+    power: 1,
   },
   {
     id: "boars_3",
@@ -376,6 +396,7 @@ const boarsCards = [
     image: "q2.png", // Using q2.png as fallback since q3.png is missing
     effect: "battlecry,vp_1",
     readableEffect: "Gain 1 Victory Point",
+    power: 1,
   },
   {
     id: "boars_4",
@@ -385,6 +406,7 @@ const boarsCards = [
     image: "q4.png",
     effect: "sell,vp_2",
     readableEffect: "Gain 2 Victory Points",
+    power: 1,
   },
   {
     id: "boars_5",
@@ -394,6 +416,7 @@ const boarsCards = [
     image: "q5.png",
     effect: "pray,vp_1",
     readableEffect: "Gain 1 Victory Point",
+    power: 1,
   },
   {
     id: "boars_6",
@@ -403,6 +426,7 @@ const boarsCards = [
     image: "q6.png",
     effect: "battlecry,star_2",
     readableEffect: "Gain 2 Stars",
+    power: 1,
   },
   {
     id: "boars_7",
@@ -412,6 +436,7 @@ const boarsCards = [
     image: "q7.png",
     effect: "battlecry,boars_3",
     readableEffect: "Gain 3 Fox Reputation",
+    power: 2,
   },
   {
     id: "boars_8",
@@ -421,6 +446,7 @@ const boarsCards = [
     image: "q8.png",
     effect: "sell,star_2,influence_1",
     readableEffect: "Gain 2 Stars and 1 Influence",
+    power: 2,
   },
   {
     id: "boars_9",
@@ -430,6 +456,7 @@ const boarsCards = [
     image: "q9.png",
     effect: "attack,vp_1",
     readableEffect: "Gain 1 Victory Point",
+    power: 2,
   },
   {
     id: "boars_10",
@@ -439,6 +466,7 @@ const boarsCards = [
     image: "q10.png",
     effect: "attack,boars_1",
     readableEffect: "Gain 1 Fox Reputation",
+    power: 2,
   },
   {
     id: "boars_11",
@@ -448,6 +476,7 @@ const boarsCards = [
     image: "q11.png",
     effect: "endOfTurn,boars_1",
     readableEffect: "At end of turn, gain 1 Fox Reputation",
+    power: 2,
   },
   {
     id: "boars_12",
@@ -457,6 +486,7 @@ const boarsCards = [
     image: "q12.png",
     effect: "battlecry,influence_2,boars_2",
     readableEffect: "Gain 2 Influence and 2 Fox Reputation",
+    power: 2,
   },
   {
     id: "boars_13",
@@ -466,6 +496,7 @@ const boarsCards = [
     image: "q13.png",
     effect: "triggered,vp,gold",
     readableEffect: "When you gain VP, gain that much gold",
+    power: 3,
   },
   {
     id: "boars_14",
@@ -475,6 +506,7 @@ const boarsCards = [
     image: "q14.png",
     effect: "battlecry,golden",
     readableEffect: "Make a minion golden",
+    power: 3,
   },
   {
     id: "boars_15",
@@ -484,6 +516,7 @@ const boarsCards = [
     image: "q15.png",
     effect: "triggered,vp,x2",
     readableEffect: "Gain x2 VP from all sources except end game",
+    power: 3,
   },
   {
     id: "boars_16",
@@ -494,6 +527,7 @@ const boarsCards = [
     effect: "triggered,sell,boars_1",
     readableEffect:
       "When you sell a different type, gain 1 reputation of that type",
+    power: 3,
   },
   {
     id: "boars_17",
@@ -513,6 +547,7 @@ const boarsCards = [
     effect: "battlecry,choose,2,vp_2,boars_2,influence_2,star_2",
     readableEffect:
       "Choose 2: Gain 2 VP, 2 Fox Reputation, 2 Influence, or 2 Stars",
+    power: 3,
   },
 ];
 
@@ -527,6 +562,7 @@ const birdsCards = [
     image: "p1.png", // Local fallback image
     effect: "battlecry,gold_1",
     readableEffect: "Gain 1 Gold",
+    power: 1,
   },
   {
     id: "birds_2",
@@ -537,6 +573,7 @@ const birdsCards = [
     image: "p2.png",
     effect: "",
     readableEffect: "Effect to be implemented",
+    power: 1,
   },
   {
     id: "birds_3",
@@ -547,6 +584,7 @@ const birdsCards = [
     image: "p3.png",
     effect: "",
     readableEffect: "Effect to be implemented",
+    power: 1,
   },
   {
     id: "birds_4",
@@ -557,6 +595,7 @@ const birdsCards = [
     image: "p4.png",
     effect: "sell,income_1",
     readableEffect: "Increase your income by 1",
+    power: 1,
   },
   {
     id: "birds_5",
@@ -566,6 +605,7 @@ const birdsCards = [
     image: "p5.png",
     effect: "battlecry,boardSize,-3",
     readableEffect: "Your board upgrade this turn costs 3 gold less",
+    power: 1,
   },
   {
     id: "birds_6",
@@ -575,6 +615,7 @@ const birdsCards = [
     image: "p6.png",
     effect: "",
     readableEffect: "Effect to be implemented",
+    power: 1,
   },
   {
     id: "birds_7",
@@ -584,6 +625,7 @@ const birdsCards = [
     image: "p7.png",
     effect: "attack,gold_1",
     readableEffect: "Gain 1 Gold",
+    power: 2,
   },
   {
     id: "birds_8",
@@ -593,6 +635,7 @@ const birdsCards = [
     image: "p8.png",
     effect: "battlecry,income_1",
     readableEffect: "Gain 1 Income",
+    power: 2,
   },
   {
     id: "birds_9",
@@ -602,6 +645,7 @@ const birdsCards = [
     image: "p9.png",
     effect: "triggered,upgrade,gold_2",
     readableEffect: "When you upgrade the tavern, gain 2 gold",
+    power: 2,
   },
   {
     id: "birds_10",
@@ -611,6 +655,7 @@ const birdsCards = [
     image: "p10.png",
     effect: "attack,handSize,1",
     readableEffect: "Upgrade your hand size limit +1",
+    power: 2,
   },
   {
     id: "birds_11",
@@ -620,6 +665,7 @@ const birdsCards = [
     image: "p11.png",
     effect: "triggered,birds,gold_1,OR,star_1",
     readableEffect: "When you play a mole, gain 1 gold OR 1 star",
+    power: 2,
   },
   {
     id: "birds_12",
@@ -630,6 +676,7 @@ const birdsCards = [
     effect: "battlecry,birds_3,gold_3",
     readableEffect:
       "Lose 3 reputation with any other tribe, gain 3 reputation with birds + 3 gold",
+    power: 2,
   },
   {
     id: "birds_13",
@@ -639,6 +686,7 @@ const birdsCards = [
     image: "p13.png",
     effect: "",
     readableEffect: "Effect to be implemented",
+    power: 3,
   },
   {
     id: "birds_14",
@@ -648,6 +696,7 @@ const birdsCards = [
     image: "p14.png",
     effect: "",
     readableEffect: "Effect to be implemented",
+    power: 3,
   },
   {
     id: "birds_15",
@@ -657,6 +706,7 @@ const birdsCards = [
     image: "p15.png",
     effect: "",
     readableEffect: "Effect to be implemented",
+    power: 3,
   },
   {
     id: "birds_16",
@@ -666,6 +716,7 @@ const birdsCards = [
     image: "p16.png",
     effect: "",
     readableEffect: "Effect to be implemented",
+    power: 3,
   },
   {
     id: "birds_17",
@@ -684,6 +735,7 @@ const birdsCards = [
     image: "p18.png",
     effect: "",
     readableEffect: "Effect to be implemented",
+    power: 3,
   },
 ];
 
@@ -698,6 +750,7 @@ const frogsCards = [
     effect: "battlecry,sell,upgrade",
     readableEffect:
       "Sell one unit, get another unit of the same tier with +1 star",
+    power: 1,
   },
   {
     id: "frogs_2",
@@ -707,6 +760,7 @@ const frogsCards = [
     image: "r2.png",
     effect: "battlecry,mirror_1",
     readableEffect: "Gain 1 Mirror",
+    power: 1,
   },
   {
     id: "frogs_3",
@@ -716,6 +770,7 @@ const frogsCards = [
     image: "r3.png",
     effect: "battlecry,refresh_2",
     readableEffect: "Gain 2 Refreshes",
+    power: 1,
   },
   {
     id: "frogs_4",
@@ -725,6 +780,7 @@ const frogsCards = [
     image: "r4.png",
     effect: "battlecry,handSize,1",
     readableEffect: "Upgrade your hand size +1",
+    power: 1,
   },
   {
     id: "frogs_5",
@@ -734,6 +790,7 @@ const frogsCards = [
     image: "r5.png",
     effect: "triggered,upgrade,mirror_1",
     readableEffect: "When you upgrade the tavern, gain 1 mirror",
+    power: 1,
   },
   {
     id: "frogs_6",
@@ -743,6 +800,7 @@ const frogsCards = [
     image: "r6.png",
     effect: "sell,mirror_1",
     readableEffect: "Gain 1 mirror token",
+    power: 1,
   },
   {
     id: "frogs_7",
@@ -752,6 +810,7 @@ const frogsCards = [
     image: "r7.png",
     effect: "battlecry,upgrade,upgrade",
     readableEffect: "Upgrade minion, upgrade minion",
+    power: 2,
   },
   {
     id: "frogs_8",
@@ -761,6 +820,7 @@ const frogsCards = [
     image: "r8.png",
     effect: "triggered,upgrade,frogs_2",
     readableEffect: "When you upgrade tavern, gain 2 reputation",
+    power: 2,
   },
   {
     id: "frogs_9",
@@ -770,6 +830,7 @@ const frogsCards = [
     image: "r9.png",
     effect: "battlecry,bounce",
     readableEffect: "Bounce",
+    power: 2,
   },
   {
     id: "frogs_10",
@@ -779,6 +840,7 @@ const frogsCards = [
     image: "r10.png",
     effect: "battlecry,discover_1",
     readableEffect: "Discover 1 minion (look at 3 random, take 1)",
+    power: 2,
   },
   {
     id: "frogs_11",
@@ -788,6 +850,7 @@ const frogsCards = [
     image: "r11.png",
     effect: "attack,mirror_1",
     readableEffect: "If matching, gain 1 mirror",
+    power: 2,
   },
   {
     id: "frogs_12",
@@ -797,6 +860,7 @@ const frogsCards = [
     image: "r12.png",
     effect: "attack,refresh_2",
     readableEffect: "Gain 2 refreshes",
+    power: 2,
   },
   {
     id: "frogs_13",
@@ -806,6 +870,7 @@ const frogsCards = [
     image: "r13.png",
     effect: "battlecry,discover_1",
     readableEffect: "Discover 1 of the highest tier not in play",
+    power: 3,
   },
   {
     id: "frogs_14",
@@ -815,6 +880,7 @@ const frogsCards = [
     image: "r14.png",
     effect: "endOfTurn,bounce",
     readableEffect: "At end of turn, bounce a unit",
+    power: 3,
   },
   {
     id: "frogs_15",
@@ -824,6 +890,7 @@ const frogsCards = [
     image: "r15.png",
     effect: "",
     readableEffect: "Effect to be implemented",
+    power: 3,
   },
   {
     id: "frogs_16",
@@ -842,6 +909,7 @@ const frogsCards = [
     image: "r17.png",
     effect: "triggered,golden,frogs_3",
     readableEffect: "When you make unit golden, gain 3 reputation with any",
+    power: 3,
   },
   {
     id: "frogs_18",
@@ -851,6 +919,7 @@ const frogsCards = [
     image: "r18.png",
     effect: "attack,mirror_1",
     readableEffect: "Gain 1 mirror token",
+    power: 3,
   },
 ];
 
@@ -1925,6 +1994,18 @@ const tripleZoneCards = [
   },
 ];
 
+// Export all zone cards
+export const zoneCards = [
+  // ...insectsZoneCards,
+  // ...birdsZoneCards,
+  // ...boarsZoneCards,
+  // ...foxesZoneCards,
+  // ...frogsZoneCards,
+  // ...simpleZoneCards,
+  // ...doubleZoneCards,
+  // ...tripleZoneCards,
+];
+
 // Export all Battlegrounds cards
 export const battlegroundsCards = [
   ...insectsCards,
@@ -1933,17 +2014,248 @@ export const battlegroundsCards = [
   ...frogsCards,
 ];
 
-// Export all zone cards
-export const zoneCards = [
-  // ...insectsZoneCards,
-  // ...birdsZoneCards,
-  // ...boarsZoneCards,
-  // ...foxesZoneCards,
-  // ...frogsZoneCards,
-  ...simpleZoneCards,
-  ...doubleZoneCards,
-  ...tripleZoneCards,
+// Land Cards Data
+// Static effect definitions
+const effects = {
+  gold: { type: "gold", value: 2, symbol: "gold" },
+  mirror: { type: "mirror", value: 1, symbol: "mirror" },
+  refresh: { type: "refresh", value: 2, symbol: "refresh" },
+  reputation: { type: "reputation", value: 2, symbol: "all" }, // 2 reputation with any faction
+  star: { type: "star", value: 1, symbol: "star" },
+};
+
+// Age 1 Land Cards (5 cards)
+const age1LandCards = [
+  {
+    id: "land_age1_1",
+    card: "land",
+    age: 1,
+    section1: { tribes: ["frogs"], effects: [] },
+    section2: { tribes: [], effects: [effects.gold] },
+    section3: { tribes: [], effects: [] },
+  },
+  {
+    id: "land_age1_2",
+    card: "land",
+    age: 1,
+    section1: { tribes: ["boars"], effects: [] },
+    section2: { tribes: [], effects: [effects.mirror] },
+    section3: { tribes: [], effects: [] },
+  },
+  {
+    id: "land_age1_3",
+    card: "land",
+    age: 1,
+    section1: { tribes: ["birds"], effects: [] },
+    section2: { tribes: [], effects: [effects.refresh] },
+    section3: { tribes: [], effects: [] },
+  },
+  {
+    id: "land_age1_4",
+    card: "land",
+    age: 1,
+    section1: { tribes: ["insects"], effects: [] },
+    section2: { tribes: [], effects: [effects.reputation] },
+    section3: { tribes: [], effects: [] },
+  },
+  {
+    id: "land_age1_5",
+    card: "land",
+    age: 1,
+    section1: { tribes: ["frogs"], effects: [] },
+    section2: { tribes: [], effects: [effects.star] },
+    section3: { tribes: [], effects: [] },
+  },
 ];
 
-// Export all cards (units + zones)
-export const allBattlegroundsCards = [...battlegroundsCards, ...zoneCards];
+// Age 2 Land Cards (5 cards)
+const age2LandCards = [
+  {
+    id: "land_age2_1",
+    card: "land",
+    age: 2,
+    section1: { tribes: ["frogs", "boars"], effects: [] },
+    section2: { tribes: [], effects: [effects.gold, effects.mirror] },
+    section3: { tribes: [], effects: [effects.refresh] },
+  },
+  {
+    id: "land_age2_2",
+    card: "land",
+    age: 2,
+    section1: { tribes: ["birds", "insects"], effects: [] },
+    section2: { tribes: [], effects: [effects.refresh, effects.star] },
+    section3: { tribes: [], effects: [effects.reputation] },
+  },
+  {
+    id: "land_age2_3",
+    card: "land",
+    age: 2,
+    section1: { tribes: ["frogs", "birds"], effects: [] },
+    section2: { tribes: [], effects: [effects.gold, effects.reputation] },
+    section3: { tribes: [], effects: [effects.mirror] },
+  },
+  {
+    id: "land_age2_4",
+    card: "land",
+    age: 2,
+    section1: { tribes: ["boars", "insects"], effects: [] },
+    section2: { tribes: [], effects: [effects.mirror, effects.refresh] },
+    section3: { tribes: [], effects: [effects.star] },
+  },
+  {
+    id: "land_age2_5",
+    card: "land",
+    age: 2,
+    section1: { tribes: ["birds", "frogs"], effects: [] },
+    section2: { tribes: [], effects: [effects.star, effects.gold] },
+    section3: { tribes: [], effects: [effects.refresh] },
+  },
+];
+
+// Age 3 Land Cards (5 cards)
+const age3LandCards = [
+  {
+    id: "land_age3_1",
+    card: "land",
+    age: 3,
+    section1: { tribes: ["frogs", "boars", "birds"], effects: [] },
+    section2: {
+      tribes: ["insects"],
+      effects: [effects.gold, effects.mirror],
+    },
+    section3: { tribes: [], effects: [effects.refresh, effects.star] },
+  },
+  {
+    id: "land_age3_2",
+    card: "land",
+    age: 3,
+    section1: { tribes: ["birds", "insects", "frogs"], effects: [] },
+    section2: {
+      tribes: ["boars"],
+      effects: [effects.refresh, effects.reputation],
+    },
+    section3: { tribes: [], effects: [effects.gold, effects.mirror] },
+  },
+  {
+    id: "land_age3_3",
+    card: "land",
+    age: 3,
+    section1: { tribes: ["boars", "insects", "frogs"], effects: [] },
+    section2: {
+      tribes: ["birds"],
+      effects: [effects.star, effects.gold],
+    },
+    section3: { tribes: [], effects: [effects.refresh, effects.reputation] },
+  },
+  {
+    id: "land_age3_4",
+    card: "land",
+    age: 3,
+    section1: { tribes: ["insects", "birds", "boars"], effects: [] },
+    section2: {
+      tribes: ["frogs"],
+      effects: [effects.mirror, effects.refresh],
+    },
+    section3: { tribes: [], effects: [effects.star, effects.gold] },
+  },
+  {
+    id: "land_age3_5",
+    card: "land",
+    age: 3,
+    section1: { tribes: ["frogs", "birds", "insects"], effects: [] },
+    section2: {
+      tribes: ["boars"],
+      effects: [effects.reputation, effects.star],
+    },
+    section3: { tribes: [], effects: [effects.mirror, effects.gold] },
+  },
+];
+
+// Age 4 Land Cards (5 cards)
+const age4LandCards = [
+  {
+    id: "land_age4_1",
+    card: "land",
+    age: 4,
+    section1: { tribes: ["frogs", "boars", "birds", "insects"], effects: [] },
+    section2: {
+      tribes: ["frogs", "boars"],
+      effects: [effects.gold, effects.mirror],
+    },
+    section3: {
+      tribes: [],
+      effects: [effects.refresh, effects.star, effects.reputation],
+    },
+  },
+  {
+    id: "land_age4_2",
+    card: "land",
+    age: 4,
+    section1: { tribes: ["birds", "insects", "frogs", "boars"], effects: [] },
+    section2: {
+      tribes: ["birds", "insects"],
+      effects: [effects.refresh, effects.star],
+    },
+    section3: {
+      tribes: [],
+      effects: [effects.gold, effects.mirror, effects.reputation],
+    },
+  },
+  {
+    id: "land_age4_3",
+    card: "land",
+    age: 4,
+    section1: { tribes: ["boars", "frogs", "insects", "birds"], effects: [] },
+    section2: {
+      tribes: ["boars", "frogs"],
+      effects: [effects.star, effects.gold],
+    },
+    section3: {
+      tribes: [],
+      effects: [effects.refresh, effects.mirror, effects.reputation],
+    },
+  },
+  {
+    id: "land_age4_4",
+    card: "land",
+    age: 4,
+    section1: { tribes: ["insects", "birds", "boars", "frogs"], effects: [] },
+    section2: {
+      tribes: ["insects", "birds"],
+      effects: [effects.mirror, effects.refresh],
+    },
+    section3: {
+      tribes: [],
+      effects: [effects.star, effects.gold, effects.reputation],
+    },
+  },
+  {
+    id: "land_age4_5",
+    card: "land",
+    age: 4,
+    section1: { tribes: ["frogs", "birds", "insects", "boars"], effects: [] },
+    section2: {
+      tribes: ["frogs", "birds"],
+      effects: [effects.reputation, effects.star],
+    },
+    section3: {
+      tribes: [],
+      effects: [effects.gold, effects.mirror, effects.refresh],
+    },
+  },
+];
+
+// Export all land cards
+export const landCards = [
+  ...age1LandCards,
+  ...age2LandCards,
+  ...age3LandCards,
+  ...age4LandCards,
+];
+
+// Export all cards (units + zones + lands)
+export const allBattlegroundsCards = [
+  ...battlegroundsCards,
+  ...zoneCards,
+  ...landCards,
+];

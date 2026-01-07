@@ -15,6 +15,7 @@ const Card = ({ card, isEditMode, handleAddCardToPrint, isInPrint }) => {
     url,
     effect,
     readableEffect,
+    power,
     grayscale = false, // Default to false, can be overridden per card
   } = card;
 
@@ -185,6 +186,14 @@ const Card = ({ card, isEditMode, handleAddCardToPrint, isInPrint }) => {
           alt={`${type} symbol`}
         />
       </div>
+
+      {/* Power display in bottom-right corner - only for unit cards */}
+      {cardType === "unit" && power !== undefined && (
+        <div className={styles.powerDisplay}>
+          <span className={styles.powerEmoji}>⚔️</span>
+          <span className={styles.powerValue}>{power}</span>
+        </div>
+      )}
     </div>
   );
 };

@@ -3,6 +3,7 @@ import withCardLayout from "../shared/hoc";
 
 import Card from "../projects/Battlegrounds/Card";
 import ZoneCard from "../projects/Battlegrounds/ZoneCard";
+import LandCard from "../projects/Battlegrounds/LandCard";
 import { allBattlegroundsCards } from "../projects/Battlegrounds/data";
 import StatsDashboard from "../projects/Battlegrounds/StatsDashboard";
 
@@ -12,8 +13,8 @@ const cards = allBattlegroundsCards;
 const filterConfig = {
   type: ["cats", "moles", "boars", "birds", "frogs"],
   tier: [1, 2, 3, 4, 5, 6],
-  age: [1, 2, 3],
-  card: ["unit", "zone"],
+  age: [1, 2, 3, 4],
+  card: ["unit", "zone", "land"],
 };
 
 // Sort options for the card interface
@@ -66,6 +67,13 @@ const BattlegroundsPage = (props) => {
             <div style={cardWrapperStyle} key={i}>
               {card.card === "zone" ? (
                 <ZoneCard
+                  card={card}
+                  isEditMode={isEditMode}
+                  handleAddCardToPrint={handleAddCardToPrint}
+                  isInPrint={isInPrint}
+                />
+              ) : card.card === "land" ? (
+                <LandCard
                   card={card}
                   isEditMode={isEditMode}
                   handleAddCardToPrint={handleAddCardToPrint}

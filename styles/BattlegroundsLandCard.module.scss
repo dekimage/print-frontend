@@ -1,0 +1,142 @@
+.landCard {
+  position: relative;
+  width: 63mm;
+  height: 88mm;
+  margin: 0;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  border: 6px solid;
+  background-color: #ffffff;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+}
+
+// Each section takes 33.33% of the card height
+.section {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.15);
+  min-height: 0; // Allow flex shrinking
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+// Roman numeral on the left side
+.romanNumeral {
+  position: absolute;
+  left: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 32px;
+  font-weight: 900;
+  color: rgba(0, 0, 0, 0.8);
+  text-shadow: 
+    -1px -1px 0 rgba(255, 255, 255, 0.8),
+    1px -1px 0 rgba(255, 255, 255, 0.8),
+    -1px 1px 0 rgba(255, 255, 255, 0.8),
+    1px 1px 0 rgba(255, 255, 255, 0.8);
+  z-index: 5;
+  font-family: "Times New Roman", serif;
+}
+
+// Section content (symbols) centered
+.sectionContent {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  width: calc(100% - 60px); // Leave space for roman numeral
+  max-width: 100%;
+}
+
+// Tribe symbol styling
+.tribeSymbol {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5)) brightness(1.2);
+}
+
+// Effect container (symbol + value)
+.effectContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Effect symbol styling
+.effectSymbol {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5)) brightness(1.2);
+}
+
+// Effect value (number overlay)
+.effectValue {
+  position: absolute;
+  bottom: -4px;
+  right: -4px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid #000;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 900;
+  color: #000;
+  line-height: 1;
+}
+
+.addedForPrint {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  background-color: #2ecc71;
+  color: white;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  z-index: 10;
+}
+
+/* Media query for printing */
+@media print {
+  .landCard {
+    box-shadow: none;
+    margin: 0;
+    page-break-inside: avoid;
+    break-inside: avoid;
+    border-radius: 0;
+  }
+
+  .landCard:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}
