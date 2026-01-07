@@ -44,7 +44,7 @@ export const symbolMappings = {
   self: "self.png",
   melee: "melee.png",
   range: "range.png",
-  infinite: "infinite.png",
+  99: "99.png",
 
   // Targeting types
   linear: "linear.png",
@@ -321,8 +321,8 @@ export const parseAbilityEffect = (effectString) => {
 export const parseRange = (rangeString) => {
   if (!rangeString) return { min: 0, max: 0, type: "self" };
 
-  if (rangeString === "infinite") {
-    return { min: 0, max: 999, type: "infinite" };
+  if (rangeString === "99") {
+    return { min: 0, max: 999, type: "99" };
   }
 
   const parts = rangeString.split("-");
@@ -345,7 +345,7 @@ export const gameTokens = [
     id: "trap",
     name: "Trap",
     image: "trap.png",
-    quantity: 5,
+    quantity: 3,
     effect: "damage,2,root",
     description: "Deals 2 damage and applies root when triggered",
   },
@@ -361,7 +361,7 @@ export const gameTokens = [
     id: "poison",
     name: "Poison",
     image: "poison.png",
-    quantity: 10,
+    quantity: 7,
     effect: "poison",
     description: "Poison counter - deals damage over time",
   },
@@ -369,7 +369,7 @@ export const gameTokens = [
     id: "bounty",
     name: "Bounty",
     image: "bounty.png",
-    quantity: 9,
+    quantity: 7,
     effect: "bounty",
     description: "Bounty stack - can be consumed for damage and gold",
   },
@@ -434,7 +434,7 @@ const heroCards = [
         icon: "cleanse.png",
         effect: "cleanse",
         readableEffect: "Cleanse, then either deal 2 damage or heal 2",
-        range: "infinite",
+        range: "99",
         isLinear: true,
         isSight: true,
         maxTarget: 1,
@@ -463,9 +463,9 @@ const heroCards = [
         id: "ability_3_2",
         name: "Ultimate Reset",
         icon: "reset.png",
-        effect: "combo,2",
-        readableEffect: "Reset ally's ultimate cooldown and gain 2 combo",
-        range: "infinite",
+        effect: "mana,2",
+        readableEffect: "Reset ally's ultimate cooldown and gain 2 mana",
+        range: "99",
         isLinear: true,
         isSight: true,
         maxTarget: 1,
@@ -583,7 +583,7 @@ const heroCards = [
         icon: "charge.png",
         effect: "damage,1,lock,gravity",
         readableEffect:
-          "Move towards enemy, deal 1 damage, apply lock and gravity. If cast twice from melee: deal 2 damage instead",
+          "Move towards enemy, deal 1 damage, apply lock and gravity. If cast from melee: deal 2 damage",
         range: "1-3",
         isLinear: true,
         isSight: true,
@@ -680,9 +680,9 @@ const heroCards = [
         id: "ability_10_1",
         name: "Cavalry Charge",
         icon: "horse.png",
-        effect: "movement,1,damage",
+        effect: "movement,1,damage,push",
         readableEffect:
-          "+1 movement. After moving adjacent to enemy: deal X-2 damage (X=movement spent, max 3). Once per turn",
+          "Gain 1 movement After moving adjacent to enemy: deal X-2 damage, push X-2 (X=movement spent, max 3).",
         range: "0-0",
         isLinear: true,
         isSight: false,
@@ -695,7 +695,7 @@ const heroCards = [
         icon: "break_chains.png",
         effect: "movement,1",
         readableEffect:
-          "Gain 1 movement and remove root, freeze, or lock. If hit enemy in wall this turn: apply stun",
+          "Gain 1 movement and remove lock. If hit enemy in wall this turn: apply stun",
         range: "0-0",
         isLinear: true,
         isSight: false,
@@ -717,7 +717,7 @@ const heroCards = [
         icon: "dagger.png",
         effect: "stealth,movement,1",
         readableEffect:
-          "If not in stealth: enter stealth (+1 movement, untargetable). If in stealth: exit and deal 2 damage in melee, apply bounty stack",
+          "If not in stealth: enter stealth (+1 movement, untargetable). If in stealth: exit and deal 2 damage, apply bounty stack",
         range: "1-1",
         isLinear: true,
         isSight: true,

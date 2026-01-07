@@ -1,85 +1,103 @@
+// Token set container (3 tokens in a row)
+.tokenSet {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+.keywordTokenSet {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+// Individual token (16x16)
 .token {
-  position: relative;
-  width: 40mm;
-  height: 40mm;
-  margin: 2px;
-  border-radius: 6px;
-  overflow: hidden;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  background-color: #fff;
+  width: 42px;
+  height: 42px;
+  border: 1px solid #333;
+  border-radius: 2px;
+  background: white;
   display: flex;
   flex-direction: column;
-  border: 2px solid #333;
-
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    transition: all 0.2s ease;
-  }
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
 }
 
-// Token Image - Top 60%
+// Keyword token (16x16 with colored background)
+.keywordToken {
+  width: 42px;
+  height: 42px;
+  border: 1px solid #333;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
 .tokenImage {
-  width: 100%;
-  height: 60%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
-  
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
   img {
-    width: 80%;
-    height: 80%;
-    object-fit: contain;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 }
 
-// Token Name - Middle 20%
+.tokenEmoji {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  line-height: 1;
+}
+
 .tokenName {
-  width: 100%;
-  height: 20%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #333;
-  
-  span {
-    color: white;
-    font-weight: bold;
-    font-size: 12px;
-    text-align: center;
-  }
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 1;
+  padding: 1px;
+  transform: scale(0.8);
 }
 
-// Token Description - Bottom 20%
-.tokenDescription {
-  width: 100%;
-  height: 20%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2px;
-  background: #f9f9f9;
-  
-  span {
-    color: #333;
-    font-size: 8px;
-    text-align: center;
-    line-height: 1.1;
-  }
+.keywordText {
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 1;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
+  transform: scale(0.8);
 }
 
 /* Media query for printing */
 @media print {
-  .token {
-    box-shadow: none;
-    margin: 1px;
-    page-break-inside: avoid;
+  .tokenSet,
+  .keywordTokenSet {
     break-inside: avoid;
+    page-break-inside: avoid;
   }
 
-  .token:hover {
-    transform: none;
+  .token,
+  .keywordToken {
     box-shadow: none;
   }
 }

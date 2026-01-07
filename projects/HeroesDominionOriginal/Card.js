@@ -219,7 +219,7 @@ const Card = ({ card, isEditMode, handleAddCardToPrint, isInPrint }) => {
           </div>
 
           <div className={styles.abilityBody}>
-            <div className={styles.abilityIcon}>
+            {/* <div className={styles.abilityIcon}>
               <img
                 src={`/heroes-dominion/abilities/${abilities[1]?.icon}`}
                 alt={abilities[1]?.name}
@@ -231,7 +231,7 @@ const Card = ({ card, isEditMode, handleAddCardToPrint, isInPrint }) => {
                   e.target.style.display = "none";
                 }}
               />
-            </div>
+            </div> */}
 
             <div className={styles.abilityContent}>
               <div className={styles.abilityEffect}>
