@@ -74,6 +74,13 @@ export default function Home() {
       link: "/galaxy",
       progress: 15,
     },
+    {
+      id: 8,
+      name: "Marshlands",
+      image: miniBattlesCover,
+      link: "/marshlands",
+      progress: 50,
+    },
   ];
 
   const [isGoogleFormOpen, setIsGoogleFormOpen] = React.useState(false);

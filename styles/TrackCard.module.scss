@@ -1,0 +1,564 @@
+@import "variables";
+@import "mixins";
+@import "placeholders";
+
+/* Large track card: 720×520, creamy background */
+.card {
+  display: flex;
+  flex-direction: column;
+  border: 10px solid black;
+  border-radius: 8px;
+  width: 720px;
+  height: 520px;
+  padding: 16px;
+  box-sizing: border-box;
+  position: relative;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #f5f0e8;
+  overflow: hidden;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+}
+
+.topSection {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  min-height: 0;
+}
+
+/* Actions table - left side */
+.actionsTable {
+  flex: 1;
+  min-width: 0;
+  max-width: 360px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 10px 12px;
+  background-color: #fff;
+  border: 1px solid #8a7a6a;
+  border-radius: 4px;
+}
+
+.actionsRow {
+  display: flex;
+  gap: 6px;
+  font-size: 14px;
+  line-height: 1.15;
+}
+
+.actionsName {
+  flex: 0 0 auto;
+  font-weight: 700;
+  color: #2a2a2a;
+}
+
+.actionsText {
+  flex: 1;
+  color: #444;
+}
+
+.actionsPerTurn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid #c4b8a8;
+}
+
+.actionsPerTurnLabel {
+  font-size: 11px;
+  font-weight: 700;
+  color: #2a2a2a;
+}
+
+.actionsPerTurnSymbols {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.actionSymbol {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
+
+/* Middle section: starting stuff */
+.startingSectionWrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  margin: 8px 0;
+}
+
+.startingTitle {
+  flex: 0 0 auto;
+  font-size: 14px;
+  font-weight: 700;
+  color: #2a2a2a;
+  margin: 0;
+}
+
+.startingSection {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.startingItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.startingSymbol {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+.startingValue {
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+.startingItem_worker {
+  background-color: #2a4a6a;
+  border-color: #1a3550;
+}
+
+.startingItem_credit {
+  background-color: #9b59b6;
+  border-color: #8e44ad;
+}
+
+.startingItem_upgrade {
+  background-color: #ecf0f1;
+  border-color: #bdc3c7;
+}
+
+.startingItem_card {
+  background-color: #ecf0f1;
+  border-color: #bdc3c7;
+}
+
+.startingItem_reputation {
+  background-color: #9b59b6;
+  border-color: #8e44ad;
+}
+
+/* Blue variant: credits and reputation use blue instead of purple */
+.card_creditsBlue {
+  .rewardsCell_label_credit .rewardsSymbolBox {
+    background-color: #27ae60;
+    border-color: #229954;
+  }
+
+  .rewardsCell_credit .rewardsSymbolBox {
+    background-color: #27ae60;
+    border-color: #229954;
+  }
+
+  .startingItem_credit {
+    background-color: #3498db;
+    border-color: #2980b9;
+  }
+
+  .startingItem_reputation {
+    background-color: #3498db;
+    border-color: #2980b9;
+  }
+}
+
+.bottomSection {
+  flex: 0 0 auto;
+  margin-top: auto;
+}
+
+.rewardsTableWrapper {
+  position: relative;
+  flex: 0 0 auto;
+  width: fit-content;
+}
+
+.rewardsTable {
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 auto;
+  width: fit-content;
+  border: 1px solid #8a7a6a;
+  border-radius: 4px;
+  overflow: visible;
+  background-color: #fff;
+}
+
+.rewardsRow {
+  display: flex;
+  overflow: visible;
+  border-bottom: 1px solid #c4b8a8;
+  position: relative;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+/* Label cell: narrow column - rows 1 & 2 use symbol box, row 3 uses plain symbol */
+.rewardsCell_label {
+  width: 36px;
+  flex: 0 0 36px;
+  min-width: 36px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid #c4b8a8;
+}
+
+.rewardsCell_label_control {
+  background-color: #f5f0e8;
+
+  .rewardsSymbolBox {
+    background-color: #d4a84b;
+    border: 1px solid #b8892e;
+  }
+
+  .rewardsSymbol {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+.rewardsCell_label_credit {
+  background-color: #f5f0e8;
+
+  .rewardsSymbolBox {
+    background-color: #27ae60;
+    border: 1px solid #229954;
+  }
+
+  .rewardsValue {
+    font-size: 12px;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+  }
+
+  .rewardsSymbol {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+.rewardsCell_label_upgrade {
+  background-color: #ebe5dc;
+}
+
+.rewardsLabelSymbol {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.rewardsCell {
+  width: 60px;
+  flex: 0 0 60px;
+  height: 60px;
+  min-height: 60px;
+  position: relative;
+  overflow: visible;
+  border-right: 1px solid #c4b8a8;
+
+  &:last-child {
+    border-right: none;
+  }
+}
+
+/* Rows 1 & 2: symbol box centered inside cell (data cells + label cells) */
+.rewardsCell_control,
+.rewardsCell_credit,
+.rewardsCell_label_control,
+.rewardsCell_label_credit {
+  .rewardsSymbolBox {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    padding: 4px 6px;
+    border-radius: 4px;
+    z-index: 10;
+  }
+}
+
+.rewardsCell_control {
+  background-color: #fff;
+
+  .rewardsSymbolBox {
+    background-color: #d4a84b;
+    border: 1px solid #b8892e;
+  }
+
+  .rewardsSymbol {
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
+  }
+}
+
+.rewardsCell_credit {
+  background-color: #fff;
+
+  .rewardsSymbolBox {
+    background-color: #27ae60;
+    border: 1px solid #229954;
+  }
+
+  .rewardsValue {
+    font-size: 12px;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+  }
+
+  .rewardsSymbol {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+  }
+}
+
+/* Row 3: empty cells, no extension - boxes are below table */
+.rewardsCell_upgrade {
+  background-color: #fff;
+}
+
+/* Upgrade boxes: absolute positioned below table; structure matches table columns */
+.rewardsUpgradeBoxes {
+  gap: 2px;
+  position: absolute;
+  top: 100%;
+  left: 20px; /* Align with table content (inside border) */
+  display: flex;
+  align-items: flex-start;
+  width: calc(100% - 2px); /* Match table inner width */
+  margin-top: -16px;
+  z-index: 10;
+}
+
+.rewardsUpgradeBox_spacer {
+  width: 36px;
+  flex: 0 0 36px;
+  min-width: 36px;
+  /* Empty - nothing below label column */
+}
+
+.rewardsUpgradeBox {
+  width: 60px;
+  flex: 0 0 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  padding: 4px 6px;
+  border-radius: 4px;
+  background-color: #2a4a6a;
+  border: 1px solid #1a3550;
+
+  .rewardsSymbol {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+  }
+}
+
+.upgradeTable {
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 auto;
+  border: 1px solid #8a7a6a;
+  border-radius: 4px;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+.tableHeader {
+  display: flex;
+  border-bottom: 1px solid #8a7a6a;
+
+  .headerCell {
+    flex: 1;
+    min-width: 0;
+    padding: 6px 4px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 700;
+    color: #3d3025;
+    border-right: 1px solid #c4b8a8;
+
+    &:first-child {
+      flex: 0 0 48px;
+      border-right: 1px solid #8a7a6a;
+    }
+
+    &:last-child {
+      border-right: none;
+    }
+  }
+}
+
+.tableRow {
+  display: flex;
+  border-bottom: 1px solid #c4b8a8;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  .symbolCell {
+    flex: 0 0 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    border-right: 1px solid #8a7a6a;
+    background-color: #e8e0d5;
+
+    .upgradeSymbol {
+      width: 32px;
+      height: 32px;
+      object-fit: contain;
+    }
+  }
+
+  .dataCell {
+    flex: 1;
+    min-width: 0;
+    min-height: 36px;
+    border-right: 1px solid #c4b8a8;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:last-child {
+      border-right: none;
+    }
+
+    /* Worker: same as cost boxes. Base: orange */
+    .cellSymbolBox {
+      width: 28px;
+      height: 28px;
+      padding: 3px;
+      box-sizing: border-box;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      background-color: #2a4a6a;
+      border: 1px solid #1a3550;
+
+      &.cellSymbolBox_base {
+        background-color: #e67e22;
+        border: 1px solid #d35400;
+      }
+
+      &.cellSymbolBox_action {
+        background-color: #fff9c4;
+        border: 1px solid #f9a825;
+      }
+
+      &.cellSymbolBox_tempWorker {
+        background-color: #8b2e1a;
+        border: 1px solid #6b2214;
+      }
+
+      .plusOverlay {
+        position: absolute;
+        top: 1px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: #e6c84a;
+        font-size: 12px;
+        font-weight: bold;
+        line-height: 1;
+        z-index: 1;
+      }
+
+      &.cellSymbolBox_evolve {
+        background-color: #2a4a6a;
+        border: 1px solid #1a3550;
+        position: relative;
+
+        .chevronUpOverlay {
+          position: absolute;
+          top: 1px;
+          left: 50%;
+          transform: translateX(-50%);
+          color: #e6c84a;
+          font-size: 9px;
+          line-height: 1;
+          z-index: 1;
+        }
+      }
+    }
+
+    .cellSymbol {
+      width: 20px;
+      height: 20px;
+      object-fit: contain;
+    }
+  }
+}
+
+.addedForPrint {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  background-color: #2ecc71;
+  color: white;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 16px;
+  z-index: 10;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+@media print {
+  .card {
+    box-shadow: none;
+    page-break-inside: avoid;
+    break-inside: avoid;
+
+    &:hover {
+      transform: none;
+    }
+  }
+}

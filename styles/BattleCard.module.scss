@@ -1,0 +1,247 @@
+@import "variables";
+@import "mixins";
+@import "placeholders";
+
+.card {
+  display: flex;
+  flex-direction: column;
+  border: 10px solid black;
+  border-radius: 8px;
+  width: 240px;
+  height: 336px;
+  margin-right: 1px;
+  margin-bottom: 1px;
+  position: relative;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #f5f0e8;
+  overflow: hidden;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  background: linear-gradient(180deg, #3d5a4a 0%, #2d4a3e 100%);
+  border-bottom: 2px solid #1a3328;
+  flex-shrink: 0;
+  min-height: 56px;
+}
+
+/* Hex clip-path: flat-top hexagon for 44x44 box */
+$hex-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+/* Slightly smaller hex for inner fill (2px border) */
+$hex-path-inner: polygon(50% 4.5%, 95.5% 26%, 95.5% 74%, 50% 95.5%, 4.5% 74%, 4.5% 26%);
+
+.conditionImage {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  border: 2px solid #1a3328;
+  border-radius: 6px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .conditionSymbol {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+  }
+
+  /* Hex shape for HEX objectives only */
+  &.conditionImage_hex {
+    border-radius: 0;
+    border: none;
+    background-color: #1a3328; /* border color - outer hex */
+    clip-path: $hex-path;
+    -webkit-clip-path: $hex-path;
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 2px;
+      clip-path: $hex-path-inner;
+      -webkit-clip-path: $hex-path-inner;
+      z-index: 0;
+    }
+
+    &.conditionColor_grey::before {
+      background-color: #808080;
+    }
+    &.conditionColor_blue::before {
+      background-color: #3498db;
+    }
+    &.conditionColor_purple::before {
+      background-color: #9b59b6;
+    }
+
+    .conditionSymbol,
+    .omniColors {
+      position: relative;
+      z-index: 1;
+    }
+  }
+}
+
+.conditionColor_grey {
+  background-color: #808080;
+}
+
+.conditionColor_blue {
+  background-color: #3498db;
+}
+
+.conditionColor_purple {
+  background-color: #9b59b6;
+}
+
+.conditionColor_omni {
+  background-color: #ddd;
+}
+
+/* 3 intersecting color sections (Venn-style) for omni conditions */
+.omniColors {
+  position: absolute;
+  inset: 0;
+}
+
+.omniGrey {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 45%;
+  background-color: #808080;
+  clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+}
+
+.omniPurple {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 55%;
+  height: 55%;
+  background-color: #9b59b6;
+  clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
+}
+
+.omniBlue {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 55%;
+  height: 55%;
+  background-color: #3498db;
+  clip-path: polygon(0% 0%, 100% 100%, 100% 0%);
+}
+
+.conditionText {
+  flex: 1;
+  font-size: 16px;
+  font-weight: 700;
+  color: #f5f0e8;
+  text-align: center;
+}
+
+.rewardSections {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+  gap: 6px;
+  min-height: 0;
+}
+
+.rewardBox {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: #e8e0d5;
+  border: 2px solid #c4b8a8;
+  border-radius: 6px;
+  padding: 6px 10px;
+  position: relative;
+  min-height: 0;
+}
+
+.placeLabel {
+  position: absolute;
+  top: 4px;
+  left: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #555;
+}
+
+.rewardContent {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.rewardIcon {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+.vpAmount {
+  font-size: 18px;
+  font-weight: 700;
+  color: #2d2d2d;
+}
+
+.tierBadge {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 8px;
+  background-color: #2d4a3e;
+  color: #f5f0e8;
+  border-radius: 4px;
+}
+
+.addedForPrint {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  background-color: #2ecc71;
+  color: white;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 16px;
+  z-index: 10;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+@media print {
+  .card {
+    box-shadow: none;
+    page-break-inside: avoid;
+    break-inside: avoid;
+
+    &:hover {
+      transform: none;
+    }
+  }
+}

@@ -1,0 +1,483 @@
+@import "variables";
+@import "mixins";
+@import "placeholders";
+
+.card {
+  display: flex;
+  flex-direction: column;
+  border: 10px solid black;
+  border-radius: 8px;
+  width: 240px;
+  height: 336px;
+  margin-right: 1px;
+  margin-bottom: 1px;
+  position: relative;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #f5f0e8;
+  overflow: hidden;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+}
+
+.reputationBox {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 44px;
+  height: 44px;
+  padding: 4px;
+  box-sizing: border-box;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+
+  img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+  }
+
+  &.reputationBox_grey {
+    background-color: #808080;
+    border: 2px solid #5a5a5a;
+  }
+
+  &.reputationBox_purple {
+    background-color: #9b59b6;
+    border: 2px solid #7d3c98;
+  }
+
+  &.reputationBox_blue {
+    background-color: #3498db;
+    border: 2px solid #2980b9;
+  }
+}
+
+.resourceYieldedBox {
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+  width: 44px;
+  height: 44px;
+  padding: 4px;
+  box-sizing: border-box;
+  background-color: #1a4a3a;
+  border-radius: 6px;
+  border: 2px solid #0d2e22;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+
+  img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+  }
+}
+
+.costBox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 6px 8px;
+  background-color: #5a4a3a;
+  border-bottom: 2px solid #3d3025;
+  flex-shrink: 0;
+}
+
+.costWorkers {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.costResources {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.costIconBox {
+  width: 28px;
+  height: 28px;
+  padding: 3px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .costIcon {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+  }
+
+  &.costIconBoxWorker {
+    background-color: #2a4a6a;
+    border: 1px solid #1a3550;
+  }
+
+  &.costIconBoxResource {
+    background-color: #390f06;
+    border: 1px solid #000000;
+  }
+
+  &.costIconBoxArtifact {
+    background-color: #3a2a4a;
+    border: 1px solid #251a35;
+  }
+}
+
+.costArtifacts {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.costChevron {
+  color: #e6c84a;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.questlineContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.questlineEffect {
+  font-size: 13px;
+  line-height: 1.3;
+  text-align: center;
+  color: #f5f0e8;
+}
+
+.questlineReward {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+
+  img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+  }
+
+  span {
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  }
+}
+
+.body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.imageSection {
+  flex: 0 0 auto;
+  height: 140px;
+  background-color: #2d4a3e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.effectSection {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(180deg, #e8e0d5 0%, #ddd5c8 100%);
+  border-top: 2px solid #382308;
+  overflow: hidden;
+
+  &.effectSectionUpgrade {
+    background: linear-gradient(180deg, #4a6a9a 0%, #3d5a8a 100%);
+    border-top: 2px solid #2d4a7a;
+  }
+
+  &.effectSectionCombat {
+    background: linear-gradient(180deg, #b85a5a 0%, #9a4a4a 100%);
+    border-top: 2px solid #7a3535;
+  }
+
+  &.effectSectionQuestline {
+    background: linear-gradient(180deg, #4a8a5a 0%, #3d7a4a 100%);
+    border-top: 2px solid #2d5a35;
+  }
+
+  .effectContent {
+    flex: 1;
+    padding: 8px 10px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2px 4px;
+    overflow-y: auto;
+    font-size: 14px;
+    line-height: 1.35;
+    color: #2d2d2d;
+
+    .effectSymbol {
+      width: 18px;
+      height: 18px;
+      vertical-align: middle;
+      object-fit: contain;
+      display: inline-block;
+    }
+
+    /* Upgrade card: 3 equal sections */
+    .upgradeRow {
+      display: flex;
+      width: 100%;
+      flex: 1;
+      min-height: 0;
+      align-items: flex-start;
+    }
+
+    .upgradeSection {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 4px;
+      padding: 8px 4px;
+      border-right: 1px solid rgba(255, 255, 255, 0.3);
+
+      &:last-child {
+        border-right: none;
+      }
+
+      .upgradeSymbol {
+        width: 32px;
+        height: 32px;
+        object-fit: contain;
+      }
+
+      .upgradeValue {
+        font-size: 24px;
+        font-weight: 700;
+        color: #fff;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+      }
+    }
+
+    /* Combat card: credits/reputation rewards */
+    .combatRewards {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 8px 12px;
+      width: 100%;
+    }
+
+    .combatColorBox {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      min-height: 32px;
+      padding: 4px 10px;
+      border: 2px solid rgba(0, 0, 0, 0.4);
+      border-radius: 4px;
+
+      &.combatColor_grey {
+        background-color: #808080;
+      }
+
+      &.combatColor_blue {
+        background-color: #3498db;
+      }
+
+      &.combatColor_purple {
+        background-color: #9b59b6;
+      }
+    }
+
+    .combatRewardValue {
+      font-size: 16px;
+      font-weight: 700;
+      color: #fff;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    }
+
+    .combatRewardIcon {
+      width: 20px;
+      height: 20px;
+      object-fit: contain;
+    }
+  }
+
+  /* Event card: temp workers, control token, special effects */
+  .eventRewards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .eventRewardItem {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .eventRewardBox {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 6px 10px;
+    border-radius: 4px;
+    border: 2px solid rgba(0, 0, 0, 0.3);
+
+    &.eventRewardBoxTempWorker {
+      background-color: #8b2e1a;
+      border-color: #6b2214;
+    }
+
+    &.eventRewardBoxControlToken {
+      background-color: #d4a84b;
+      border-color: #b8892e;
+    }
+  }
+
+  .eventRewardIcon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+  }
+
+  .eventRewardText {
+    font-size: 14px;
+    font-weight: 600;
+    color: #2d2d2d;
+  }
+
+  .eventRewardBox .eventRewardText {
+    color: #fff;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
+  }
+
+  .eventRewardBoxControlToken .eventRewardText {
+    color: #2d2d2d;
+  }
+
+  .eventEffectText {
+    font-size: 12px;
+    color: #2d2d2d;
+    text-align: center;
+    line-height: 1.3;
+  }
+}
+
+.effectSectionUpgrade .effectContent {
+  color: #f5f0e8;
+  align-items: flex-start;
+}
+
+.effectSectionCombat .effectContent {
+  color: #f5f0e8;
+  align-items: center;
+  justify-content: center;
+}
+
+.effectSectionEvent .effectContent {
+  align-items: center;
+  justify-content: center;
+}
+
+.effectSectionQuestline .effectContent {
+  color: #f5f0e8;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.artifactBox {
+  position: absolute;
+  bottom: 4px;
+  left: 4px;
+  width: 44px;
+  height: 44px;
+  padding: 4px;
+  box-sizing: border-box;
+  background-color: #3a2a4a;
+  border-radius: 6px;
+  border: 2px solid #251a35;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+
+  img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+  }
+}
+
+.addedForPrint {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  background-color: #2ecc71;
+  color: white;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 16px;
+  z-index: 10;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Print styles */
+@media print {
+  .card {
+    box-shadow: none;
+    page-break-inside: avoid;
+    break-inside: avoid;
+
+    &:hover {
+      transform: none;
+    }
+  }
+}
