@@ -51,6 +51,16 @@ const BattleCard = ({ card, isEditMode, handleAddCardToPrint, isInPrint }) => {
 
   const renderThirdReward = () => {
     if (!third) return null;
+    // Tier 1: reputation color box with symbol (color matches condition)
+    if (third.reputation && tier === 1 && conditionColor && conditionColor !== "omni") {
+      const repSymbol = ASSETS.reputationSymbols?.[conditionColor] || ASSETS.reputation;
+      return (
+        <div className={`${styles.rewardReputationBox} ${styles[`rewardReputation_${conditionColor}`]}`}>
+          <img src={repSymbol} alt="reputation" className={styles.rewardIcon} />
+        </div>
+      );
+    }
+    // Tier 2: card symbols
     const count = third.cards || 0;
     return Array.from({ length: count }, (_, i) => (
       <img key={i} src={ASSETS.cardSymbol} alt="card" className={styles.rewardIcon} />

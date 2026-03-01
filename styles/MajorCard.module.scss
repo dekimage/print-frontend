@@ -1,0 +1,231 @@
+@import "variables";
+@import "mixins";
+@import "placeholders";
+
+/* Major card: 800×1200, 10px border like other cards */
+.card {
+  display: flex;
+  flex-direction: column;
+  border: 10px solid black;
+  border-radius: 8px;
+  width: 800px;
+  height: 1200px;
+  padding: 16px;
+  box-sizing: border-box;
+  position: relative;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #f5f0e8;
+  overflow: hidden;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+}
+
+.columnsRow {
+  display: flex;
+  align-items: stretch;
+  flex: 1;
+  min-height: 0;
+  gap: 0;
+}
+
+.section {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+}
+
+.factionColumn_numbers {
+  width: 28px;
+  flex: 0 0 28px;
+  background-color: #e8e4e0;
+  border-color: rgba(0, 0, 0, 0.15);
+
+  .factionCell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.cellNumber {
+  font-size: 12px;
+  font-weight: 700;
+  color: #2d2d2d;
+}
+
+.factionColumn_vpNumbers {
+  background-color: #e8e0d5;
+  border-color: #c4b8a8;
+}
+
+.columnGap {
+  width: 12px;
+  flex-shrink: 0;
+}
+
+.factionColumn {
+  width: 60px;
+  flex: 0 0 60px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.columnHeader {
+  width: 100%;
+  height: 60px;
+  flex: 0 0 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+}
+
+.headerSymbol {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+}
+
+.factionCell {
+  flex: 1;
+  min-height: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+  box-sizing: border-box;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.factionCell_withContent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cellSymbol {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+.cellContent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+}
+
+.cellBadge {
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.factionColumn_blue {
+  .columnHeader,
+  .factionCell {
+    background-color: #3498db;
+    border-color: #2980b9;
+  }
+}
+
+.factionColumn_purple {
+  .columnHeader,
+  .factionCell {
+    background-color: #9b59b6;
+    border-color: #8e44ad;
+  }
+}
+
+.factionColumn_grey {
+  .columnHeader,
+  .factionCell {
+    background-color: #808080;
+    border-color: #5a5a5a;
+  }
+}
+
+.vpColumn {
+  flex: 1;
+  min-width: 120px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  overflow: hidden;
+  background-color: #e8e0d5;
+}
+
+.vpHeader {
+  width: 100%;
+  height: 60px;
+  flex: 0 0 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff9c4;
+  border-bottom: 1px solid #f9a825;
+}
+
+.vpCell {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #c4b8a8;
+  box-sizing: border-box;
+  background-color: #fff;
+
+  &:last-child {
+    border-bottom: none;
+    background-color: #f5e6b8;
+  }
+}
+
+.trophySymbol {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+
+.addedForPrint {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  background-color: #2ecc71;
+  color: white;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 16px;
+  z-index: 10;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+@media print {
+  .card {
+    box-shadow: none;
+    page-break-inside: avoid;
+    break-inside: avoid;
+
+    &:hover {
+      transform: none;
+    }
+  }
+}

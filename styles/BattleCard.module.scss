@@ -198,6 +198,39 @@ $hex-path-inner: polygon(50% 4.5%, 95.5% 26%, 95.5% 74%, 50% 95.5%, 4.5% 74%, 4.
   object-fit: contain;
 }
 
+.rewardReputationBox {
+  width: 44px;
+  height: 44px;
+  flex: 0 0 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  box-sizing: border-box;
+  border-radius: 6px;
+  border: 2px solid rgba(0, 0, 0, 0.25);
+
+  .rewardIcon {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+.rewardReputation_grey {
+  background-color: #808080;
+  border-color: #5a5a5a;
+}
+
+.rewardReputation_blue {
+  background-color: #3498db;
+  border-color: #2980b9;
+}
+
+.rewardReputation_purple {
+  background-color: #9b59b6;
+  border-color: #8e44ad;
+}
+
 .vpAmount {
   font-size: 18px;
   font-weight: 700;

@@ -14,15 +14,14 @@ import blueSymbol from "../../assets/marshlands/blue.png";
 // ═══════════════════════════════════════════════════════════════════════════
 
 export const ASSETS = {
-  // 4 Resources (yielded / cost symbols)
+  // 3 Resources (yielded / cost symbols)
   resources: {
     wood: "https://api.dofusdb.fr/img/items/108230.png",
     stone: "https://api.dofusdb.fr/img/items/50715.png",
     clay: "https://api.dofusdb.fr/img/items/109610.png",
-    reed: "https://api.dofusdb.fr/img/items/50721.png",
   },
 
-  // 7 Artifacts
+  // 6 Artifacts
   artifacts: {
     artifact1: "https://api.dofusdb.fr/img/items/1119.png",
     artifact2: "https://api.dofusdb.fr/img/items/4125.png",
@@ -30,7 +29,6 @@ export const ASSETS = {
     artifact4: "https://api.dofusdb.fr/img/items/10113.png",
     artifact5: "https://api.dofusdb.fr/img/items/11097.png",
     artifact6: "https://api.dofusdb.fr/img/items/16166.png",
-    artifact7: "https://api.dofusdb.fr/img/items/17127.png",
   },
 
   // Workers (1-3, used in cost)
@@ -80,13 +78,16 @@ export const ASSETS = {
 
   // Card symbol for starting stuff (update URL when available)
   cardSymbol: "https://api.dofusdb.fr/img/items/24963.png",
+
+  // Trophy for major card (victory/20th place) - use distinct icon if available
+  trophy: "https://api.dofusdb.fr/img/items/16275.png",
 };
 
 // ═══════════════════════════════════════════════════════════════════════════
 // ENTITIES - For filters and validation
 // ═══════════════════════════════════════════════════════════════════════════
 
-export const RESOURCES = ["wood", "stone", "clay", "reed"];
+export const RESOURCES = ["wood", "stone", "clay"];
 export const COMBAT_COLORS = ["grey", "blue", "purple"];
 export const ARTIFACTS = [
   "artifact1",
@@ -95,7 +96,6 @@ export const ARTIFACTS = [
   "artifact4",
   "artifact5",
   "artifact6",
-  "artifact7",
 ];
 
 // Symbol mapping for effect parsing (:wood: -> image, etc.)
@@ -151,7 +151,23 @@ export const parseMarshlandsEffect = (effectString) => {
 
 // ═══════════════════════════════════════════════════════════════════════════
 // CARD DATA - 42+ cards: 12 upgrade, 12 event, 12 combat, 6 questline
+// First 12 imageUrls repeat for event (wood), combat (clay), and questline cards
 // ═══════════════════════════════════════════════════════════════════════════
+
+const FIRST_12_IMAGES = [
+  "https://massivelyop.com/wp-content/uploads/2021/07/wow-classic-3.jpg",
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSj6qaYMDyZoI7lkrcoKA9MjSIoixOoOS3--Q&s",
+  "https://scontent.fskp4-1.fna.fbcdn.net/v/t39.30808-6/641138304_2341849082975941_5983760926535116371_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=105&ccb=1-7&_nc_sid=e06c5d&_nc_ohc=pFAj2y5bz00Q7kNvwELGqnu&_nc_oc=AdmFMDY2QzPppXYl-ECirwpx3HHyBM92Ab87o9DlyuP3jzMfY6tqiDdrsy11b07JlRA&_nc_zt=23&_nc_ht=scontent.fskp4-1.fna&_nc_gid=v3k3GY3kz7B_FZxnZES4QQ&_nc_ss=8&oh=00_AfsLdjd1TP1ZtxZF2QZM5ZxNug1H8hd6ZWGMZqiNFya7lQ&oe=69A7C307",
+  "https://main.judgehype.com/images/news-entetes/2016/370877-1481629124.jpg",
+  "https://overgear.com/guides/wp-content/uploads/2025/12/the-burning-crusade-anniversary-reputation-leveling.jpg",
+  "https://domuezcltvfdx.cloudfront.net/images/Screenshot/42/95/64/51bc8e2de3244b169c2177d4d067071a/51bc8e2de3244b169c2177d4d067071a.92b10be6.jpg",
+  "https://www.rpgfan.com/wp-content/uploads/2021/04/World-of-Warcraft-The-Burning-Crusade-Screenshot-047.jpg",
+  "https://i.namu.wiki/i/6se5AmMcu161hNV86vu5fUOKGa9uwTeKs623_yOZopy4Y8XRVi0rjwx3jwRYhAtWYFxN5zLB6RnPF2faHTBO2A.webp",
+  "https://static0.gamerantimages.com/wordpress/wp-content/uploads/2024/05/baldurs-gate-3-underdark-1.jpg?w=1600&h=900&fit=crop",
+  "https://warcraft.wiki.gg/images/Telredor_2.jpg?99e5de",
+  "https://cdnb.artstation.com/p/assets/images/images/019/571/443/large/oceane-coissard-asset.jpg?1564074127",
+  "https://64.media.tumblr.com/e0eceaeed0dd1655fed6a80d5e1199eb/tumblr_p9ntjacSBZ1xnzat4o1_1280.jpg",
+];
 
 const pickRandom = (arr) => arr[Math.floor(Math.random() * arr.length)];
 const pickRandomMultiple = (arr, count) => {
@@ -210,7 +226,7 @@ const cardNames = [
 //     costWorkers: workers,
 //     costResourceCount: resourceCount,
 //     imageUrl: ASSETS.cardArt.default,
-//     effect: "", // User will fill - use :wood: :stone: :clay: :reed: :artifact1: :artifact2: etc.
+//     effect: "", // User will fill - use :wood: :stone: :clay: :artifact1: :artifact2: etc.
 //   };
 // });
 
@@ -235,7 +251,7 @@ const marshlandsCardsRaw = [
     cardType: "regular",
     regularCardType: "upgrade",
     name: "Reed Harvester",
-    resourceYielded: "reed",
+    resourceYielded: "clay",
     artifactYielded: "artifact2",
     cost: { workers: 2, resources: ["stone"] },
     costWorkers: 2,
@@ -250,7 +266,7 @@ const marshlandsCardsRaw = [
     cardType: "regular",
     regularCardType: "upgrade",
     name: "Clay Miner",
-    resourceYielded: "clay",
+    resourceYielded: "wood",
     artifactYielded: "artifact3",
     cost: { workers: 3, resources: ["stone"] },
     costWorkers: 3,
@@ -296,7 +312,7 @@ const marshlandsCardsRaw = [
     cardType: "regular",
     regularCardType: "upgrade",
     name: "Swamp Scout",
-    resourceYielded: "reed",
+    resourceYielded: "clay",
     artifactYielded: "artifact6",
     cost: { workers: 3, resources: ["stone"] },
     costWorkers: 3,
@@ -313,7 +329,7 @@ const marshlandsCardsRaw = [
     regularCardType: "upgrade",
     name: "Fen Gatherer",
     resourceYielded: "clay",
-    artifactYielded: "artifact7",
+    artifactYielded: "artifact6",
     cost: { workers: 1, resources: ["stone"] },
     costWorkers: 1,
     costResourceCount: 1,
@@ -372,7 +388,7 @@ const marshlandsCardsRaw = [
     cardType: "regular",
     regularCardType: "upgrade",
     name: "Peat Farmer",
-    resourceYielded: "reed",
+    resourceYielded: "stone",
     artifactYielded: "artifact4",
     cost: { workers: 2, resources: ["stone"] },
     costWorkers: 2,
@@ -418,8 +434,8 @@ const marshlandsCardsRaw = [
     cardType: "regular",
     regularCardType: "event",
     name: "Bog Priest",
-    resourceYielded: "reed",
-    artifactYielded: "artifact7",
+    resourceYielded: "clay",
+    artifactYielded: "artifact6",
     cost: { workers: 1, resources: ["wood"] },
     costWorkers: 1,
     costResourceCount: 1,
@@ -431,7 +447,7 @@ const marshlandsCardsRaw = [
     cardType: "regular",
     regularCardType: "event",
     name: "Reed Weaver",
-    resourceYielded: "clay",
+    resourceYielded: "wood",
     artifactYielded: "artifact1",
     cost: { workers: 1, resources: ["wood"] },
     costWorkers: 1,
@@ -475,7 +491,7 @@ const marshlandsCardsRaw = [
     cardType: "regular",
     regularCardType: "event",
     name: "Swamp Guide",
-    resourceYielded: "reed",
+    resourceYielded: "clay",
     artifactYielded: "artifact4",
     cost: { workers: 2, resources: ["wood"] },
     costWorkers: 2,
@@ -522,7 +538,7 @@ const marshlandsCardsRaw = [
     regularCardType: "event",
     name: "Wetland Shaman",
     resourceYielded: "wood",
-    artifactYielded: "artifact7",
+    artifactYielded: "artifact6",
     cost: { workers: 3, resources: ["wood"] },
     costWorkers: 3,
     costResourceCount: 1,
@@ -535,7 +551,7 @@ const marshlandsCardsRaw = [
     cardType: "regular",
     regularCardType: "event",
     name: "Silt Diver",
-    resourceYielded: "reed",
+    resourceYielded: "stone",
     artifactYielded: "artifact1",
     cost: { workers: 3, resources: ["wood"] },
     costWorkers: 3,
@@ -598,7 +614,7 @@ const marshlandsCardsRaw = [
     cardType: "regular",
     regularCardType: "combat",
     name: "Bog Forager",
-    resourceYielded: "reed",
+    resourceYielded: "wood",
     artifactYielded: "artifact5",
     cost: { workers: 2, resources: ["clay"] },
     costWorkers: 2,
@@ -627,7 +643,7 @@ const marshlandsCardsRaw = [
     regularCardType: "combat",
     name: "Marshland Brawler",
     resourceYielded: "wood",
-    artifactYielded: "artifact7",
+    artifactYielded: "artifact6",
     cost: { workers: 1, resources: ["clay"] },
     costWorkers: 1,
     costResourceCount: 1,
@@ -640,7 +656,7 @@ const marshlandsCardsRaw = [
     cardType: "regular",
     regularCardType: "combat",
     name: "Bog Sentinel",
-    resourceYielded: "reed",
+    resourceYielded: "clay",
     artifactYielded: "artifact1",
     cost: { workers: 1, resources: ["clay"] },
     costWorkers: 1,
@@ -696,7 +712,7 @@ const marshlandsCardsRaw = [
     cardType: "regular",
     regularCardType: "combat",
     name: "Mire Fighter",
-    resourceYielded: "reed",
+    resourceYielded: "stone",
     artifactYielded: "artifact5",
     cost: { workers: 2, resources: ["clay"] },
     costWorkers: 2,
@@ -725,7 +741,7 @@ const marshlandsCardsRaw = [
     regularCardType: "combat",
     name: "Silt Stalker",
     resourceYielded: "stone",
-    artifactYielded: "artifact7",
+    artifactYielded: "artifact6",
     cost: { workers: 3, resources: ["clay"] },
     costWorkers: 3,
     costResourceCount: 1,
@@ -748,16 +764,16 @@ const marshlandsCardsRaw = [
     effect: "",
   },
 
-  // Quest Lines: 3 workers + 3 artifacts (with chevrons), green effect, reward 1 VP
+  // Quest Lines: 1 worker + 3 artifacts (combos [1,2,3], [2,3,4], [3,4,5], [4,5,6], [5,6,1], [6,1,2])
   {
     id: "marshlands_37",
     cardType: "regular",
     regularCardType: "questline",
     name: "The Reed Path",
-    resourceYielded: "reed",
-    artifactYielded: "artifact4",
-    cost: { workers: 3, artifacts: ["artifact1", "artifact2", "artifact3"] },
-    costWorkers: 3,
+    resourceYielded: "wood",
+    artifactYielded: "artifact1",
+    cost: { workers: 1, artifacts: ["artifact1", "artifact2", "artifact3"] },
+    costWorkers: 1,
     imageUrl:
       "https://wow.zamimg.com/uploads/screenshots/normal/958193-explore-feralas.jpg",
     effect: "",
@@ -768,9 +784,9 @@ const marshlandsCardsRaw = [
     regularCardType: "questline",
     name: "Bog Pilgrimage",
     resourceYielded: "clay",
-    artifactYielded: "artifact5",
-    cost: { workers: 3, artifacts: ["artifact2", "artifact4", "artifact6"] },
-    costWorkers: 3,
+    artifactYielded: "artifact2",
+    cost: { workers: 1, artifacts: ["artifact2", "artifact3", "artifact4"] },
+    costWorkers: 1,
     imageUrl:
       "https://blizzardwatch.com/wp-content/uploads/2016/12/feralas-shalzaru-header.jpg",
     effect: "",
@@ -781,9 +797,9 @@ const marshlandsCardsRaw = [
     regularCardType: "questline",
     name: "Fen Oracle",
     resourceYielded: "stone",
-    artifactYielded: "artifact6",
-    cost: { workers: 3, artifacts: ["artifact3", "artifact5", "artifact7"] },
-    costWorkers: 3,
+    artifactYielded: "artifact3",
+    cost: { workers: 1, artifacts: ["artifact3", "artifact4", "artifact5"] },
+    costWorkers: 1,
     imageUrl:
       "https://64.media.tumblr.com/0d1fe6464f9b252bb5e96b8d2cda542b/tumblr_p9rjj04hUV1xnzat4o1_1280.jpg",
     effect: "",
@@ -794,9 +810,9 @@ const marshlandsCardsRaw = [
     regularCardType: "questline",
     name: "Mire Walker",
     resourceYielded: "wood",
-    artifactYielded: "artifact7",
-    cost: { workers: 3, artifacts: ["artifact1", "artifact4", "artifact7"] },
-    costWorkers: 3,
+    artifactYielded: "artifact4",
+    cost: { workers: 1, artifacts: ["artifact4", "artifact5", "artifact6"] },
+    costWorkers: 1,
     imageUrl:
       "https://images.squarespace-cdn.com/content/v1/5e9dcdfdeed291246bf96c27/1590025807446-GLU310YEO7UUSIA3JZWA/Feralas.jpg?format=1000w",
     effect: "",
@@ -807,9 +823,9 @@ const marshlandsCardsRaw = [
     regularCardType: "questline",
     name: "Wetland Trails",
     resourceYielded: "stone",
-    artifactYielded: "artifact1",
-    cost: { workers: 3, artifacts: ["artifact2", "artifact5", "artifact7"] },
-    costWorkers: 3,
+    artifactYielded: "artifact5",
+    cost: { workers: 1, artifacts: ["artifact5", "artifact6", "artifact1"] },
+    costWorkers: 1,
     imageUrl:
       "https://i.pinimg.com/736x/46/f4/35/46f4352e91a00b54f9a9230944943d88.jpg",
     effect: "",
@@ -820,9 +836,9 @@ const marshlandsCardsRaw = [
     regularCardType: "questline",
     name: "Silt Pilgrim",
     resourceYielded: "clay",
-    artifactYielded: "artifact2",
-    cost: { workers: 3, artifacts: ["artifact3", "artifact4", "artifact6"] },
-    costWorkers: 3,
+    artifactYielded: "artifact6",
+    cost: { workers: 1, artifacts: ["artifact6", "artifact1", "artifact2"] },
+    costWorkers: 1,
     imageUrl:
       "https://static0.thegamerimages.com/wordpress/wp-content/uploads/2019/12/Feralas_Warcraft.jpg?q=50&fit=crop&w=825&dpr=1.5",
     effect: "",
@@ -830,10 +846,12 @@ const marshlandsCardsRaw = [
 ];
 
 // Assign reputationColor: 1st,4th,7th,10th...=grey; 2nd,5th,8th...=purple; 3rd,6th,9th...=blue
+// Cards 13-42 (event/combat/questline): use repeating first 12 imageUrls
 const REPUTATION_COLORS = ["grey", "purple", "blue"];
 const marshlandsCardsWithColor = marshlandsCardsRaw.map((card, i) => ({
   ...card,
   reputationColor: REPUTATION_COLORS[i % 3],
+  ...(i >= 12 && { imageUrl: FIRST_12_IMAGES[i % 12] }),
 }));
 export const marshlandsCards = marshlandsCardsWithColor;
 
@@ -875,7 +893,7 @@ const genericConditions = [
   { condition: "Most Reputation", conditionType: "reputation", color: "omni" },
 ];
 
-// 6 tier 1 + 6 tier 2 battle cards; tier 1: 1st=VP (symbol only), 2nd=card, 3rd=empty; tier 2: 1st=2 VP symbols, 2nd=2 cards, 3rd=1 card
+// 6 tier 1 + 6 tier 2 battle cards; tier 1: 1st=VP (symbol only), 2nd=card, 3rd=reputation (color matches condition); tier 2: 1st=2 VP symbols, 2nd=2 cards, 3rd=1 card
 const battleCardTier1 = coloredConditions.slice(0, 6).map((c, i) => ({
   id: `battle_t1_${i + 1}`,
   cardType: "battle",
@@ -886,13 +904,14 @@ const battleCardTier1 = coloredConditions.slice(0, 6).map((c, i) => ({
   rewards: {
     first: { vp: 1 },
     second: { cards: 1 },
-    third: null,
+    third: { reputation: 1 },
   },
 }));
 
 const battleCardTier2 = [
-  ...coloredConditions.slice(0, 4),
   ...coloredConditions.slice(0, 2),
+  ...coloredConditions.slice(2, 4),
+  ...coloredConditions.slice(4, 6),
 ].map((c, i) => ({
   id: `battle_t2_${i + 1}`,
   cardType: "battle",
@@ -1014,5 +1033,16 @@ export const trackCards = [
     id: "track_2",
     cardType: "track",
     creditsVariant: "blue",
+  },
+];
+
+// ═══════════════════════════════════════════════════════════════════════════
+// MAJOR CARD - 800×1200 faction columns + VP track
+// ═══════════════════════════════════════════════════════════════════════════
+
+export const majorCards = [
+  {
+    id: "major_1",
+    cardType: "major",
   },
 ];

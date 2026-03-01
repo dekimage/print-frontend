@@ -65,9 +65,7 @@ const Card = ({ card, isEditMode, handleAddCardToPrint, isInPrint }) => {
       {/* Body: Image (140px) + Effect box (cost row on top, effect text on bottom) */}
       <div className={styles.body}>
         <div className={styles.imageSection}>
-          {imageUrl && (
-            <img src={imageUrl} alt={name} />
-          )}
+          {imageUrl && <img src={imageUrl} alt={name} />}
         </div>
         <div
           className={`${styles.effectSection} ${isUpgradeCard ? styles.effectSectionUpgrade : ""} ${isCombatCard ? styles.effectSectionCombat : ""} ${isEventCard ? styles.effectSectionEvent : ""} ${isQuestlineCard ? styles.effectSectionQuestline : ""}`}
@@ -75,7 +73,10 @@ const Card = ({ card, isEditMode, handleAddCardToPrint, isInPrint }) => {
           <div className={styles.costBox}>
             <div className={styles.costWorkers}>
               {Array.from({ length: cost.workers }, (_, i) => (
-                <div key={`w-${i}`} className={`${styles.costIconBox} ${styles.costIconBoxWorker}`}>
+                <div
+                  key={`w-${i}`}
+                  className={`${styles.costIconBox} ${styles.costIconBoxWorker}`}
+                >
                   <img
                     src={ASSETS.workers.worker}
                     alt="worker"
@@ -88,7 +89,9 @@ const Card = ({ card, isEditMode, handleAddCardToPrint, isInPrint }) => {
               <div className={styles.costArtifacts}>
                 {cost.artifacts.map((a, i) => (
                   <React.Fragment key={a}>
-                    <div className={`${styles.costIconBox} ${styles.costIconBoxArtifact}`}>
+                    <div
+                      className={`${styles.costIconBox} ${styles.costIconBoxArtifact}`}
+                    >
                       <img
                         src={ASSETS.artifacts[a]}
                         alt={a}
@@ -105,7 +108,10 @@ const Card = ({ card, isEditMode, handleAddCardToPrint, isInPrint }) => {
             ) : (
               <div className={styles.costResources}>
                 {cost.resources?.map((r) => (
-                  <div key={r} className={`${styles.costIconBox} ${styles.costIconBoxResource}`}>
+                  <div
+                    key={r}
+                    className={`${styles.costIconBox} ${styles.costIconBoxResource}`}
+                  >
                     <img
                       src={ASSETS.resources[r]}
                       alt={r}
@@ -121,46 +127,85 @@ const Card = ({ card, isEditMode, handleAddCardToPrint, isInPrint }) => {
             {isCombatCard && rewards ? (
               <div className={styles.combatRewards}>
                 {rewards.credits > 0 && (
-                  <div className={`${styles.combatColorBox} ${styles[`combatColor_${rewards.color}`]}`}>
-                    <span className={styles.combatRewardValue}>{rewards.credits}</span>
-                    <img src={ASSETS.credit} alt="credit" className={styles.combatRewardIcon} />
+                  <div
+                    className={`${styles.combatColorBox} ${styles[`combatColor_${rewards.color}`]}`}
+                  >
+                    <span className={styles.combatRewardValue}>
+                      {rewards.credits}
+                    </span>
+                    <img
+                      src={ASSETS.credit}
+                      alt="credit"
+                      className={styles.combatRewardIcon}
+                    />
                   </div>
                 )}
                 {rewards.reputation > 0 && (
-                  <div className={`${styles.combatColorBox} ${styles[`combatColor_${rewards.color}`]}`}>
-                    <span className={styles.combatRewardValue}>{rewards.reputation}</span>
-                    <img src={ASSETS.reputation} alt="reputation" className={styles.combatRewardIcon} />
+                  <div
+                    className={`${styles.combatColorBox} ${styles[`combatColor_${rewards.color}`]}`}
+                  >
+                    <span className={styles.combatRewardValue}>
+                      {rewards.reputation}
+                    </span>
+                    <img
+                      src={ASSETS.reputation}
+                      alt="reputation"
+                      className={styles.combatRewardIcon}
+                    />
                   </div>
                 )}
               </div>
             ) : isEventCard && eventRewards ? (
               <div className={styles.eventRewards}>
                 {eventRewards.tempWorkers && (
-                  <div className={`${styles.eventRewardBox} ${styles.eventRewardBoxTempWorker}`}>
-                    <img src={ASSETS.tempWorker} alt="temp worker" className={styles.eventRewardIcon} />
-                    <span className={styles.eventRewardText}>Lvl. {eventRewards.tempWorkers.level}</span>
+                  <div
+                    className={`${styles.eventRewardBox} ${styles.eventRewardBoxTempWorker}`}
+                  >
+                    <img
+                      src={ASSETS.tempWorker}
+                      alt="temp worker"
+                      className={styles.eventRewardIcon}
+                    />
+                    <span className={styles.eventRewardText}>
+                      Lvl. {eventRewards.tempWorkers.level}
+                    </span>
                   </div>
                 )}
                 {eventRewards.controlToken && (
-                  <div className={`${styles.eventRewardBox} ${styles.eventRewardBoxControlToken}`}>
-                    <img src={ASSETS.controlToken} alt="control token" className={styles.eventRewardIcon} />
-                    <span className={styles.eventRewardText}>Lvl. {eventRewards.controlToken.level}</span>
+                  <div
+                    className={`${styles.eventRewardBox} ${styles.eventRewardBoxControlToken}`}
+                  >
+                    <img
+                      src={ASSETS.controlToken}
+                      alt="control token"
+                      className={styles.eventRewardIcon}
+                    />
+                    <span className={styles.eventRewardText}>
+                      Lvl. {eventRewards.controlToken.level}
+                    </span>
                   </div>
                 )}
                 {eventRewards.specialEffects?.map((eff, i) =>
                   typeof eff === "string" ? (
-                    <div key={i} className={styles.eventEffectText}>{eff}</div>
-                  ) : eff?.type === "actions" && ASSETS.eventActions?.[eff.actionType] ? (
+                    <div key={i} className={styles.eventEffectText}>
+                      {eff}
+                    </div>
+                  ) : eff?.type === "actions" &&
+                    ASSETS.eventActions?.[eff.actionType] ? (
                     <div key={i} className={styles.eventRewardItem}>
-                      <span className={styles.eventRewardText}>Gain {eff.count}</span>
+                      <span className={styles.eventRewardText}>
+                        Gain {eff.count}
+                      </span>
                       <img
                         src={ASSETS.eventActions[eff.actionType]}
                         alt={eff.actionType}
                         className={styles.eventRewardIcon}
                       />
-                      <span className={styles.eventRewardText}>{eff.actionType} actions</span>
+                      <span className={styles.eventRewardText}>
+                        {eff.actionType} actions
+                      </span>
                     </div>
-                  ) : null
+                  ) : null,
                 )}
               </div>
             ) : isQuestlineCard ? (
@@ -170,7 +215,6 @@ const Card = ({ card, isEditMode, handleAddCardToPrint, isInPrint }) => {
                 )}
                 <div className={styles.questlineReward}>
                   <img src={ASSETS.vp} alt="VP" />
-                  <span>1</span>
                 </div>
               </div>
             ) : isUpgradeCard && upgrades ? (
@@ -197,7 +241,7 @@ const Card = ({ card, isEditMode, handleAddCardToPrint, isInPrint }) => {
                     alt={part.symbolKey}
                     className={styles.effectSymbol}
                   />
-                ) : null
+                ) : null,
               )
             ) : (
               <span style={{ color: "#999", fontStyle: "italic" }}>

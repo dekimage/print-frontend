@@ -5,6 +5,7 @@ import {
   battleCards,
   factionCards,
   trackCards,
+  majorCards,
   RESOURCES,
   ARTIFACTS,
 } from "../projects/marshlands/data";
@@ -12,19 +13,21 @@ import Card from "../projects/marshlands/Card";
 import BattleCard from "../projects/marshlands/BattleCard";
 import FactionCard from "../projects/marshlands/FactionCard";
 import TrackCard from "../projects/marshlands/TrackCard";
+import MajorCard from "../projects/marshlands/MajorCard";
 
-const cards = [...marshlandsCards, ...battleCards, ...factionCards, ...trackCards];
+const cards = [...marshlandsCards, ...battleCards, ...factionCards, ...trackCards, ...majorCards];
 
 const MarshlandsCard = (props) => {
   const { card } = props;
   if (card.cardType === "battle") return <BattleCard {...props} />;
   if (card.cardType === "faction") return <FactionCard {...props} />;
   if (card.cardType === "track") return <TrackCard {...props} />;
+  if (card.cardType === "major") return <MajorCard {...props} />;
   return <Card {...props} />;
 };
 
 const filterConfig = {
-  cardType: ["regular", "battle", "faction", "track"],
+  cardType: ["regular", "battle", "faction", "track", "major"],
   regularCardType: ["upgrade", "combat", "event", "questline"],
   factionColor: ["grey", "blue", "purple"],
   resourceYielded: RESOURCES,

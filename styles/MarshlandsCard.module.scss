@@ -160,13 +160,13 @@
   justify-content: center;
   gap: 8px;
   width: 100%;
+  margin-top: -44px;
 }
 
 .questlineEffect {
   font-size: 13px;
   line-height: 1.3;
   text-align: center;
-  color: #f5f0e8;
 }
 
 .questlineReward {
@@ -176,8 +176,8 @@
   gap: 6px;
 
   img {
-    width: 24px;
-    height: 24px;
+    width: 48px;
+    height: 48px;
     object-fit: contain;
   }
 
@@ -227,13 +227,13 @@
   }
 
   &.effectSectionCombat {
-    background: linear-gradient(180deg, #b85a5a 0%, #9a4a4a 100%);
-    border-top: 2px solid #7a3535;
+    background: linear-gradient(180deg, #e8c4c4 0%, #d8b0b0 100%);
+    border-top: 2px solid #c49a9a;
   }
 
   &.effectSectionQuestline {
-    background: linear-gradient(180deg, #4a8a5a 0%, #3d7a4a 100%);
-    border-top: 2px solid #2d5a35;
+    background: linear-gradient(180deg, #a8d4b0 0%, #98c4a0 100%);
+    border-top: 2px solid #7ab88a;
   }
 
   .effectContent {
@@ -301,6 +301,7 @@
       justify-content: center;
       gap: 8px 12px;
       width: 100%;
+      margin-top: -44px;
     }
 
     .combatColorBox {
@@ -348,6 +349,7 @@
     justify-content: center;
     gap: 8px;
     width: 100%;
+    margin-top: -44px;
   }
 
   .eventRewardItem {
@@ -410,7 +412,7 @@
 }
 
 .effectSectionCombat .effectContent {
-  color: #f5f0e8;
+  color: #3d2d2d;
   align-items: center;
   justify-content: center;
 }
@@ -421,11 +423,15 @@
 }
 
 .effectSectionQuestline .effectContent {
-  color: #f5f0e8;
+  color: #2d3d2d;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   gap: 6px;
+
+  .questlineEffect {
+    color: #2d3d2d;
+  }
 }
 
 .artifactBox {
